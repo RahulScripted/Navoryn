@@ -1,10 +1,10 @@
-import { SparklesIcon } from "lucide-react"
 import { useNavigate } from "react-router-dom"
-import { SectionHeading } from "@/components/common/SectionHeading/SectionHeading"
+import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 import { PackageCard } from "@/components/pricing/components/PackageCard"
 import { SlideButton } from "@/components/pricing/components/SlideButton"
 import { Badge } from "@/components/pricing/components/Badge"
 import { PACKAGES } from "@/components/pricing/data/pricing"
+import customImage from "@/asset/webps/custom.webp"
 
 export default function Pricing() {
   const navigate = useNavigate()
@@ -27,23 +27,37 @@ export default function Pricing() {
         </div>
 
         <div className="cursor-target flex flex-col gap-6 rounded-xl border bg-background p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
-          <div className="flex min-w-0 items-start gap-4">
-            <span className="grid size-11 shrink-0 place-items-center rounded-lg border">
-              <SparklesIcon className="size-5" />
-            </span>
+          <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:text-left">
+            <img
+              src={customImage}
+              alt="Custom build"
+              width={1229}
+              height={1280}
+              loading="lazy"
+              decoding="async"
+              className="size-28 shrink-0 rounded-xl object-cover [image-rendering:auto] sm:size-24 lg:size-32"
+            />
             <div className="min-w-0">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center gap-2 sm:justify-start">
                 <h3 className="text-lg font-bold tracking-tight">Build your own</h3>
                 <Badge variant="secondary">Custom</Badge>
               </div>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Pick pages, sections, and from 60+ add-ons. See your estimate live, then
-                book a call to lock the scope.
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                <span className="sm:hidden">
+                  Pick pages, sections, and from 60+ add-ons. See your estimate live, then
+                  book a call to lock the scope.
+                </span>
+                <span className="hidden sm:inline">
+                  Choose your pages, customize sections, and explore 60+ add-ons to build a
+                  website that fits your needs. Get an instant price estimate as you make
+                  selections, then schedule a consultation with our team to discuss your
+                  requirements, finalize the project scope, and plan the next steps.
+                </span>
               </p>
             </div>
           </div>
           <SlideButton
-            className="lg:!w-80"
+            className="w-full shrink-0 lg:!w-80"
             label="Build Your Custom Quote"
             onComplete={() => navigate("/book-call?plan=custom")}
           />

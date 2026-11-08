@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils"
 import { InfiniteSlider } from "@/components/testimonial/components/InfiniteSlider"
 import { TestimonialCard } from "@/components/testimonial/components/TestimonialCard"
 import { testimonials } from "@/components/testimonial/data/testimonials"
-import { SectionHeading } from "@/components/common/SectionHeading/SectionHeading"
+import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 import type { Testimonial } from "@/types/testimonial"
 
 const COLUMN_SPEEDS = [30, 50, 35, 42]

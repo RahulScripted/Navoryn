@@ -1,9 +1,10 @@
 import '@/index.css'
 import PreLoader from '@/ui/preloader'
-import TargetCursor from '@/components/common/TargetCursor/TargetCursor'
+import TargetCursor from '@/utilities/TargetCursor/TargetCursor'
 import Technology from '@/pages/technology'
 import Testimonial from '@/pages/testimonial'
 import Pricing from '@/pages/pricing'
+import Faq from '@/pages/faq'
 import RevealFooter from '@/ui/footer/RevealFooter'
 
 export default function App() {
@@ -21,8 +22,9 @@ export default function App() {
       <RevealFooter>
         <main className="page-px">
           <Technology />
-          <Pricing />
           <Testimonial />
+          <Pricing />
+          <Faq />
         </main>
       </RevealFooter>
     </>

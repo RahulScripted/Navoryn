@@ -1,6 +1,6 @@
 import { useRef, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
-import VariableProximity from "@/components/common/VariableProximity/VariableProximity"
+import VariableProximity from "@/utilities/VariableProximity/VariableProximity"
 
 interface SectionHeadingProps {
   title: string

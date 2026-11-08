@@ -1,6 +1,6 @@
 import { IconFolder } from "@/components/technology/components/IconFolder"
 import { TECH_CATEGORIES, toolIcons } from "@/components/technology/data/techData"
-import { SectionHeading } from "@/components/common/SectionHeading/SectionHeading"
+import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 
 export default function Technology() {
   return (

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 import {
-  ArrowRightIcon,
+  ChevronRightIcon,
   ChevronLeftIcon,
   CheckCircle2Icon,
   HandshakeIcon,
@@ -113,7 +113,7 @@ export default function BookCall() {
               <EstimatePanel quote={quote} isCustom={isCustom} />
               <Button className="cursor-target w-full gap-2" onClick={() => setStep("addons")}>
                 Continue to add-ons
-                <ArrowRightIcon className="size-4" />
+                <ChevronRightIcon className="size-4" />
               </Button>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function BookCall() {
 
               <Button className="cursor-target w-full gap-2" onClick={() => setStep("book")}>
                 Continue to book a call
-                <ArrowRightIcon className="size-4" />
+                <ChevronRightIcon className="size-4" />
               </Button>
 
               <Button

@@ -1,4 +1,4 @@
-import { ArrowRightIcon, XIcon } from "lucide-react"
+import { ChevronRightIcon, XIcon } from "lucide-react"
 import { useIsDark } from "@/components/technology/hooks/useIsDark"
 import { useSubscribe } from "@/ui/footer/send-email/useSubscribe"
 
@@ -8,7 +8,7 @@ export function BrandColumn() {
   const { email, error, feedback, onChange, clear, submit } = useSubscribe()
 
   return (
-    <div className="flex max-w-sm flex-col gap-6">
+    <div className="flex w-full flex-col gap-6">
       <a
         href="#"
         className="cursor-target flex items-center gap-2 text-lg font-bold tracking-tight"
@@ -71,7 +71,7 @@ export function BrandColumn() {
           aria-label="Subscribe to the newsletter"
           className="cursor-target inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-95"
         >
-          <ArrowRightIcon className="size-4" />
+          <ChevronRightIcon className="size-4" />
         </button>
       </form>
     </div>
