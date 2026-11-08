@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── Radius ── */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* ── Colors (mapped from CSS vars) ── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ═══════════════════════════════════════
+   Vercel / Geist Theme — Light
+═══════════════════════════════════════ */
+:root {
+  --radius: 0.5rem;
+
+  --background:             oklch(1 0 0);
+  --foreground:             oklch(0.145 0 0);
+  --card:                   oklch(1 0 0);
+  --card-foreground:        oklch(0.145 0 0);
+  --popover:                oklch(1 0 0);
+  --popover-foreground:     oklch(0.145 0 0);
+  --primary:                oklch(0.205 0 0);
+  --primary-foreground:     oklch(0.985 0 0);
+  --secondary:              oklch(0.97 0 0);
+  --secondary-foreground:   oklch(0.205 0 0);
+  --muted:                  oklch(0.97 0 0);
+  --muted-foreground:       oklch(0.556 0 0);
+  --accent:                 oklch(0.97 0 0);
+  --accent-foreground:      oklch(0.205 0 0);
+  --destructive:            oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border:                 oklch(0.922 0 0);
+  --input:                  oklch(0.922 0 0);
+  --ring:                   oklch(0.708 0 0);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6   0.118 184.704);
+  --chart-3: oklch(0.398 0.07  227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar:                    oklch(0.985 0 0);
+  --sidebar-foreground:         oklch(0.145 0 0);
+  --sidebar-primary:            oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent:             oklch(0.97  0 0);
+  --sidebar-accent-foreground:  oklch(0.205 0 0);
+  --sidebar-border:             oklch(0.922 0 0);
+  --sidebar-ring:               oklch(0.708 0 0);
+}
+
+/* ═══════════════════════════════════════
+   Vercel / Geist Theme — Dark
+═══════════════════════════════════════ */
+.dark {
+  --background:             oklch(0.145 0 0);
+  --foreground:             oklch(0.985 0 0);
+  --card:                   oklch(0.205 0 0);
+  --card-foreground:        oklch(0.985 0 0);
+  --popover:                oklch(0.205 0 0);
+  --popover-foreground:     oklch(0.985 0 0);
+  --primary:                oklch(0.922 0 0);
+  --primary-foreground:     oklch(0.205 0 0);
+  --secondary:              oklch(0.269 0 0);
+  --secondary-foreground:   oklch(0.985 0 0);
+  --muted:                  oklch(0.269 0 0);
+  --muted-foreground:       oklch(0.708 0 0);
+  --accent:                 oklch(0.269 0 0);
+  --accent-foreground:      oklch(0.985 0 0);
+  --destructive:            oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border:                 oklch(1 0 0 / 10%);
+  --input:                  oklch(1 0 0 / 15%);
+  --ring:                   oklch(0.556 0 0);
+
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17  162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+
+  --sidebar:                    oklch(0.205 0 0);
+  --sidebar-foreground:         oklch(0.985 0 0);
+  --sidebar-primary:            oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent:             oklch(0.269 0 0);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border:             oklch(1 0 0 / 10%);
+  --sidebar-ring:               oklch(0.556 0 0);
+}
+
+/* ═══════════════════════════════════════
+   Base resets
+═══════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════
+   Global responsive spacing
+   mobile  < 640px   → x: 5px
+   tablet  640–1023px → x: 10px
+   desktop ≥ 1024px  → x: 20px
+   y axis            → constant 20px (px-5)
+═══════════════════════════════════════ */
+
+:root {
+  --page-x: 5px;   /* mobile */
+  --page-y: 20px;  /* constant */
+}
+
+@media (min-width: 640px) {
+  :root { --page-x: 10px; } /* tablet */
+}
+
+@media (min-width: 1024px) {
+  :root { --page-x: 20px; } /* desktop / laptop */
+}
+
+.page-layout {
+  width: 100%;
+  padding-inline: var(--page-x);
+  padding-block: var(--page-y);
+}
+
+/* ═══════════════════════════════════════
+   WeightSweepCounter — preloader overlay
+═══════════════════════════════════════ */
+
+.wsc-root {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  -webkit-font-smoothing: antialiased;
+  color: var(--foreground);
+  container-type: size;
+}
+
+.wsc-hud {
+  display: flex;
+  justify-content: space-between;
+  padding: clamp(14px,2.8cqw,28px) clamp(14px,2.8cqw,32px) 0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+.wsc-hud span:last-child {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.wsc-rule {
+  margin: 6px clamp(14px,2.8cqw,32px) 0;
+  height: 0;
+  border-top: 0.5px solid currentColor;
+  opacity: .18;
+}
+
+/* closing panel */
+.wsc-panel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  background: var(--foreground);
+  color: var(--background);
+  transform: translateY(101%);
+  transition: transform 900ms cubic-bezier(.76,0,.24,1);
+  pointer-events: none;
+  z-index: 4;
+}
+.wsc-panel[data-show="true"] { transform: none; }
+
+.wsc-msg {
+  margin: 0;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(28px, 5.6cqw, 68px);
+  line-height: 1;
+  letter-spacing: -.01em;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms ease 420ms, transform 800ms cubic-bezier(.2,.7,.1,1) 420ms;
+}
+.wsc-panel[data-show="true"] .wsc-msg {
+  opacity: 1;
+  transform: none;
+}
+
+.wsc-wght {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 500ms ease 900ms;
+}
+.wsc-panel[data-show="true"] .wsc-wght { opacity: .45; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wsc-panel, .wsc-msg, .wsc-wght { transition: none; }
+  .wsc-msg { transform: none; }
+}
+
+/* ═══════════════════════════════════════
+   StickerSwapHeadline — preloader headline
+═══════════════════════════════════════ */
+
+@font-face {
+  font-family: "SSH Anton";
+  src: url(data:font/woff2;base64,AAEAAAARAQAABAAQR0RFRgXGBc0AAE/UAAAAlEdQT1MuzCjhAABQaAAAAapHU1VCIlEnbAAAUhQAAAB6T1MvMpzeLasAAAGYAAAAYGNtYXBvT3BxAAADwAAAASJjdnQgPPN8qQAAE9QAAAC+ZnBnbWIvBYAAAATkAAAODGdhc3AAAAAQAABPzAAAAAhnbHlmoizJbAAAFXwAADomaGVhZCqHaAcAAAEcAAAANmhoZWERvgYsAAABVAAAACRobXR4l1gWcgAAAfgAAAHIbG9jYUJXM7oAABSUAAAA5m1heHAB0w7mAAABeAAAACBuYW1lAAYAAAAAT6QAAAAGcG9zdP7QAGYAAE+sAAAAIHByZXBVwLKwAAAS8AAAAOEAAQAAAAIdsgxuBkpfDzz1AA8IAAAAAAO) format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+.ssh-root {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ssh-ink);
+  background: var(--ssh-paper);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.ssh-root * { box-sizing: border-box; }
+
+.ssh-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 24px;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ssh-h {
+  margin: 0;
+  font-family: var(--ssh-font);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(52px, 21cqi, 340px);
+  line-height: .86;
+  letter-spacing: -.005em;
+}
+.ssh-line { display: block; white-space: nowrap; }
+.ssh-reel { position: relative; display: block; overflow: hidden; padding: .07em 0; margin: -.07em 0; }
+.ssh-word { display: block; white-space: nowrap; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.ssh-word.is-out { position: absolute; left: 0; right: 0; top: .07em; pointer-events: none; }
+.ssh-word:focus-visible { outline: 2px solid var(--ssh-accent); outline-offset: 4px; border-radius: 6px; }
+.ssh-part { display: inline-block; }
+.ssh-slot { position: relative; display: inline-block; width: .74em; height: .74em; margin: 0 .02em; vertical-align: -.02em; }
+.ssh-stk { position: absolute; inset: 0; border-radius: 50%; background: var(--background); padding: .04em; box-shadow: 0 .03em .06em rgba(0,0,0,.28); }
+.ssh-stk > img { display: block; width: 100%; height: 100%; max-width: none; border-radius: 50%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+.ssh-spin > img { animation: ssh-spin 6s linear infinite; }
+.ssh-desc { margin: 32px 0 0; max-width: 36ch; font-size: clamp(15px, 1.5cqi, 18px); line-height: 1.55; opacity: .72; text-wrap: balance; }
+.ssh-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+.ssh-btn {
+  display: inline-flex; align-items: center; height: 46px; padding: 0 22px;
+  border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none;
+  cursor: pointer; border: 0;
+  transition: transform .2s cubic-bezier(.2,.8,.2,1), background-color .2s;
+}
+.ssh-btn:active { transform: scale(.97); }
+.ssh-btn:focus-visible { outline: 2px solid var(--ssh-ink); outline-offset: 3px; }
+.ssh-primary { background: var(--ssh-ink); color: var(--ssh-paper); }
+.ssh-ghost { background: transparent; color: var(--ssh-ink); box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--ssh-ink) 25%, transparent); }
+.ssh-ghost:hover { background: color-mix(in oklab, var(--ssh-ink) 6%, transparent); }
+.ssh-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@container (max-width: 560px) {
+  .ssh-h { font-size: clamp(42px, 18cqi, 340px); line-height: .9; }
+}
+
+@keyframes ssh-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ssh-spin > img { animation: none; }
+  .ssh-btn { transition: none; }
+}
