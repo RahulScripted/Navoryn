@@ -1,9 +1,11 @@
-import { IconFolder, TECH_CATEGORIES, toolIcons } from "../../components/technology"
+import { IconFolder } from "@/components/technology/components/IconFolder"
+import { TECH_CATEGORIES, toolIcons } from "@/components/technology/data/techData"
+import { SectionHeading } from "@/components/common/SectionHeading/SectionHeading"
 
 export default function Technology() {
   return (
     <section
-      className="w-full overflow-x-hidden px-6 py-24 sm:py-28 lg:py-32 bg-background text-foreground"
+      className="w-full overflow-x-hidden py-24 sm:py-28 lg:py-32 bg-background text-foreground"
       style={{
         backgroundImage:
           "radial-gradient(circle, color-mix(in oklab, var(--foreground) 4%, transparent) 0 1px, transparent 1.4px)",
@@ -11,23 +13,15 @@ export default function Technology() {
         backgroundPosition: "-6px -1px",
       }}
     >
-      <div className="mb-16 flex w-full flex-col items-center text-center sm:mb-20">
-        <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-          Our Technology Ecosystem
-        </h2>
-        <p className="mt-6 w-full text-base leading-relaxed text-muted-foreground sm:hidden">
-          A carefully selected ecosystem of modern technologies, frameworks, and tools
-          that powers the digital experiences we design, develop, and deliver.
-        </p>
-        <p className="mt-6 hidden w-full text-base leading-relaxed text-muted-foreground sm:block sm:text-lg lg:max-w-5xl">
-          A carefully selected ecosystem of modern technologies, frameworks, and tools
-          that powers the digital experiences we design, develop, and deliver — from
-          high-performance websites and scalable web applications to intuitive mobile
-          solutions.
-        </p>
-      </div>
+      <SectionHeading
+        className="mb-16 sm:mb-20"
+        title="Our Technology Ecosystem"
+        description="A carefully selected ecosystem of modern technologies, frameworks, and tools that powers the digital experiences we design, develop, and deliver — from high-performance websites and scalable web applications to intuitive mobile solutions."
+        mobileDescription="Modern technologies and tools that power fast websites, scalable applications, and seamless mobile experiences."
+        tabletDescription="Explore the modern technologies, frameworks, and tools we use to build high-performance websites, scalable applications, and seamless digital experiences."
+      />
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 place-items-center gap-x-8 gap-y-14 sm:grid-cols-2 md:mx-0 md:max-w-none lg:grid-cols-3">
+      <div className="grid w-full grid-cols-1 place-items-center gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {TECH_CATEGORIES.map((cat) => {
           const icons = toolIcons(cat.tools)
           return (
@@ -37,6 +31,7 @@ export default function Technology() {
               tags={cat.tools}
               icons={icons}
               spread={70}
+              className="max-w-none"
             />
           )
         })}
