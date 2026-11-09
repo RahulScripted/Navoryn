@@ -29,4 +29,6 @@ export interface AboutCard {
   /** Image source — leave undefined to render a placeholder slot. */
   image?: string
   imageAlt?: string
+  /** Custom node rendered in the media slot (overrides image/placeholder). */
+  media?: ReactNode
 }

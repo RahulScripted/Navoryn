@@ -1,22 +1,19 @@
 import type { AboutCard } from "@/types/about"
 import expertiseImage from "@/asset/webps/about/expertise.webp"
 import buildForTomorrowImage from "@/asset/webps/about/buildForTommorow.webp"
+import { createElement } from "react"
 import detailsImage from "@/asset/webps/about/details.webp"
+import Pattern from "@/components/ui/c-message-3"
 
-/**
- * About board — flush bento grid of exactly 8 tiles.
- *
- * DOM order = tile 1..8 (see .about-grid areas in src/index.css).
- * Add images later via `image` + `imageAlt`; until then a placeholder shows.
- */
 export const ABOUT_CARDS: AboutCard[] = [
   // 1 — tall, left (3 rows on desktop)
   {
     id: "expertise",
     tone: "lilac",
-    eyebrow: "Who we are",
-    title: "Expertise with Experience",
-    description: "Years shipping across web, mobile, and design — fewer surprises, sharper calls.",
+    eyebrow: "Our Expertise",
+    title: "Experience That Shapes Better Solutions",
+    description:
+      "Our combined expertise across web development, mobile experiences, and digital design helps us make informed decisions and build solutions with purpose.",
     image: expertiseImage,
     imageAlt: "Our team collaborating on a project",
   },
@@ -24,16 +21,19 @@ export const ABOUT_CARDS: AboutCard[] = [
   {
     id: "clients",
     tone: "mint",
-    stat: "200+",
-    statLabel: "Trusted clients work with us",
-    title: "Relationships that last",
+    eyebrow: "Our Relationships",
+    title: "Built on Trust and Collaboration",
+    description: "Great projects begin with understanding and clear communication.",
+    media: createElement(Pattern),
   },
   // 3 — col 2 bottom (2 rows)
   {
     id: "craft",
     tone: "peach",
-    title: "Details people feel",
-    description: "Performance, accessibility, and polish built in from the first commit.",
+    eyebrow: "Our Standards",
+    title: "Details That Make a Difference",
+    description:
+      "From performance and accessibility to responsive layouts and visual polish, we pay attention to the details that make digital experiences better.",
     image: detailsImage,
     imageAlt: "Attention to craft and detail",
   },
@@ -41,32 +41,35 @@ export const ABOUT_CARDS: AboutCard[] = [
   {
     id: "process",
     tone: "pink",
-    eyebrow: "How we work",
-    title: "Clear process, no guesswork",
-    description: "You always know what's happening, what's next, and why.",
+    eyebrow: "How We Work",
+    title: "A Clear Process, From Start to Finish",
+    description:
+      "A structured approach that keeps projects organized and progress transparent.",
   },
   // 5 — col 3 tall (3 rows)
   {
     id: "branding",
     tone: "amber",
-    eyebrow: "What we make",
-    title: "Branding that actually fits",
+    eyebrow: "What We Create",
+    title: "Digital Experiences Made Around You",
     description:
-      "No templates, no recycled identities. Design systems shaped around your voice.",
+      "From distinctive websites and landing pages to custom web applications, we build solutions shaped around your brand, goals, and audience.",
   },
   // 6 — col 4 top (2 rows)
   {
     id: "results",
     tone: "sky",
-    eyebrow: "Why it matters",
-    title: "Results you can measure",
-    description: "Faster loads, higher conversions, users who come back.",
+    eyebrow: "Our Vision",
+    title: "Built for Today. Ready for Tomorrow.",
+    description:
+      "Maintainable, scalable solutions designed to adapt, evolve, and grow alongside the businesses they serve.",
   },
   // 7 — col 4 bottom (2 rows)
   {
     id: "future",
     tone: "sky",
-    title: "Built for tomorrow",
+    eyebrow: "Our Craft",
+    title: "Thoughtful, Future-Ready Builds",
     description: "Code and systems meant to grow — easy to extend, simple to maintain.",
     image: buildForTomorrowImage,
     imageAlt: "Scalable systems built to grow",
@@ -75,8 +78,8 @@ export const ABOUT_CARDS: AboutCard[] = [
   {
     id: "team",
     tone: "neutral",
-    stat: "12+",
+    stat: "8",
     statLabel: "Core team members",
-    title: "A tight, senior team",
+    title: "Different Skills. One Shared Vision.",
   },
 ]

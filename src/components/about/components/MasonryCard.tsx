@@ -27,7 +27,7 @@ interface MasonryCardProps {
 }
 
 export function MasonryCard({ card, className }: MasonryCardProps) {
-  const { tone, eyebrow, title, description, stat, statLabel, image, imageAlt } = card
+  const { tone, eyebrow, title, description, stat, statLabel, image, imageAlt, media } = card
 
   return (
     <div
@@ -72,8 +72,10 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
         </div>
 
         {/* Media: fills leftover height; auto-hidden on short (1-row) tiles */}
-        <div className="about-tile__media mt-auto min-h-0 w-full flex-1">
-          {image ? (
+        <div className="about-tile__media mt-auto min-h-0 w-full flex-1 overflow-hidden">
+          {media ? (
+            media
+          ) : image ? (
             <img
               src={image}
               alt={imageAlt ?? ""}
