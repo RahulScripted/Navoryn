@@ -1,0 +1,38 @@
+import { forwardRef } from "react"
+import type { LucideIcon } from "lucide-react"
+import { cn } from "@/lib/utils"
+
+interface BeamNodeProps {
+  icon: LucideIcon
+  name: string
+  /** Layout/placement classes for the whole node. */
+  className?: string
+  /** Mirror the node (label left of icon) on wide layouts. */
+  mirrored?: boolean
+}
+
+/** Icon tile + heading. The ref points at the icon so beams hit its center. */
+export const BeamNode = forwardRef<HTMLDivElement, BeamNodeProps>(
+  ({ icon: Icon, name, className, mirrored }, ref) => (
+    <div
+      className={cn(
+        "z-10 flex min-w-0 items-center gap-2 self-center @3xl:gap-3",
+        mirrored && "@md:flex-row-reverse @md:text-right",
+        className,
+      )}
+    >
+      <div
+        ref={ref}
+        className="flex size-8 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-foreground shadow-sm transition-transform duration-300 hover:scale-105 @3xl:size-10"
+      >
+        <Icon className="size-4 @3xl:size-5" aria-hidden="true" />
+      </div>
+
+      <span className="truncate text-[0.7rem] font-semibold leading-tight text-foreground @3xl:text-sm">
+        {name}
+      </span>
+    </div>
+  ),
+)
+
+BeamNode.displayName = "BeamNode"

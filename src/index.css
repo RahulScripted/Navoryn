@@ -656,13 +656,13 @@ body {
 
 /*
   About bento grid.
-  A small row unit (40px + 16px gap) lets every tile take a height that
-  fits its content. Tile height for n rows = n * 56px - 16px.
+  A small row unit (44px + 16px gap) lets every tile take a height that
+  fits its content. Tile height for n rows = n * 60px - 16px.
   Tiles: 1 expertise · 2 chat · 3 craft · 4 terminal
          5 create · 6 vision · 7 future · 8 team
 */
 .about-grid {
-  --about-row: 40px;
+  --about-row: 44px;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-auto-rows: var(--about-row);
@@ -686,7 +686,7 @@ body {
 .about-grid > :nth-child(3) { grid-row: span 7; }  /* 376px */
 .about-grid > :nth-child(4) { grid-row: span 11; } /* 600px */
 .about-grid > :nth-child(5) { grid-row: span 5; }  /* 264px */
-.about-grid > :nth-child(6) { grid-row: span 5; }  /* 264px */
+.about-grid > :nth-child(6) { grid-row: span 8; }  /* 432px */
 .about-grid > :nth-child(7) { grid-row: span 7; }  /* 376px */
 .about-grid > :nth-child(8) { grid-row: span 3; }  /* 152px */
 
@@ -694,15 +694,15 @@ body {
 @media (min-width: 640px) {
   .about-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    grid-template-rows: repeat(29, var(--about-row));
+    grid-template-rows: repeat(31, var(--about-row));
     grid-auto-rows: unset;
     grid-template-areas:
       "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1"
       "t8 t1" "t8 t1" "t8 t1"
-      "t2 t2" "t2 t2" "t2 t2" "t2 t2" "t2 t2" "t2 t2" "t2 t2"
-      "t3 t6" "t3 t6" "t3 t6" "t3 t6"
-      "t3 t7" "t3 t7"
-      "t5 t7" "t5 t7" "t5 t7" "t5 t7";
+      "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6"
+      "t2 t3" "t2 t3" "t2 t3" "t2 t3" "t2 t3"
+      "t2 t7" "t2 t7"
+      "t5 t7" "t5 t7" "t5 t7" "t5 t7" "t5 t7";
   }
   .about-grid > :nth-child(1) { grid-area: t1; }
   .about-grid > :nth-child(2) { grid-area: t2; }
@@ -718,13 +718,13 @@ body {
 @media (min-width: 1024px) {
   .about-grid {
     grid-template-columns:
-      minmax(0, 0.9fr) minmax(0, 1.2fr) minmax(0, 1.35fr) minmax(0, 0.95fr);
-    grid-template-rows: repeat(14, var(--about-row));
+      minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.3fr) minmax(0, 1.1fr);
+    grid-template-rows: repeat(15, var(--about-row));
     grid-template-areas:
-      "t1 t2 t4 t6" "t1 t2 t4 t6" "t1 t2 t4 t6" "t1 t2 t4 t6"
-      "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t3 t4 t7"
-      "t1 t3 t4 t7"
-      "t1 t3 t5 t5"
-      "t8 t3 t5 t5" "t8 t3 t5 t5" "t8 t3 t5 t5" "t8 t3 t5 t5";
+      "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7"
+      "t1 t2 t4 t5" "t1 t2 t4 t5" "t1 t3 t4 t5"
+      "t1 t3 t4 t5"
+      "t1 t3 t6 t6" "t1 t3 t6 t6"
+      "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6";
   }
 }

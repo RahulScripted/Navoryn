@@ -5,6 +5,7 @@ import detailsImage from "@/asset/webps/about/details.webp"
 import Pattern from "@/components/ui/message-chat"
 import TerminalWindow from "@/components/ui/terminal"
 import CraftFeed from "@/components/ui/animated-list"
+import VisionBeam from "@/components/ui/animated-beam"
 
 export const ABOUT_CARDS: AboutCard[] = [
   // 1 — tall, left (3 rows on desktop)
@@ -65,6 +66,7 @@ export const ABOUT_CARDS: AboutCard[] = [
     title: "Built for Today. Ready for Tomorrow.",
     description:
       "Maintainable, scalable solutions designed to adapt, evolve, and grow alongside the businesses they serve.",
+    media: createElement(VisionBeam),
   },
   // 7 — col 4 bottom (2 rows)
   {
