@@ -1,9 +1,10 @@
 import type { AboutCard } from "@/types/about"
 import expertiseImage from "@/asset/webps/about/expertise.webp"
-import buildForTomorrowImage from "@/asset/webps/about/buildForTommorow.webp"
 import { createElement } from "react"
 import detailsImage from "@/asset/webps/about/details.webp"
-import Pattern from "@/components/ui/c-message-3"
+import Pattern from "@/components/ui/message-chat"
+import TerminalWindow from "@/components/ui/terminal"
+import CraftFeed from "@/components/ui/animated-list"
 
 export const ABOUT_CARDS: AboutCard[] = [
   // 1 — tall, left (3 rows on desktop)
@@ -45,6 +46,7 @@ export const ABOUT_CARDS: AboutCard[] = [
     title: "A Clear Process, From Start to Finish",
     description:
       "A structured approach that keeps projects organized and progress transparent.",
+    media: createElement(TerminalWindow),
   },
   // 5 — col 3 tall (3 rows)
   {
@@ -71,8 +73,7 @@ export const ABOUT_CARDS: AboutCard[] = [
     eyebrow: "Our Craft",
     title: "Thoughtful, Future-Ready Builds",
     description: "Code and systems meant to grow — easy to extend, simple to maintain.",
-    image: buildForTomorrowImage,
-    imageAlt: "Scalable systems built to grow",
+    media: createElement(CraftFeed),
   },
   // 8 — col 1 bottom (1 row, short)
   {
