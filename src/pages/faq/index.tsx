@@ -5,10 +5,15 @@ import { FaqAccordionItem } from "@/components/faq/components/FaqAccordionItem"
 import { Button } from "@/components/pricing/components/Button"
 import { FAQS } from "@/components/faq/data/faq"
 import contactImage from "@/asset/webps/contact.webp"
+import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
+import { SpotlightLayer } from "@/utilities/SpotlightCard"
 
 export default function Faq() {
   const navigate = useNavigate()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const gridRef = useReveal<HTMLDivElement>({ children: true, y: 28, blur: 6, stagger: 0.06 })
+  const contactRef = useReveal<HTMLDivElement>({ y: 40 })
+  const imageRef = useReveal<HTMLImageElement>({ y: 0, scale: 0.85, blur: 12, delay: 0.15 })
 
   return (
     <section className="w-full overflow-x-hidden bg-background py-24 text-foreground sm:py-28 lg:py-32">
@@ -20,7 +25,7 @@ export default function Faq() {
         mobileDescription="Answers to common questions about our services and process."
       />
 
-      <div className="grid w-full grid-cols-1 items-start gap-3 md:grid-cols-2">
+      <div ref={gridRef} className="grid w-full grid-cols-1 items-start gap-3 md:grid-cols-2">
         {FAQS.map((item, index) => (
           <FaqAccordionItem
             key={item.question}
@@ -32,9 +37,14 @@ export default function Faq() {
         ))}
       </div>
 
-      <div className="cursor-target mt-10 flex w-full flex-col gap-6 overflow-hidden rounded-xl border bg-background p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+      <div
+        ref={contactRef}
+        className="cursor-target relative isolate mt-10 flex w-full flex-col gap-6 overflow-hidden rounded-xl border bg-background p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8"
+      >
+        <SpotlightLayer />
         <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:text-left">
           <img
+            ref={imageRef}
             src={contactImage}
             alt="Contact NAVORYN"
             width={1264}

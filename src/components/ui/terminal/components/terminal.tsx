@@ -232,6 +232,7 @@ interface TerminalProps {
   className?: string;
   sequence?: boolean;
   startOnView?: boolean;
+  active?: boolean;
 }
 
 export const Terminal = ({
@@ -239,6 +240,7 @@ export const Terminal = ({
   className,
   sequence = true,
   startOnView = true,
+  active,
 }: TerminalProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(containerRef as React.RefObject<Element>, {
@@ -247,7 +249,7 @@ export const Terminal = ({
   });
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const sequenceHasStarted = sequence ? !startOnView || isInView : false;
+  const sequenceHasStarted = sequence ? (active ?? (!startOnView || isInView)) : false;
 
   const contextValue = useMemo<SequenceContextValue | null>(() => {
     if (!sequence) return null;

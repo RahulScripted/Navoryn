@@ -1,5 +1,6 @@
 import { AnimatedSpan, Terminal, TypingAnimation } from "./components/terminal"
 import { PixelHeart } from "./components/PixelHeart"
+import { useRevealReady } from "@/utilities/ScrollReveal/components/block/useRevealReady"
 
 const STEPS = [
   "Discover goals",
@@ -14,8 +15,11 @@ const STEPS = [
 const LINE = "text-[0.7rem] sm:text-xs"
 
 export default function TerminalWindow() {
+  const [ref, ready] = useRevealReady<HTMLDivElement>()
+
   return (
-    <Terminal className="h-auto max-h-none max-w-none text-foreground">
+    <div ref={ref} className="w-full">
+    <Terminal active={ready} className="h-auto max-h-none max-w-none text-foreground">
       <TypingAnimation className={LINE}>&gt; navoryn start</TypingAnimation>
 
       {STEPS.map((step, i) => (
@@ -47,5 +51,6 @@ export default function TerminalWindow() {
         — Team NAVORYN
       </AnimatedSpan>
     </Terminal>
+    </div>
   )
 }

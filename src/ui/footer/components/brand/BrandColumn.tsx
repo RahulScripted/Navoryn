@@ -1,4 +1,5 @@
 import { ChevronRightIcon, XIcon } from "lucide-react"
+import { RollText } from "@/utilities/RollText"
 import { useIsDark } from "@/components/technology/hooks/useIsDark"
 import { useSubscribe } from "@/ui/footer/send-email/useSubscribe"
 
@@ -69,9 +70,11 @@ export function BrandColumn() {
         <button
           type="submit"
           aria-label="Subscribe to the newsletter"
-          className="cursor-target inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-95"
+          className="group/roll cursor-target inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-95"
         >
-          <ChevronRightIcon className="size-4" />
+          <RollText>
+            <ChevronRightIcon className="size-4" />
+          </RollText>
         </button>
       </form>
     </div>

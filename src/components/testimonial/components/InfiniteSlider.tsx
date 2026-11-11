@@ -8,6 +8,7 @@ interface InfiniteSliderProps {
   gap?: number
   speed?: number
   speedOnHover?: number
+  pauseOnHover?: boolean
   direction?: "horizontal" | "vertical"
   reverse?: boolean
   className?: string
@@ -18,6 +19,7 @@ export function InfiniteSlider({
   gap = 24,
   speed = 40,
   speedOnHover,
+  pauseOnHover = false,
   direction = "horizontal",
   reverse = false,
   className,
@@ -26,9 +28,12 @@ export function InfiniteSlider({
   const [ref, { width, height }] = useMeasure()
   const translation = useMotionValue(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [paused, setPaused] = useState(false)
   const [key, setKey] = useState(0)
 
   useEffect(() => {
+    if (paused) return
+
     let controls
     const size = direction === "horizontal" ? width : height
     const contentSize = size + gap
@@ -61,20 +66,28 @@ export function InfiniteSlider({
     }
 
     return controls?.stop
-  }, [key, translation, currentSpeed, width, height, gap, isTransitioning, direction, reverse])
+  }, [key, translation, currentSpeed, width, height, gap, isTransitioning, paused, direction, reverse])
 
-  const hoverProps = speedOnHover
+  const hoverProps = pauseOnHover
     ? {
-        onHoverStart: () => {
-          setIsTransitioning(true)
-          setCurrentSpeed(speedOnHover)
-        },
+        onHoverStart: () => setPaused(true),
         onHoverEnd: () => {
           setIsTransitioning(true)
-          setCurrentSpeed(speed)
+          setPaused(false)
         },
       }
-    : {}
+    : speedOnHover
+      ? {
+          onHoverStart: () => {
+            setIsTransitioning(true)
+            setCurrentSpeed(speedOnHover)
+          },
+          onHoverEnd: () => {
+            setIsTransitioning(true)
+            setCurrentSpeed(speed)
+          },
+        }
+      : {}
 
   return (
     <div className={cn("overflow-hidden", className)}>

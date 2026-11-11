@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 import { Badge } from "./Badge"
 import { BorderTrail } from "./BorderTrail"
 import { SlideButton } from "./SlideButton"
+import { SpotlightLayer } from "@/utilities/SpotlightCard"
 import type { PricingPackage } from "@/types/pricing"
 
 export function PackageCard({ pkg }: { pkg: PricingPackage }) {
@@ -12,7 +13,7 @@ export function PackageCard({ pkg }: { pkg: PricingPackage }) {
   return (
     <div
       className={cn(
-        "cursor-target relative flex h-full flex-col rounded-xl border bg-background p-6",
+        "cursor-target relative isolate flex h-full flex-col rounded-xl border bg-background p-6",
         pkg.featured && "border-foreground/30 shadow-lg",
       )}
     >
@@ -25,6 +26,8 @@ export function PackageCard({ pkg }: { pkg: PricingPackage }) {
           }}
         />
       )}
+
+      <SpotlightLayer />
 
       <div className="flex items-center justify-between">
         <Badge variant={pkg.featured ? "default" : "secondary"}>{pkg.badge}</Badge>

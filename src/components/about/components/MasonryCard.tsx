@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
 import type { AboutCard } from "@/types/about"
+import { SpotlightLayer } from "@/utilities/SpotlightCard"
 
 interface MasonryCardProps {
   card: AboutCard
@@ -23,7 +24,7 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
   return (
     <div
       className={cn(
-        "about-tile cursor-target group relative overflow-hidden",
+        "about-tile cursor-target group relative isolate overflow-hidden",
         "transition-transform duration-300 ease-out hover:-translate-y-1",
         "rounded-[28px] border border-border bg-card text-card-foreground",
         className,
@@ -40,6 +41,8 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
           />
         </div>
       )}
+
+      <SpotlightLayer />
 
       <div className="relative z-10 flex h-full w-full flex-col gap-2 p-4 sm:p-5">
         <div className="flex flex-col gap-2">

@@ -7,6 +7,7 @@ import {
 } from "lucide-react"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import { cn } from "@/lib/utils"
+import { RollText } from "@/utilities/RollText"
 import { Button } from "@/components/pricing/components/Button"
 import { Badge } from "@/components/pricing/components/Badge"
 import { Configurator, type ConfiguratorState } from "@/components/pricing/components/Configurator"
@@ -84,10 +85,12 @@ export default function BookCall() {
         <button
           type="button"
           onClick={() => (window.history.length > 1 ? navigate(-1) : navigate("/"))}
-          className="cursor-target inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+          className="group/roll cursor-target inline-flex items-center gap-1 text-sm text-muted-foreground"
         >
-          <ChevronLeftIcon className="size-4" />
-          Back
+          <RollText>
+            <ChevronLeftIcon className="size-4" />
+            Back
+          </RollText>
         </button>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">

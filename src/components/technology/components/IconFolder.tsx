@@ -1,6 +1,7 @@
 import * as React from "react"
 import type { FolderIcon, IconFolderProps } from "../../../types/technology"
 import { useIsDark } from "../hooks/useIsDark"
+import { SpotlightLayer } from "@/utilities/SpotlightCard"
 
 const DEFAULTS = {
   title: "Design",
@@ -225,7 +226,7 @@ export function IconFolder(props: IconFolderProps) {
 
       <div
         ref={frontRef}
-        className="absolute inset-x-0 bottom-0 h-[180px] overflow-hidden backdrop-blur-[18px] backdrop-saturate-150"
+        className="absolute isolate inset-x-0 bottom-0 h-[180px] overflow-hidden backdrop-blur-[18px] backdrop-saturate-150"
         style={{
           background: t.front,
           clipPath: frontD ? `path('${frontD}')` : undefined,
@@ -243,6 +244,8 @@ export function IconFolder(props: IconFolderProps) {
           </defs>
           <path d={frontD} fill="none" stroke={`url(#edge-${gid})`} strokeWidth="2" />
         </svg>
+
+        <SpotlightLayer borderGlow={0} intensity={0.22} proximity={60} />
 
         <h3 className="m-0 px-[18px] pt-[34px] text-xl font-medium leading-[26px]">{title}</h3>
 

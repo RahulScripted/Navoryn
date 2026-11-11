@@ -3,15 +3,18 @@ import { Bubble, BubbleContent } from "./components/bubble/bubble"
 import { Message, MessageContent } from "./components/bubble/message"
 import { ChatRow } from "./components/row/ChatRow"
 import { container, reaction } from "./types/variants"
+import { useRevealReady } from "@/utilities/ScrollReveal/components/block/useRevealReady"
 
 export default function MessageChat() {
+  const [ref, ready] = useRevealReady<HTMLDivElement>()
+
   return (
     <motion.div
+      ref={ref}
       className="mt-5 flex w-full flex-col justify-center gap-3.5 px-1"
       variants={container}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
+      animate={ready ? "show" : "hidden"}
     >
       <ChatRow dir="left">
         <Message>

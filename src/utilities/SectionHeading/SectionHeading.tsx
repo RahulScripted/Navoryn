@@ -1,6 +1,8 @@
 import { useRef, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import VariableProximity from "@/utilities/VariableProximity/VariableProximity"
+import { ScrollReveal } from "@/utilities/ScrollReveal"
+import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
 
 interface SectionHeadingProps {
   title: string
@@ -9,6 +11,23 @@ interface SectionHeadingProps {
   tabletDescription?: ReactNode
   eyebrow?: string
   className?: string
+}
+
+const DESCRIPTION = "text-base leading-relaxed text-muted-foreground sm:text-lg"
+
+function Description({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <ScrollReveal
+      as="p"
+      containerClassName={cn(DESCRIPTION, className)}
+      baseOpacity={0.15}
+      baseRotation={0}
+      blurStrength={4}
+      stagger={0.04}
+    >
+      {children}
+    </ScrollReveal>
+  )
 }
 
 export function SectionHeading({
@@ -20,6 +39,8 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const eyebrowRef = useReveal<HTMLSpanElement>({ y: 16, blur: 6 })
+  const titleRef = useReveal<HTMLHeadingElement>({ y: 36, blur: 10, duration: 1 })
 
   return (
     <div
@@ -30,12 +51,15 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="rounded-lg border px-4 py-1 text-sm text-muted-foreground">
+        <span
+          ref={eyebrowRef}
+          className="rounded-lg border px-4 py-1 text-sm text-muted-foreground"
+        >
           {eyebrow}
         </span>
       )}
 
-      <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+      <h2 ref={titleRef} className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
         <VariableProximity
           label={title}
           containerRef={containerRef}
@@ -47,21 +71,18 @@ export function SectionHeading({
         />
       </h2>
 
-      {description && (
-        <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-          {mobileDescription || tabletDescription ? (
-            <>
-              <span className="sm:hidden">{mobileDescription ?? description}</span>
-              <span className="hidden sm:inline lg:hidden">
-                {tabletDescription ?? description}
-              </span>
-              <span className="hidden lg:inline">{description}</span>
-            </>
-          ) : (
-            description
-          )}
-        </p>
-      )}
+      {description &&
+        (mobileDescription || tabletDescription ? (
+          <>
+            <Description className="sm:hidden">{mobileDescription ?? description}</Description>
+            <Description className="hidden sm:block lg:hidden">
+              {tabletDescription ?? description}
+            </Description>
+            <Description className="hidden lg:block">{description}</Description>
+          </>
+        ) : (
+          <Description>{description}</Description>
+        ))}
     </div>
   )
 }

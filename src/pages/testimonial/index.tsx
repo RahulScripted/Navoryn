@@ -4,6 +4,7 @@ import { TestimonialCard } from "@/components/testimonial/components/Testimonial
 import { testimonials } from "@/components/testimonial/data/testimonials"
 import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 import type { Testimonial } from "@/types/testimonial"
+import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
 
 const COLUMN_SPEEDS = [30, 50, 35, 42]
 
@@ -15,6 +16,7 @@ function buildColumns(items: Testimonial[], count: number): Testimonial[][] {
 
 export default function Testimonial() {
   const columns = buildColumns(testimonials, 4)
+  const wallRef = useReveal<HTMLDivElement>({ y: 48, blur: 10, duration: 1.1 })
 
   return (
     <section className="relative w-full overflow-x-hidden py-24 sm:py-28 lg:py-32 bg-background text-foreground">
@@ -28,6 +30,7 @@ export default function Testimonial() {
         />
 
         <div
+          ref={wallRef}
           className={cn(
             "flex max-h-[40rem] w-full justify-center gap-4 overflow-hidden md:gap-6 lg:gap-8",
             "mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]",
@@ -38,7 +41,7 @@ export default function Testimonial() {
               key={i}
               direction="vertical"
               speed={COLUMN_SPEEDS[i]}
-              speedOnHover={COLUMN_SPEEDS[i] / 2}
+              pauseOnHover
               className={cn(
                 "w-full min-w-0 md:flex-1 md:basis-0",
                 i >= 2 ? "hidden lg:block" : i >= 1 ? "hidden md:block" : "",

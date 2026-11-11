@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import BookCall from './pages/book-call'
-import NotFound from './pages/not-found'
+import NotFound from './ui/not-found'
 import TransitionLayout from './ui/block-transition/TransitionLayout'
 
 createRoot(document.getElementById('root')!).render(

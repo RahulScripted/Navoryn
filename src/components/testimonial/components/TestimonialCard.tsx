@@ -2,6 +2,7 @@ import type { ComponentProps } from "react"
 import { cn } from "@/lib/utils"
 import type { Testimonial } from "@/types/testimonial"
 import { Avatar, AvatarFallback, AvatarImage } from "./Avatar"
+import { SpotlightLayer } from "@/utilities/SpotlightCard"
 
 type TestimonialCardProps = ComponentProps<"figure"> & {
   testimonial: Testimonial
@@ -16,11 +17,12 @@ export function TestimonialCard({
   return (
     <figure
       className={cn(
-        "cursor-target w-full rounded-3xl border bg-card p-8 shadow-foreground/10 shadow-lg dark:bg-card/20 md:max-w-none",
+        "cursor-target relative isolate w-full rounded-3xl border bg-card p-8 shadow-foreground/10 shadow-lg dark:bg-card/20 md:max-w-none",
         className,
       )}
       {...props}
     >
+      <SpotlightLayer />
       <blockquote>{quote}</blockquote>
       <figcaption className="mt-5 flex items-center gap-2">
         <Avatar className="size-8 rounded-full">

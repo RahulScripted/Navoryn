@@ -8,10 +8,18 @@ interface BentoTileProps {
   icon?: LucideIcon
   className?: string
   index?: number
+  active?: boolean
   children: ReactNode
 }
 
-export function BentoTile({ title, icon: Icon, className, index = 0, children }: BentoTileProps) {
+export function BentoTile({
+  title,
+  icon: Icon,
+  className,
+  index = 0,
+  active = true,
+  children,
+}: BentoTileProps) {
   return (
     <motion.div
       className={cn(
@@ -21,8 +29,7 @@ export function BentoTile({ title, icon: Icon, className, index = 0, children }:
         className,
       )}
       initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
       transition={{ delay: index * 0.08 }}
       whileHover={{ scale: 1.03 }}
     >

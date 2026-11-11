@@ -6,24 +6,26 @@ export interface AnimatedListProps {
   className?: string
   children: React.ReactNode
   delay?: number
+  active?: boolean
 }
 
 export const AnimatedList = React.memo(
-  ({ className, children, delay = 1000 }: AnimatedListProps) => {
+  ({ className, children, delay = 1000, active = true }: AnimatedListProps) => {
     const [index, setIndex] = useState(0)
     const childrenArray = useMemo(() => React.Children.toArray(children), [children])
 
     useEffect(() => {
+      if (!active) return
       const interval = setInterval(() => {
         setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length)
       }, delay)
 
       return () => clearInterval(interval)
-    }, [childrenArray.length, delay])
+    }, [childrenArray.length, delay, active])
 
     const itemsToShow = useMemo(
-      () => childrenArray.slice(0, index + 1).reverse(),
-      [index, childrenArray],
+      () => (active ? childrenArray.slice(0, index + 1).reverse() : []),
+      [index, childrenArray, active],
     )
 
     return (

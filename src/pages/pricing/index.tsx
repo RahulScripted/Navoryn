@@ -5,9 +5,15 @@ import { SlideButton } from "@/components/pricing/components/SlideButton"
 import { Badge } from "@/components/pricing/components/Badge"
 import { PACKAGES } from "@/components/pricing/data/pricing"
 import customImage from "@/asset/webps/custom.webp"
+import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
+import { SpotlightLayer } from "@/utilities/SpotlightCard"
 
 export default function Pricing() {
   const navigate = useNavigate()
+  const gridRef = useReveal<HTMLDivElement>({ children: true, y: 40, stagger: 0.12 })
+  const customRef = useReveal<HTMLDivElement>({ y: 40 })
+  const imageRef = useReveal<HTMLImageElement>({ y: 0, scale: 0.85, blur: 12, delay: 0.15 })
+  const termsRef = useReveal<HTMLParagraphElement>({ y: 16, blur: 4 })
 
   return (
     <section className="w-full overflow-x-hidden bg-background py-24 text-foreground sm:py-28 lg:py-32">
@@ -20,15 +26,20 @@ export default function Pricing() {
       />
 
       <div className="w-full space-y-10">
-        <div className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PACKAGES.map((pkg) => (
             <PackageCard key={pkg.id} pkg={pkg} />
           ))}
         </div>
 
-        <div className="cursor-target flex flex-col gap-6 rounded-xl border bg-background p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+        <div
+          ref={customRef}
+          className="cursor-target relative isolate flex flex-col gap-6 rounded-xl border bg-background p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8"
+        >
+          <SpotlightLayer />
           <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:text-left">
             <img
+              ref={imageRef}
               src={customImage}
               alt="Custom build"
               width={1229}
@@ -63,7 +74,7 @@ export default function Pricing() {
           />
         </div>
 
-        <p className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+        <p ref={termsRef} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
           <span className="font-bold text-destructive">*</span>
           <span>
             <span className="font-semibold text-foreground">Payment Terms:</span> A 50%

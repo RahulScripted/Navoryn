@@ -2,6 +2,7 @@ import { useId } from "react"
 import { PlusIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { FaqItem } from "@/types/faq"
+import { SpotlightLayer } from "@/utilities/SpotlightCard"
 
 interface FaqAccordionItemProps {
   item: FaqItem
@@ -16,7 +17,8 @@ export function FaqAccordionItem({ item, index, isOpen, onToggle }: FaqAccordion
   const buttonId = `${id}-button`
 
   return (
-    <div className="cursor-target rounded-xl border bg-background">
+    <div className="cursor-target relative isolate rounded-xl border bg-background">
+      <SpotlightLayer />
       <h3>
         <button
           id={buttonId}
