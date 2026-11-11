@@ -1,5 +1,6 @@
 import type { AboutCard } from "@/types/about"
 import expertiseImage from "@/asset/webps/about/expertise.webp"
+import teamImage from "@/asset/webps/team-members.webp"
 import { createElement } from "react"
 import Pattern from "@/components/ui/message-chat"
 import TerminalWindow from "@/components/ui/terminal"
@@ -48,16 +49,7 @@ export const ABOUT_CARDS: AboutCard[] = [
       "A structured approach that keeps projects organized and progress transparent.",
     media: createElement(TerminalWindow),
   },
-  // 5 — col 3 tall (3 rows)
-  {
-    id: "branding",
-    tone: "amber",
-    eyebrow: "What We Create",
-    title: "Digital Experiences Made Around You",
-    description:
-      "From distinctive websites and landing pages to custom web applications, we build solutions shaped around your brand, goals, and audience.",
-  },
-  // 6 — col 4 top (2 rows)
+  // 5 — Our Vision (beam diagram)
   {
     id: "results",
     tone: "sky",
@@ -80,8 +72,9 @@ export const ABOUT_CARDS: AboutCard[] = [
   {
     id: "team",
     tone: "neutral",
-    stat: "8",
-    statLabel: "Core team members",
+    eyebrow: "Core team members",
     title: "Different Skills. One Shared Vision.",
+    bleedImage: teamImage,
+    bleedImageAlt: "Illustration of a diverse group of teammates looking up together",
   },
 ]

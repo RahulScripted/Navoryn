@@ -31,4 +31,10 @@ export interface AboutCard {
   imageAlt?: string
   /** Custom node rendered in the media slot (overrides image/placeholder). */
   media?: ReactNode
+  /**
+   * Edge-to-edge image pinned to the bottom of the tile: no padding or margin,
+   * rendered behind the text. Replaces the media slot.
+   */
+  bleedImage?: string
+  bleedImageAlt?: string
 }

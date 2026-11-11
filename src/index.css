@@ -658,8 +658,9 @@ body {
   About bento grid.
   A small row unit (44px + 16px gap) lets every tile take a height that
   fits its content. Tile height for n rows = n * 60px - 16px.
-  Tiles: 1 expertise · 2 chat · 3 craft · 4 terminal
-         5 create · 6 vision · 7 future · 8 team
+  Tiles (DOM order → area):
+    1 expertise t1 · 2 chat t2 · 3 standards t3 · 4 terminal t4
+    5 vision t6 · 6 craft feed t7 · 7 team t8
 */
 .about-grid {
   --about-row: 44px;
@@ -681,50 +682,44 @@ body {
 }
 
 /* Mobile: one by one, each tile sized to its content. */
-.about-grid > :nth-child(1) { grid-row: span 8; }  /* 432px */
-.about-grid > :nth-child(2) { grid-row: span 8; }  /* 432px */
-.about-grid > :nth-child(3) { grid-row: span 7; }  /* 376px */
-.about-grid > :nth-child(4) { grid-row: span 11; } /* 600px */
-.about-grid > :nth-child(5) { grid-row: span 5; }  /* 264px */
-.about-grid > :nth-child(6) { grid-row: span 8; }  /* 432px */
-.about-grid > :nth-child(7) { grid-row: span 7; }  /* 376px */
-.about-grid > :nth-child(8) { grid-row: span 3; }  /* 152px */
-
-/* Tablet: two unequal columns plus one full-width tile; a perfect rectangle. */
+.about-grid > :nth-child(1) { grid-row: span 8; }  /* 464px */
+.about-grid > :nth-child(2) { grid-row: span 8; }  /* 464px */
+.about-grid > :nth-child(3) { grid-row: span 7; }  /* 404px */
+.about-grid > :nth-child(4) { grid-row: span 11; } /* 644px */
+.about-grid > :nth-child(5) { grid-row: span 8; }  /* 464px */
+.about-grid > :nth-child(6) { grid-row: span 9; }  /* 524px */
+.about-grid > :nth-child(7) { grid-row: span 12; } /* 704px: text + full-width picture */
+/* Tablet: two unequal columns, full-width rows below; a perfect rectangle. */
 @media (min-width: 640px) {
   .about-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    grid-template-rows: repeat(31, var(--about-row));
+    grid-template-rows: repeat(34, var(--about-row));
     grid-auto-rows: unset;
     grid-template-areas:
       "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1"
-      "t8 t1" "t8 t1" "t8 t1"
+      "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8"
       "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6"
-      "t2 t3" "t2 t3" "t2 t3" "t2 t3" "t2 t3" "t2 t3"
-      "t2 t7"
-      "t5 t7" "t5 t7" "t5 t7" "t5 t7" "t5 t7";
+      "t2 t7" "t2 t7" "t2 t7" "t2 t7" "t2 t7" "t2 t7" "t2 t7";
   }
   .about-grid > :nth-child(1) { grid-area: t1; }
   .about-grid > :nth-child(2) { grid-area: t2; }
   .about-grid > :nth-child(3) { grid-area: t3; }
   .about-grid > :nth-child(4) { grid-area: t4; }
-  .about-grid > :nth-child(5) { grid-area: t5; }
-  .about-grid > :nth-child(6) { grid-area: t6; }
-  .about-grid > :nth-child(7) { grid-area: t7; }
-  .about-grid > :nth-child(8) { grid-area: t8; }
+  .about-grid > :nth-child(5) { grid-area: t6; }
+  .about-grid > :nth-child(6) { grid-area: t7; }
+  .about-grid > :nth-child(7) { grid-area: t8; }
 }
-
 /* Desktop: four unequal columns, staggered heights, one wide tile; a perfect rectangle. */
 @media (min-width: 1024px) {
   .about-grid {
     grid-template-columns:
       minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.3fr) minmax(0, 1.1fr);
-    grid-template-rows: repeat(15, var(--about-row));
+    grid-template-rows: repeat(16, var(--about-row));
     grid-template-areas:
-      "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7"
-      "t1 t2 t4 t5" "t1 t2 t4 t5" "t1 t3 t4 t5"
-      "t1 t3 t4 t5"
-      "t1 t3 t6 t6" "t1 t3 t6 t6"
-      "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6";
+      "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7"
+      "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t3 t4 t7"
+      "t8 t3 t4 t7"
+      "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6"
+      "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6";
   }
 }

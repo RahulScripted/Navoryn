@@ -7,7 +7,18 @@ interface MasonryCardProps {
 }
 
 export function MasonryCard({ card, className }: MasonryCardProps) {
-  const { eyebrow, title, description, stat, statLabel, image, imageAlt, media } = card
+  const {
+    eyebrow,
+    title,
+    description,
+    stat,
+    statLabel,
+    image,
+    imageAlt,
+    media,
+    bleedImage,
+    bleedImageAlt,
+  } = card
 
   return (
     <div
@@ -19,8 +30,26 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
         className,
       )}
     >
+      {/*
+        Full-width image below the text: no padding or margin, not zoomed, pinned
+        to the bottom edge. The artwork's blank top 29% is cropped away (aspect
+        box + bottom-anchored image) so the whole crowd shows edge to edge.
+      */}
+      {bleedImage && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 aspect-[1024/1110] w-full overflow-hidden">
+          <img
+            src={bleedImage}
+            alt={bleedImageAlt ?? ""}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-x-0 bottom-0 h-auto w-full"
+          />
+        </div>
+      )}
+
       {/* Inner wrapper fills the tile (container-type:size ignores content height) */}
-      <div className="flex h-full w-full flex-col gap-2 p-4 sm:p-5">
+      <div className="relative z-10 flex h-full w-full flex-col gap-2 p-4 sm:p-5">
+        <div className="flex flex-col gap-2">
         {eyebrow && (
           <span className="text-[0.6rem] font-bold uppercase tracking-[0.16em] text-muted-foreground">
             {eyebrow}
@@ -50,30 +79,33 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
             </p>
           )}
         </div>
+        </div>
 
         {/* Media: fills leftover height; auto-hidden on short (1-row) tiles */}
-        <div className="about-tile__media mt-auto min-h-0 w-full flex-1 overflow-hidden">
-          {media ? (
-            media
-          ) : image ? (
-            <img
-              src={image}
-              alt={imageAlt ?? ""}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full rounded-[18px] object-contain"
-            />
-          ) : (
-            <div
-              aria-hidden
-              className="flex h-full w-full items-center justify-center rounded-[18px] bg-muted"
-            >
-              <span className="text-[0.55rem] font-bold uppercase tracking-widest text-muted-foreground">
-                Image
-              </span>
-            </div>
-          )}
-        </div>
+        {!bleedImage && (
+          <div className="about-tile__media mt-auto min-h-0 w-full flex-1 overflow-hidden">
+            {media ? (
+              media
+            ) : image ? (
+              <img
+                src={image}
+                alt={imageAlt ?? ""}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full rounded-[18px] object-contain"
+              />
+            ) : (
+              <div
+                aria-hidden
+                className="flex h-full w-full items-center justify-center rounded-[18px] bg-muted"
+              >
+                <span className="text-[0.55rem] font-bold uppercase tracking-widest text-muted-foreground">
+                  Image
+                </span>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
