@@ -1,11 +1,11 @@
 import type { AboutCard } from "@/types/about"
 import expertiseImage from "@/asset/webps/about/expertise.webp"
 import { createElement } from "react"
-import detailsImage from "@/asset/webps/about/details.webp"
 import Pattern from "@/components/ui/message-chat"
 import TerminalWindow from "@/components/ui/terminal"
 import CraftFeed from "@/components/ui/animated-list"
 import VisionBeam from "@/components/ui/animated-beam"
+import DesignCreativity from "@/components/ui/design-creativity"
 
 export const ABOUT_CARDS: AboutCard[] = [
   // 1 — tall, left (3 rows on desktop)
@@ -36,8 +36,7 @@ export const ABOUT_CARDS: AboutCard[] = [
     title: "Details That Make a Difference",
     description:
       "From performance and accessibility to responsive layouts and visual polish, we pay attention to the details that make digital experiences better.",
-    image: detailsImage,
-    imageAlt: "Attention to craft and detail",
+    media: createElement(DesignCreativity),
   },
   // 4 — col 3 top (1 row, short)
   {
