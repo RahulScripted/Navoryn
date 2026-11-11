@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils"
 export interface AnimatedListProps {
   className?: string
   children: React.ReactNode
-  /** ms between each new item appearing */
   delay?: number
 }
 
@@ -22,7 +21,6 @@ export const AnimatedList = React.memo(
       return () => clearInterval(interval)
     }, [childrenArray.length, delay])
 
-    // Newest item on top.
     const itemsToShow = useMemo(
       () => childrenArray.slice(0, index + 1).reverse(),
       [index, childrenArray],

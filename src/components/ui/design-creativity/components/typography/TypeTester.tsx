@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { motion } from "motion/react"
 
-/** "Aa" that breathes between two sizes. */
 export function TypeTester() {
   const [scale, setScale] = useState(1)
 

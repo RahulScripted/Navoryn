@@ -7,7 +7,6 @@ export interface NotificationItem {
   icon: LucideIcon
 }
 
-/** Theme-styled notification row: icon · title/description · "Just now". */
 export function Notification({ name, description, icon: Icon }: NotificationItem) {
   return (
     <figure

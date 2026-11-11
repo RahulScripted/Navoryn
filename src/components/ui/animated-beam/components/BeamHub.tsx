@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils"
 
 const LOGO = "url(/favicon-dark.svg)"
 
-/** Central NAVORYN node. The public logo is used as a mask so it is painted in the theme foreground. */
 export const BeamHub = forwardRef<HTMLDivElement, { className?: string }>(({ className }, ref) => (
   <div
     ref={ref}

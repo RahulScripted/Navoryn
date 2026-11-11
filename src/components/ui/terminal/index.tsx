@@ -13,10 +13,8 @@ const STEPS = [
 
 const LINE = "text-[0.7rem] sm:text-xs"
 
-/** "How We Work": a clear process, from start to finish. */
 export default function TerminalWindow() {
   return (
-    // Theme surface and text colors; natural height so the full window shows.
     <Terminal className="h-auto max-h-none max-w-none text-foreground">
       <TypingAnimation className={LINE}>&gt; navoryn start</TypingAnimation>
 
@@ -30,7 +28,7 @@ export default function TerminalWindow() {
         </AnimatedSpan>
       ))}
 
-      <AnimatedSpan className="my-2">
+      <AnimatedSpan className="my-1">
         <span aria-hidden="true" className="block border-t border-dashed border-border" />
       </AnimatedSpan>
 
@@ -45,7 +43,7 @@ export default function TerminalWindow() {
         <PixelHeart className="inline-block size-3 align-[-1px] text-destructive" />
       </AnimatedSpan>
 
-      <AnimatedSpan className={`${LINE} mt-3 justify-items-end text-muted-foreground`}>
+      <AnimatedSpan className={`${LINE} mt-1.5 justify-items-end text-muted-foreground`}>
         — Team NAVORYN
       </AnimatedSpan>
     </Terminal>

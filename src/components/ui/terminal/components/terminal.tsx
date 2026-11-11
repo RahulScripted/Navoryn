@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable react-hooks/set-state-in-effect */
 
 import {
   Children,
@@ -281,14 +280,14 @@ export const Terminal = ({
         className,
       )}
     >
-      <div className="border-border flex flex-col gap-y-2 border-b p-4">
+      <div className="border-border flex flex-col gap-y-2 border-b px-4 py-3">
         <div className="flex flex-row gap-x-2">
           <div className="h-2 w-2 rounded-full bg-red-500"></div>
           <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
           <div className="h-2 w-2 rounded-full bg-green-500"></div>
         </div>
       </div>
-      <pre className="p-4">
+      <pre className="px-4 py-3">
         <code className="grid gap-y-1 overflow-auto">{wrappedChildren}</code>
       </pre>
     </div>

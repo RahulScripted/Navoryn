@@ -6,16 +6,6 @@ import { SecurityBadge } from "./components/security/SecurityBadge"
 import { SpeedIndicator } from "./components/speed/SpeedIndicator"
 import { TypeTester } from "./components/typography/TypeTester"
 
-/*
-  "Our Standards": a compact bento that always closes into a rectangle.
-    ┌─────────────┬──────┐
-    │             │ Type │
-    │ Mobile Ready├──────┤
-    │             │Speed │
-    ├─────────────┼──────┤
-    │  Security   │ CDN  │
-    └─────────────┴──────┘
-*/
 export default function DesignCreativity() {
   return (
     <div className="grid h-full w-full grid-cols-3 grid-rows-3 gap-1.5">

@@ -25,16 +25,10 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
       className={cn(
         "about-tile cursor-target group relative overflow-hidden",
         "transition-transform duration-300 ease-out hover:-translate-y-1",
-        // Theme surface: card + border tokens from index.css.
         "rounded-[28px] border border-border bg-card text-card-foreground",
         className,
       )}
     >
-      {/*
-        Full-width image below the text: no padding or margin, not zoomed, pinned
-        to the bottom edge. The artwork's blank top 29% is cropped away (aspect
-        box + bottom-anchored image) so the whole crowd shows edge to edge.
-      */}
       {bleedImage && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 aspect-[1024/1110] w-full overflow-hidden">
           <img
@@ -47,7 +41,6 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
         </div>
       )}
 
-      {/* Inner wrapper fills the tile (container-type:size ignores content height) */}
       <div className="relative z-10 flex h-full w-full flex-col gap-2 p-4 sm:p-5">
         <div className="flex flex-col gap-2">
         {eyebrow && (
@@ -81,7 +74,6 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
         </div>
         </div>
 
-        {/* Media: fills leftover height; auto-hidden on short (1-row) tiles */}
         {!bleedImage && (
           <div className="about-tile__media mt-auto min-h-0 w-full flex-1 overflow-hidden">
             {media ? (

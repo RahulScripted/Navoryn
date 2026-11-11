@@ -6,7 +6,6 @@ export interface VisionPoint {
   name: string
 }
 
-/** "Our Vision": what keeps a build ready for tomorrow. */
 export const VISION_POINTS: VisionPoint[] = [
   { icon: Blocks, name: "Component architecture" },
   { icon: BadgeCheck, name: "Code quality" },

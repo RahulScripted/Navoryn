@@ -7,12 +7,10 @@ interface BentoTileProps {
   title: string
   icon?: LucideIcon
   className?: string
-  /** Stagger index for the entrance animation. */
   index?: number
   children: ReactNode
 }
 
-/** One theme-styled bento cell: animated visual on top, small label at the bottom. */
 export function BentoTile({ title, icon: Icon, className, index = 0, children }: BentoTileProps) {
   return (
     <motion.div

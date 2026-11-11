@@ -7,9 +7,7 @@ const bubbleVariants = cva(
   {
     variants: {
       variant: {
-        // Outgoing (studio) — solid ink bubble.
         default: "bg-foreground text-background",
-        // Incoming (client) — theme muted surface.
         muted: "bg-muted text-foreground",
       },
     },

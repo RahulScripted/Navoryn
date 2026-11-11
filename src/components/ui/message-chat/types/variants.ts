@@ -19,7 +19,6 @@ export const reaction: Variants = {
   hidden: { opacity: 0, scale: 0, y: 6, rotate: -18 },
   show: {
     opacity: 1,
-    // Pop in with an overshoot, then a quick heartbeat settle.
     scale: [0, 1.35, 0.9, 1.12, 1],
     y: [6, 0, 0, 0, 0],
     rotate: [-18, 8, -4, 2, 0],

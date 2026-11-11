@@ -5,13 +5,10 @@ import { cn } from "@/lib/utils"
 interface BeamNodeProps {
   icon: LucideIcon
   name: string
-  /** Layout/placement classes for the whole node. */
   className?: string
-  /** Mirror the node (label left of icon) on wide layouts. */
   mirrored?: boolean
 }
 
-/** Icon tile + heading. The ref points at the icon so beams hit its center. */
 export const BeamNode = forwardRef<HTMLDivElement, BeamNodeProps>(
   ({ icon: Icon, name, className, mirrored }, ref) => (
     <div

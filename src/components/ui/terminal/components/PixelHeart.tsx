@@ -1,4 +1,3 @@
-// 7×6 pixel-art heart. "#" = filled pixel.
 const PIXELS = [
   ".##.##.",
   "#######",
@@ -12,7 +11,6 @@ interface PixelHeartProps {
   className?: string
 }
 
-/** Retro, terminal-style heart drawn with square pixels in currentColor. */
 export function PixelHeart({ className }: PixelHeartProps) {
   return (
     <svg

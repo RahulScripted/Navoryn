@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "motion/react"
 const LOAD_MS = 600
 const CYCLE_MS = 3200
 
-/** Skeleton → "100ms" with a filling bar; replays on a loop. */
 export function SpeedIndicator() {
   const [loading, setLoading] = useState(true)
 

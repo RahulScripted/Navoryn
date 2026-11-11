@@ -7,12 +7,10 @@ import {
   type Triple,
 } from "../../data/responsiveMorph"
 
-// 9s loop: hold desktop → move → hold tablet → move → hold mobile → move back.
 const DUR = "9s"
 const KEY_TIMES = "0;0.25;0.33;0.58;0.66;0.92;1"
 const KEY_SPLINES = "0 0 1 1;0.65 0 0.35 1;0 0 1 1;0.65 0 0.35 1;0 0 1 1;0.65 0 0.35 1"
 
-/** [a, b, c] → "a;a;b;b;c;c;a" to match KEY_TIMES. */
 const timeline = ([a, b, c]: Triple) => [a, a, b, b, c, c, a].join(";")
 
 function Anim({ attr, values, eased = true }: { attr: string; values: Triple; eased?: boolean }) {
@@ -63,7 +61,6 @@ function Shape({ shape }: { shape: StaticShape }) {
   )
 }
 
-/** A page layout reflowing from desktop to tablet to mobile, in theme colors. */
 export function ResponsiveMorph() {
   return (
     <div className="flex h-full items-center justify-center">

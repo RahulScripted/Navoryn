@@ -3,7 +3,7 @@ import type { AboutCard } from "@/types/about"
 import { MasonryCard } from "./MasonryCard"
 
 interface MasonryGridProps {
-  cards: AboutCard[] // exactly 8 cards; order = tile 1..8
+  cards: AboutCard[]
   className?: string
 }
 

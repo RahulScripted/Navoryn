@@ -12,7 +12,6 @@ export interface AnimatedBeamProps {
   pathColor?: string
   pathWidth?: number
   pathOpacity?: number
-  /** Any CSS color, including theme vars like "var(--foreground)". */
   gradientStartColor?: string
   gradientStopColor?: string
   delay?: number
@@ -79,7 +78,6 @@ export function AnimatedBeam({
   }, [containerRef, fromRef, toRef, curvature, startXOffset, startYOffset, endXOffset, endYOffset])
 
   useEffect(() => {
-    // First measure after layout settles; then track size changes.
     const frame = requestAnimationFrame(updatePath)
     const resizeObserver = new ResizeObserver(() => updatePath())
     if (containerRef.current) resizeObserver.observe(containerRef.current)
@@ -111,7 +109,6 @@ export function AnimatedBeam({
           x2={gradientCoords.x2}
           y2={gradientCoords.y2}
         >
-          {/* style (not attributes) so theme CSS variables resolve */}
           <stop offset="0%" style={{ stopColor: gradientStartColor, stopOpacity: 0 }} />
           <stop offset="25%" style={{ stopColor: gradientStartColor, stopOpacity: 0.8 }} />
           <stop offset="60%" style={{ stopColor: gradientStopColor, stopOpacity: 1 }} />
@@ -126,7 +123,6 @@ export function AnimatedBeam({
         </filter>
       </defs>
 
-      {/* Static, subdued baseline path */}
       <path
         d={pathD}
         stroke={pathColor}
@@ -135,7 +131,6 @@ export function AnimatedBeam({
         strokeLinecap="round"
       />
 
-      {/* Travelling beam */}
       {pathD && (
         <motion.path
           d={pathD}

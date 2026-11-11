@@ -1,4 +1,3 @@
-/** Tiny circular avatar. The brand side shows the NAVORYN logo. */
 export function Avatar({ brand }: { brand?: boolean }) {
   return (
     <span

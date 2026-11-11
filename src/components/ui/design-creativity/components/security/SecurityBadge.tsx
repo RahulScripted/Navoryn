@@ -9,7 +9,6 @@ const INITIAL = [
   { id: 3, active: false },
 ]
 
-/** Three locks switching on one by one, then resetting. */
 export function SecurityBadge() {
   const [shields, setShields] = useState(INITIAL)
 
@@ -19,7 +18,6 @@ export function SecurityBadge() {
       setShields((prev) => {
         const nextIndex = prev.findIndex((s) => !s.active)
         if (nextIndex === -1) {
-          // New ids remount the locks for a clean restart.
           cycle += 1
           return prev.map((_, i) => ({ id: cycle * 10 + i, active: false }))
         }

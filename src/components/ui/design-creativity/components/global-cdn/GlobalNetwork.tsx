@@ -3,7 +3,6 @@ import { Globe } from "lucide-react"
 
 const PULSES = [0, 1, 2, 3, 4]
 
-/** Globe that spins a full horizontal turn (like Earth), pauses, and repeats, with rings rippling outward. */
 export function GlobalNetwork() {
   return (
     <div className="relative flex h-full items-center justify-center perspective-[200px]">
