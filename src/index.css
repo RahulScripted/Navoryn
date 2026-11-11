@@ -2,13 +2,11 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Radius ── */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* ── Colors (mapped from CSS vars) ── */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -43,9 +41,6 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* ═══════════════════════════════════════
-   Vercel / Geist Theme — Light
-═══════════════════════════════════════ */
 :root {
   --radius: 0.5rem;
 
@@ -85,9 +80,6 @@
   --sidebar-ring:               oklch(0.708 0 0);
 }
 
-/* ═══════════════════════════════════════
-   Vercel / Geist Theme — Dark
-═══════════════════════════════════════ */
 .dark {
   --background:             oklch(0.145 0 0);
   --foreground:             oklch(0.985 0 0);
@@ -125,9 +117,6 @@
   --sidebar-ring:               oklch(0.556 0 0);
 }
 
-/* ═══════════════════════════════════════
-   Base resets
-═══════════════════════════════════════ */
 *,
 *::before,
 *::after {
@@ -145,25 +134,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ═══════════════════════════════════════
-   Global responsive spacing
-   mobile  < 640px   → x: 5px
-   tablet  640–1023px → x: 10px
-   desktop ≥ 1024px  → x: 20px
-   y axis            → constant 20px (px-5)
-═══════════════════════════════════════ */
-
 :root {
-  --page-x: 25px;   /* mobile */
-  --page-y: 20px;  /* constant */
+  --page-x: 25px;
+  --page-y: 20px;
 }
 
 @media (min-width: 640px) {
-  :root { --page-x: 30px; } /* tablet */
+  :root { --page-x: 30px; }
 }
 
 @media (min-width: 1024px) {
-  :root { --page-x: 40px; } /* desktop / laptop */
+  :root { --page-x: 40px; }
 }
 
 .page-layout {
@@ -172,7 +153,6 @@ body {
   padding-block: var(--page-y);
 }
 
-/* Global horizontal padding only — apply once at the app shell. */
 .page-px {
   padding-inline: var(--page-x);
 }
@@ -350,10 +330,6 @@ body {
   color: var(--muted-foreground);
 }
 
-/* ═══════════════════════════════════════
-   WeightSweepCounter — preloader overlay
-═══════════════════════════════════════ */
-
 .wsc-root {
   position: absolute;
   inset: 0;
@@ -388,7 +364,6 @@ body {
   opacity: .18;
 }
 
-/* closing panel */
 .wsc-panel {
   position: absolute;
   inset: 0;
@@ -434,10 +409,6 @@ body {
   .wsc-panel, .wsc-msg, .wsc-wght { transition: none; }
   .wsc-msg { transform: none; }
 }
-
-/* ═══════════════════════════════════════
-   StickerSwapHeadline — preloader headline
-═══════════════════════════════════════ */
 
 @font-face {
   font-family: "SSH Anton";
@@ -517,9 +488,6 @@ body {
   .ssh-btn { transition: none; }
 }
 
-/* ═══════════════════════════════════════
-   VariableProximity (React Bits)
-═══════════════════════════════════════ */
 .variable-proximity {
   font-family: "Roboto Flex", sans-serif;
 }
@@ -536,9 +504,6 @@ body {
   border: 0;
 }
 
-/* ═══════════════════════════════════════
-   TargetCursor (React Bits)
-═══════════════════════════════════════ */
 .target-cursor {
   position: fixed;
   inset: 0;
@@ -576,9 +541,6 @@ body {
   will-change: transform, opacity;
 }
 
-/* ═══════════════════════════════════════
-   Slide-to-confirm button (pricing CTAs)
-═══════════════════════════════════════ */
 .slide-button {
   position: relative;
   width: 100%;
@@ -654,14 +616,6 @@ body {
   opacity: 0;
 }
 
-/*
-  About bento grid.
-  A small row unit (44px + 16px gap) lets every tile take a height that
-  fits its content. Tile height for n rows = n * 60px - 16px.
-  Tiles (DOM order → area):
-    1 expertise t1 · 2 chat t2 · 3 standards t3 · 4 terminal t4
-    5 vision t6 · 6 craft feed t7 · 7 team t8
-*/
 .about-grid {
   --about-row: 44px;
   display: grid;
@@ -681,15 +635,13 @@ body {
   }
 }
 
-/* Mobile: one by one, each tile sized to its content. */
-.about-grid > :nth-child(1) { grid-row: span 8; }  /* 464px */
-.about-grid > :nth-child(2) { grid-row: span 8; }  /* 464px */
-.about-grid > :nth-child(3) { grid-row: span 7; }  /* 404px */
-.about-grid > :nth-child(4) { grid-row: span 11; } /* 644px */
-.about-grid > :nth-child(5) { grid-row: span 8; }  /* 464px */
-.about-grid > :nth-child(6) { grid-row: span 9; }  /* 524px */
-.about-grid > :nth-child(7) { grid-row: span 12; } /* 704px: text + full-width picture */
-/* Tablet: two unequal columns, full-width rows below; a perfect rectangle. */
+.about-grid > :nth-child(1) { grid-row: span 8; }
+.about-grid > :nth-child(2) { grid-row: span 8; }
+.about-grid > :nth-child(3) { grid-row: span 7; }
+.about-grid > :nth-child(4) { grid-row: span 11; }
+.about-grid > :nth-child(5) { grid-row: span 8; }
+.about-grid > :nth-child(6) { grid-row: span 9; }
+.about-grid > :nth-child(7) { grid-row: span 12; }
 @media (min-width: 640px) {
   .about-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -709,7 +661,6 @@ body {
   .about-grid > :nth-child(6) { grid-area: t7; }
   .about-grid > :nth-child(7) { grid-area: t8; }
 }
-/* Desktop: four unequal columns, staggered heights, one wide tile; a perfect rectangle. */
 @media (min-width: 1024px) {
   .about-grid {
     grid-template-columns:

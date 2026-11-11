@@ -10,7 +10,6 @@ interface AddOnPickerProps {
 export function AddOnPicker({ selected, onToggle }: AddOnPickerProps) {
   return (
     <div className="space-y-10">
-      {/* Add-ons by category */}
       <div className="space-y-8">
         <h3 className="text-lg font-bold tracking-tight">Add-ons</h3>
         {ADD_ON_GROUPS.map((group) => (
@@ -42,7 +41,6 @@ export function AddOnPicker({ selected, onToggle }: AddOnPickerProps) {
         ))}
       </div>
 
-      {/* Additional services — informational chips */}
       <div className="space-y-8">
         <h3 className="text-lg font-bold tracking-tight">Additional services</h3>
         {ADDITIONAL_SERVICE_GROUPS.map((group) => (

@@ -34,19 +34,12 @@ function clampNumber(value: unknown, min: number, max: number, fallback: number)
 }
 
 export interface BlockTransitionProps {
-  /** Change it (e.g. on navigation) to play the transition. */
   transitionKey: string | number
-  /** The current view. Swapped in while the blocks cover the screen. */
   children?: ReactNode
-  /** Adds a soft scale and blur to the view as it changes. */
   enableContentShift?: boolean
-  /** Number of block columns, 2-12. */
   columns?: number
-  /** Block color. Defaults to the theme's foreground token. */
   color?: string
-  /** Duration multiplier, 0.25-3. */
   duration?: number
-  /** Called once the new view is fully revealed. */
   onComplete?: () => void
   className?: string
 }
@@ -82,7 +75,6 @@ export default function BlockTransition({
   const getCols = () =>
     colRefs.current.slice(0, safeColumns).filter(Boolean) as HTMLDivElement[]
 
-  // Cover runs left to right, reveal right to left; each column closes from top & bottom
   const buildColsAnimation = (
     timeline: gsap.core.Timeline,
     direction: "cover" | "reveal",
@@ -130,7 +122,6 @@ export default function BlockTransition({
     })
   }
 
-  // Park the blocks off-screen top & bottom
   useIsomorphicLayoutEffect(() => {
     colRefs.current = colRefs.current.slice(0, safeColumns)
     getCols().forEach((col) => {
@@ -141,7 +132,6 @@ export default function BlockTransition({
     })
   }, [safeColumns])
 
-  // Leave: cover the view, then swap in the new one
   useEffect(() => {
     if (transitionKey === view.key || coveringRef.current) return
     coveringRef.current = true
@@ -183,10 +173,8 @@ export default function BlockTransition({
     }
 
     buildColsAnimation(timeline, "cover")
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transitionKey, view.key])
 
-  // Enter: reveal the swapped view
   useIsomorphicLayoutEffect(() => {
     if (view.revision === revealedRevisionRef.current) return
     revealedRevisionRef.current = view.revision
@@ -233,7 +221,6 @@ export default function BlockTransition({
     }
 
     buildColsAnimation(timeline, "reveal")
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view.revision])
 
   useEffect(

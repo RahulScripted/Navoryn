@@ -17,7 +17,6 @@ export type StickerSwapHeadlineProps = {
   description?: React.ReactNode
   primaryCta?: StickerCta
   secondaryCta?: StickerCta
-  /** ms each word holds. Default 6000 (6 s, fits 5–7 s per word). */
   interval?: number
   paper?: string
   ink?: string
@@ -185,13 +184,11 @@ export default function StickerSwapHeadline({
     }, r)
     onChange?.(index)
     return () => ctx.revert()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.index])
 
   React.useEffect(() => {
     if (interval <= 0 || n < 2) return
     const id = window.setInterval(() => {
-      // always advance regardless of visibility when used as preloader
       if (!busy.current) advance()
     }, interval)
     return () => window.clearInterval(id)
@@ -200,7 +197,6 @@ export default function StickerSwapHeadline({
   if (!current) return null
   const prev = state.prev >= 0 ? words[wrap(state.prev, n)] : null
 
-  // Use theme CSS vars for paper/ink so it adapts to light/dark automatically
   const resolvedPaper = paper ?? "var(--background)"
   const resolvedInk = ink ?? "var(--foreground)"
   const resolvedAccent = accent ?? "var(--primary)"

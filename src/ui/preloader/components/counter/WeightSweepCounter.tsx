@@ -55,7 +55,6 @@ export default function WeightSweepCounter({
 
   return (
     <div className="wsc-root">
-      {/* top HUD */}
       <div className="wsc-hud">
         <span>{label}</span>
         <span>Brewing {pad(pct)}</span>

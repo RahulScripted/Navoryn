@@ -19,7 +19,6 @@ export default function PreloaderShell({ visible, durationMs }: PreloaderShellPr
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
           style={{ position: "fixed", inset: 0, zIndex: 9999 }}
         >
-          {/* Headline animation */}
           <StickerSwapHeadline
             lead="Stay"
             words={words}
@@ -27,7 +26,6 @@ export default function PreloaderShell({ visible, durationMs }: PreloaderShellPr
             height="100svh"
           />
 
-          {/* Counter + HUD overlay, synced to the same duration */}
           <WeightSweepCounter
             durationMs={durationMs}
             label="Navoryn"

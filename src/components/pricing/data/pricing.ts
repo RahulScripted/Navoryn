@@ -56,7 +56,6 @@ export interface AddOnGroup {
   items: AddOn[]
 }
 
-/** Every selectable add-on, grouped by category. priceValue = fixed starting amount. */
 export const ADD_ON_GROUPS: AddOnGroup[] = [
   {
     title: "Core integrations",
@@ -149,7 +148,6 @@ export const ADD_ON_GROUPS: AddOnGroup[] = [
   },
 ]
 
-/** Flat list of all add-ons (for lookups by id). */
 export const ALL_ADD_ONS: AddOn[] = ADD_ON_GROUPS.flatMap((g) => g.items)
 
 export interface ServiceGroup {

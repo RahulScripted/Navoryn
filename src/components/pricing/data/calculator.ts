@@ -9,7 +9,7 @@ export function calculateBasePrice(pages: number): number | null {
   if (pages >= 2 && pages <= 3) return Math.max(8000, SETUP_FEE + pages * PAGE_RATE)
   if (pages >= 4 && pages <= 5) return Math.max(15000, SETUP_FEE + pages * PAGE_RATE)
   if (pages >= 6 && pages <= 10) return 20000 + (pages - 6) * 3750
-  return null // 10+ → custom quote
+  return null
 }
 
 export function calculateExtraSections(sectionCounts: number[]): number {

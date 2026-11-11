@@ -25,4 +25,13 @@ export default defineConfig([
       'react-hooks/set-state-in-effect': 'off',
     },
   },
+  {
+    files: [
+      'src/ui/preloader/components/headline/StickerSwapHeadline.tsx',
+      'src/ui/block-transition/BlockTransition.tsx',
+    ],
+    rules: {
+      'react-hooks/exhaustive-deps': 'off',
+    },
+  },
 ])

@@ -2,14 +2,13 @@ import { useEffect, useState } from "react"
 import PreloaderShell from "./components/layout/PreloaderShell"
 
 const WORD_COUNT  = 3
-const INTERVAL_MS = 4000          // ms each word holds
-const EXIT_MS     = 600           // fade-out duration
-const TOTAL_MS    = WORD_COUNT * INTERVAL_MS  // 12 000 ms
+const INTERVAL_MS = 4000
+const EXIT_MS     = 600
+const TOTAL_MS    = WORD_COUNT * INTERVAL_MS
 
 const SEEN_KEY = "navoryn-preloader-seen"
 
 export default function PreLoader() {
-  // Only run once per browser session (not on back-navigation or remounts)
   const alreadySeen =
     typeof sessionStorage !== "undefined" && sessionStorage.getItem(SEEN_KEY) === "1"
 
