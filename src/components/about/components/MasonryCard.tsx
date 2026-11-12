@@ -23,6 +23,7 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
 
   return (
     <div
+      data-tile={card.id}
       className={cn(
         "about-tile cursor-target group relative isolate overflow-hidden",
         "transition-transform duration-300 ease-out hover:-translate-y-1",
@@ -30,18 +31,6 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
         className,
       )}
     >
-      {bleedImage && (
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 aspect-[1024/1110] w-full overflow-hidden">
-          <img
-            src={bleedImage}
-            alt={bleedImageAlt ?? ""}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-x-0 bottom-0 h-auto w-full"
-          />
-        </div>
-      )}
-
       <SpotlightLayer />
 
       <div className="relative z-10 flex h-full w-full flex-col gap-2 p-4 sm:p-5">
@@ -76,6 +65,20 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
           )}
         </div>
         </div>
+
+        {bleedImage && (
+          <div className="pointer-events-none -mx-4 -mb-4 mt-auto flex min-h-0 flex-1 items-end overflow-hidden sm:-mx-5 sm:-mb-5">
+            <div className="relative aspect-[1024/1110] w-full shrink-0">
+              <img
+                src={bleedImage}
+                alt={bleedImageAlt ?? ""}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-x-0 bottom-0 h-auto w-full"
+              />
+            </div>
+          </div>
+        )}
 
         {!bleedImage && (
           <div className="about-tile__media mt-auto min-h-0 w-full flex-1 overflow-hidden">

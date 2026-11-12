@@ -13,7 +13,7 @@ export function MasonryGrid({ cards, className }: MasonryGridProps) {
 
   return (
     <div ref={gridRef} className={cn("about-grid", className)}>
-      {cards.slice(0, 8).map((card) => (
+      {cards.map((card) => (
         <MasonryCard key={card.id} card={card} />
       ))}
     </div>

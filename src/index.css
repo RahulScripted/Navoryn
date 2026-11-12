@@ -624,57 +624,69 @@ body {
   gap: 16px;
   width: 100%;
 }
-
 .about-tile {
   container-type: size;
 }
-
 @container (max-height: 230px) {
   .about-tile__media {
     display: none;
   }
 }
-
-.about-grid > :nth-child(1) { grid-row: span 8; }
-.about-grid > :nth-child(2) { grid-row: span 8; }
-.about-grid > :nth-child(3) { grid-row: span 7; }
-.about-grid > :nth-child(4) { grid-row: span 11; }
-.about-grid > :nth-child(5) { grid-row: span 8; }
-.about-grid > :nth-child(6) { grid-row: span 9; }
-.about-grid > :nth-child(7) { grid-row: span 12; }
+.about-grid > [data-tile="expertise"] { grid-row: span 8; }
+.about-grid > [data-tile="clients"] { grid-row: span 8; }
+.about-grid > [data-tile="craft"] { grid-row: span 7; }
+.about-grid > [data-tile="process"] { grid-row: span 11; }
+.about-grid > [data-tile="results"] { grid-row: span 8; }
+.about-grid > [data-tile="future"] { grid-row: span 9; }
+.about-grid > [data-tile="team"] { grid-row: span 12; }
+.about-grid > [data-tile="workflows"] { grid-row: span 7; }
+.about-grid > [data-tile="visitors"] { grid-row: span 8; }
+.about-grid > [data-tile="ticket"] { grid-row: span 7; }
 @media (min-width: 640px) {
   .about-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    grid-template-rows: repeat(35, var(--about-row));
+    grid-template-rows: repeat(50, var(--about-row));
     grid-auto-rows: unset;
     grid-template-areas:
-      "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1" "t4 t1"
-      "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8" "t3 t8"
-      "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6" "t6 t6"
-      "t2 t7" "t2 t7" "t2 t7" "t2 t7" "t2 t7" "t2 t7" "t2 t7";
+      "term exp" "term exp" "term exp" "term exp"
+      "term exp" "term exp" "term exp" "term exp"
+      "term exp" "std team" "std team" "std team"
+      "std team" "std team" "std team" "std team"
+      "std team" "std team" "std team" "std team"
+      "vis vis" "vis vis" "vis vis" "vis vis"
+      "vis vis" "vis vis" "vis vis" "vis vis"
+      "chat feed" "chat feed" "chat feed" "chat feed"
+      "chat feed" "chat feed" "chat feed" "chart chart"
+      "chart chart" "chart chart" "chart chart" "chart chart"
+      "chart chart" "chart chart" "chart chart" "mag ticket"
+      "mag ticket" "mag ticket" "mag ticket" "mag ticket"
+      "mag ticket" "mag ticket";
   }
-  .about-grid > :nth-child(1) { grid-area: t1; }
-  .about-grid > :nth-child(2) { grid-area: t2; }
-  .about-grid > :nth-child(3) { grid-area: t3; }
-  .about-grid > :nth-child(4) { grid-area: t4; }
-  .about-grid > :nth-child(5) { grid-area: t6; }
-  .about-grid > :nth-child(6) { grid-area: t7; }
-  .about-grid > :nth-child(7) { grid-area: t8; }
+  .about-grid > [data-tile="expertise"] { grid-area: exp; }
+  .about-grid > [data-tile="clients"] { grid-area: chat; }
+  .about-grid > [data-tile="craft"] { grid-area: std; }
+  .about-grid > [data-tile="process"] { grid-area: term; }
+  .about-grid > [data-tile="results"] { grid-area: vis; }
+  .about-grid > [data-tile="future"] { grid-area: feed; }
+  .about-grid > [data-tile="team"] { grid-area: team; }
+  .about-grid > [data-tile="workflows"] { grid-area: mag; }
+  .about-grid > [data-tile="visitors"] { grid-area: chart; }
+  .about-grid > [data-tile="ticket"] { grid-area: ticket; }
 }
 @media (min-width: 1024px) {
   .about-grid {
     grid-template-columns:
       minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.3fr) minmax(0, 1.1fr);
-    grid-template-rows: repeat(16, var(--about-row));
+    grid-template-rows: repeat(24, var(--about-row));
     grid-template-areas:
-      "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7"
-      "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t2 t4 t7" "t1 t3 t4 t7"
-      "t8 t3 t6 t6"
-      "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6"
-      "t8 t3 t6 t6" "t8 t3 t6 t6" "t8 t3 t6 t6";
+      "exp chat term feed" "exp chat term feed" "exp chat term feed" "exp chat term feed"
+      "exp chat term feed" "exp chat term feed" "exp chat term feed" "exp std term feed"
+      "mag std vis vis" "mag std vis vis" "mag std vis vis" "mag std vis vis"
+      "mag std vis vis" "mag std vis vis" "mag std vis vis" "team chart chart ticket"
+      "team chart chart ticket" "team chart chart ticket" "team chart chart ticket" "team chart chart ticket"
+      "team chart chart ticket" "team chart chart ticket" "team chart chart ticket" "team chart chart ticket";
   }
 }
-
 .nf-art svg {
   display: block;
   width: 100%;
@@ -975,4 +987,195 @@ body {
   mask:
     linear-gradient(#000 0 0) content-box exclude,
     linear-gradient(#000 0 0);
+}
+
+.visitors-chart .recharts-cartesian-grid-horizontal line {
+  stroke: var(--border);
+}
+.visitors-chart .recharts-cartesian-axis-tick-value {
+  fill: var(--muted-foreground);
+  font-size: 11px;
+}
+.visitors-chart .recharts-line-curve {
+  stroke: color-mix(in oklch, var(--foreground) 82%, transparent);
+}
+.visitors-chart .recharts-tooltip-cursor {
+  stroke: color-mix(in oklch, var(--foreground) 22%, transparent);
+}
+@media (max-width: 639px) {
+  .visitors-chart .recharts-cartesian-axis-tick-value {
+    font-size: 9.5px;
+  }
+}
+
+.tear-ticket {
+  --tt-w: 460px;
+  --tt-h: 250px;
+  --tt-stub: 150px;
+  --tt-bg: #27272a;
+  --tt-stub-bg: #27272a;
+  --tt-ink: #f5f5f5;
+  --tt-edge: transparent;
+  --tt-edge-w: 1;
+  --tt-parallax: 6px;
+  --tt-body-w: 310px;
+  --tt-body-h: 250px;
+  --tt-inset: 8px;
+  --tt-span: 0.78;
+  --tt-art-radius: 8px;
+  --tt-fit: 1;
+  position: relative;
+  width: min(var(--tt-w), 100%);
+  color: var(--tt-ink);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.tear-ticket[data-disabled] {
+  opacity: 0.6;
+}
+.tear-ticket__stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--tt-w);
+  height: var(--tt-h);
+  transform: scale(var(--tt-fit));
+  transform-origin: top left;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tear-ticket[data-shift="x"] .tear-ticket__stage {
+  transform: translateX(calc(var(--tt-stub) * var(--tt-fit) / 2)) scale(var(--tt-fit));
+}
+.tear-ticket[data-shift="y"] .tear-ticket__stage {
+  transform: translateY(calc(var(--tt-stub) * var(--tt-fit) / 2)) scale(var(--tt-fit));
+}
+.tear-ticket__plane {
+  position: absolute;
+  inset: 0;
+}
+.tear-ticket__piece {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.tear-ticket__piece--stub {
+  outline: none;
+  will-change: transform;
+}
+.tear-ticket__piece--stub:focus-visible .tear-ticket__paper--stub {
+  outline: 2px solid var(--ring);
+  outline-offset: -6px;
+}
+.tear-ticket__edge {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.tear-ticket__edge path {
+  fill: none;
+  stroke: var(--tt-edge);
+  stroke-width: var(--tt-edge-w);
+}
+.tear-ticket__paper {
+  position: absolute;
+  inset: 0;
+  background: var(--tt-bg);
+  pointer-events: auto;
+}
+.tear-ticket__paper--stub {
+  background: var(--tt-stub-bg);
+  cursor: grab;
+  touch-action: none;
+}
+.tear-ticket[data-grabbing] .tear-ticket__paper--stub {
+  cursor: grabbing;
+}
+.tear-ticket[data-disabled] .tear-ticket__paper--stub {
+  cursor: default;
+}
+.tear-ticket__art {
+  position: absolute;
+  top: var(--tt-inset);
+  left: var(--tt-inset);
+  width: calc(var(--tt-body-w) - var(--tt-inset) * 2);
+  height: calc(var(--tt-body-h) * var(--tt-span) - var(--tt-inset) * 2);
+  border-radius: var(--tt-art-radius);
+  overflow: hidden;
+}
+.tear-ticket__art-layer {
+  position: absolute;
+  inset: calc(var(--tt-parallax) * -1);
+  transition: filter 700ms ease;
+}
+.tear-ticket[data-used] .tear-ticket__art-layer {
+  filter: grayscale(1) opacity(0.6);
+}
+.tear-ticket__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--tt-bg) 0%,
+    color-mix(in srgb, var(--tt-bg) 72%, transparent) 30%,
+    color-mix(in srgb, var(--tt-bg) 18%, transparent) 58%,
+    transparent 80%
+  );
+}
+.tear-ticket__content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(var(--tt-w) - var(--tt-stub));
+  transition: opacity 500ms ease;
+}
+.tear-ticket[data-used] .tear-ticket__content {
+  opacity: 0.55;
+}
+.tear-ticket__stub {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--tt-stub);
+}
+.tear-ticket[data-orientation="vertical"] .tear-ticket__content {
+  bottom: auto;
+  width: 100%;
+  height: calc(var(--tt-h) - var(--tt-stub));
+}
+.tear-ticket[data-orientation="vertical"] .tear-ticket__stub {
+  top: auto;
+  left: 0;
+  width: auto;
+  height: var(--tt-stub);
+}
+.tear-ticket[data-instant] .tear-ticket__stage,
+.tear-ticket[data-instant] .tear-ticket__content,
+.tear-ticket[data-instant] .tear-ticket__art-layer {
+  transition-duration: 0ms;
+}
+.tear-ticket__fibres {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.tear-ticket__fibres path {
+  fill: none;
+  stroke: var(--tt-bg);
+  stroke-linecap: round;
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tear-ticket__stage {
+    transition: none;
+  }
 }
