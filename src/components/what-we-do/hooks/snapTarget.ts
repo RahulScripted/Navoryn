@@ -1,4 +1,4 @@
-import { SCROLL } from "../data/services"
+import { SCROLL } from "../data/scroll"
 import { clamp } from "./pinGeometry"
 
 export function snapTarget(progress: number, rest: number, steps: number): number {

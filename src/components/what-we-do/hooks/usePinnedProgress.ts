@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { SCROLL } from "../data/services"
+import { SCROLL } from "../data/scroll"
 import { clamp, pinGeometry } from "./pinGeometry"
 import type { ProgressBus } from "./progressBus"
 

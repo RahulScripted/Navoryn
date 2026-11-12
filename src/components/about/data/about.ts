@@ -5,14 +5,14 @@ import { createElement } from "react"
 import expertiseImage from "@/asset/webps/experts.webp"
 import teamImage from "@/asset/webps/team-members.webp"
 
-import Pattern from "@/components/ui/message-chat"
-import TerminalWindow from "@/components/ui/terminal"
-import CraftFeed from "@/components/ui/animated-list"
-import VisionBeam from "@/components/ui/animated-beam"
-import DesignCreativity from "@/components/ui/design-creativity"
-import MagnifiedBento from "@/components/ui/magnified-bento"
-import MonthlyVisitorsChart from "@/components/ui/visitors-chart"
-import NavorynTicket from "@/components/ui/tear-ticket"
+import Pattern from "@/components/about/ui/message-chat"
+import TerminalWindow from "@/components/about/ui/terminal"
+import CraftFeed from "@/components/about/ui/animated-list"
+import VisionBeam from "@/components/about/ui/animated-beam"
+import DesignCreativity from "@/components/about/ui/design-creativity"
+import MagnifiedBento from "@/components/about/ui/magnified-bento"
+import MonthlyVisitorsChart from "@/components/about/ui/visitors-chart"
+import NavorynTicket from "@/components/about/ui/tear-ticket"
 
 export const ABOUT_CARDS: AboutCard[] = [
   {

@@ -1,6 +1,6 @@
 import { useEffect, type RefObject } from "react"
 import { ALLOW_MOTION, docTop } from "@/utilities/ScrollReveal/components/trigger/scroll"
-import { SCROLL } from "../data/services"
+import { SCROLL } from "../data/scroll"
 import { clamp, pinGeometry } from "./pinGeometry"
 import { snapTarget } from "./snapTarget"
 

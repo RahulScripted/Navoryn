@@ -1,20 +1,22 @@
 import type { Ref } from "react"
+import type { Service } from "../../types/service"
 import { ServiceCard } from "../card/ServiceCard"
 
 interface StackItemProps {
   itemRef: Ref<HTMLDivElement>
-  title: string
-  zIndex: number
+  service: Service
+  index: number
+  total: number
 }
 
-export function StackItem({ itemRef, title, zIndex }: StackItemProps) {
+export function StackItem({ itemRef, service, index, total }: StackItemProps) {
   return (
     <div
       ref={itemRef}
-      className="service-stack-card absolute inset-x-0 top-0 rounded-[28px] bg-background pb-2"
-      style={{ zIndex }}
+      className="service-stack-card absolute inset-x-0 top-0 flex flex-col rounded-[28px]"
+      style={{ zIndex: index + 1 }}
     >
-      <ServiceCard title={title} />
+      <ServiceCard service={service} index={index} total={total} className="flex-1" />
     </div>
   )
 }

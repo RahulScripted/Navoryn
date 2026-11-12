@@ -1,27 +1,32 @@
 import { useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
 import type { ProgressBus } from "../../hooks/progressBus"
+import type { Service } from "../../types/service"
 import { StackItem } from "./StackItem"
 import { STACK, stackPose } from "./stackPose"
 
 interface ServiceStackProps {
-  titles: string[]
+  services: readonly Service[]
   bus: ProgressBus
   className?: string
 }
 
-export function ServiceStack({ titles, bus, className }: ServiceStackProps) {
+export function ServiceStack({ services, bus, className }: ServiceStackProps) {
   const areaRef = useRef<HTMLDivElement | null>(null)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const area = areaRef.current
     if (!area) return
-    itemRefs.current.length = titles.length
+    itemRefs.current.length = services.length
+    const items = () => itemRefs.current.filter((item): item is HTMLDivElement => item !== null)
 
     const fit = () => {
-      const tallest = itemRefs.current.reduce((max, item) => Math.max(max, item?.offsetHeight ?? 0), 0)
-      area.style.height = `${tallest + (titles.length - 1) * STACK.offset}px`
+      const list = items()
+      list.forEach((item) => (item.style.minHeight = ""))
+      const tallest = list.reduce((max, item) => Math.max(max, item.offsetHeight), 0)
+      list.forEach((item) => (item.style.minHeight = `${tallest}px`))
+      area.style.height = `${tallest + (services.length - 1) * STACK.offset}px`
     }
 
     const paint = (progress: number) => {
@@ -39,7 +44,8 @@ export function ServiceStack({ titles, bus, className }: ServiceStackProps) {
       fit()
       paint(bus.get())
     })
-    itemRefs.current.forEach((item) => item && ro.observe(item))
+    ro.observe(area.parentElement ?? area)
+    items().forEach((item) => ro.observe(item))
     fit()
     const unsubscribe = bus.subscribe(paint)
 
@@ -47,18 +53,19 @@ export function ServiceStack({ titles, bus, className }: ServiceStackProps) {
       ro.disconnect()
       unsubscribe()
     }
-  }, [bus, titles])
+  }, [bus, services])
 
   return (
     <div ref={areaRef} className={cn("relative w-full", className)}>
-      {titles.map((title, index) => (
+      {services.map((service, index) => (
         <StackItem
-          key={title}
+          key={service.id}
           itemRef={(el) => {
             itemRefs.current[index] = el
           }}
-          title={title}
-          zIndex={index + 1}
+          service={service}
+          index={index}
+          total={services.length}
         />
       ))}
     </div>

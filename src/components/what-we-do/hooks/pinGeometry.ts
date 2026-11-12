@@ -1,4 +1,4 @@
-import { SCROLL } from "../data/services"
+import { SCROLL } from "../data/scroll"
 
 export interface PinGeometry {
   view: number
