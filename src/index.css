@@ -1179,3 +1179,17 @@ body {
     transition: none;
   }
 }
+
+.service-stack-card {
+  transform-origin: 50% 0;
+  will-change: transform, opacity;
+}
+.service-stack-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--foreground);
+  opacity: calc(var(--stack-dim, 0) * 0.35);
+  pointer-events: none;
+}
