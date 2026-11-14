@@ -634,12 +634,12 @@ body {
   }
 }
 .about-grid > [data-tile="expertise"] { grid-row: span 8; }
-.about-grid > [data-tile="clients"] { grid-row: span 8; }
+.about-grid > [data-tile="clients"] { grid-row: span 9; }
 .about-grid > [data-tile="craft"] { grid-row: span 7; }
-.about-grid > [data-tile="process"] { grid-row: span 11; }
+.about-grid > [data-tile="process"] { grid-row: span 9; }
 .about-grid > [data-tile="results"] { grid-row: span 8; }
-.about-grid > [data-tile="future"] { grid-row: span 9; }
-.about-grid > [data-tile="team"] { grid-row: span 12; }
+.about-grid > [data-tile="future"] { grid-row: span 8; }
+.about-grid > [data-tile="team"] { grid-row: span 8; }
 .about-grid > [data-tile="workflows"] { grid-row: span 7; }
 .about-grid > [data-tile="visitors"] { grid-row: span 8; }
 .about-grid > [data-tile="ticket"] { grid-row: span 7; }
@@ -653,13 +653,13 @@ body {
       "term exp" "term exp" "term exp" "term exp"
       "term exp" "std team" "std team" "std team"
       "std team" "std team" "std team" "std team"
-      "std team" "std team" "std team" "std team"
+      "std team" "vis vis" "vis vis" "vis vis"
       "vis vis" "vis vis" "vis vis" "vis vis"
-      "vis vis" "vis vis" "vis vis" "vis vis"
+      "vis vis" "chat feed" "chat feed" "chat feed"
       "chat feed" "chat feed" "chat feed" "chat feed"
-      "chat feed" "chat feed" "chat feed" "chart chart"
+      "chat feed" "chat feed" "chart chart" "chart chart"
       "chart chart" "chart chart" "chart chart" "chart chart"
-      "chart chart" "chart chart" "chart chart" "mag ticket"
+      "chart chart" "chart chart" "mag ticket" "mag ticket"
       "mag ticket" "mag ticket" "mag ticket" "mag ticket"
       "mag ticket" "mag ticket";
   }
@@ -674,18 +674,24 @@ body {
   .about-grid > [data-tile="visitors"] { grid-area: chart; }
   .about-grid > [data-tile="ticket"] { grid-area: ticket; }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
+  .about-grid { --about-row: 40px; }
+}
+@media (min-width: 1280px) {
   .about-grid {
     grid-template-columns:
       minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 1.3fr) minmax(0, 1.1fr);
-    grid-template-rows: repeat(24, var(--about-row));
+    grid-template-rows: repeat(26, var(--about-row));
     grid-template-areas:
-      "exp chat term feed" "exp chat term feed" "exp chat term feed" "exp chat term feed"
-      "exp chat term feed" "exp chat term feed" "exp chat term feed" "exp std term feed"
-      "mag std vis vis" "mag std vis vis" "mag std vis vis" "mag std vis vis"
-      "mag std vis vis" "mag std vis vis" "mag std vis vis" "team chart chart ticket"
-      "team chart chart ticket" "team chart chart ticket" "team chart chart ticket" "team chart chart ticket"
-      "team chart chart ticket" "team chart chart ticket" "team chart chart ticket" "team chart chart ticket";
+      "exp chat term feed" "exp chat term feed" "exp chat term feed"
+      "exp chat term feed" "exp chat term feed" "exp chat term feed"
+      "exp chat term feed" "exp chat term feed" "exp chat term feed"
+      "mag std vis vis" "mag std vis vis" "mag std vis vis"
+      "mag std vis vis" "mag std vis vis" "mag std vis vis"
+      "mag std vis vis" "mag std vis vis" "team chart chart ticket"
+      "team chart chart ticket" "team chart chart ticket" "team chart chart ticket"
+      "team chart chart ticket" "team chart chart ticket" "team chart chart ticket"
+      "team chart chart ticket" "team chart chart ticket";
   }
 }
 .nf-art svg {

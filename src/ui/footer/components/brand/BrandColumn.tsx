@@ -1,9 +1,12 @@
 import { ChevronRightIcon, Cross2Icon } from "@radix-ui/react-icons"
+import { useNavigate } from "react-router-dom"
+import { goToSection } from "@/lib/sections"
 import { RollText } from "@/utilities/RollText"
 import { useIsDark } from "@/components/technology/hooks/useIsDark"
 import { useSubscribe } from "@/ui/footer/send-email/useSubscribe"
 
 export function BrandColumn() {
+  const navigate = useNavigate()
   const isDark = useIsDark()
   const logo = isDark ? "/favicon-light.svg" : "/favicon-dark.svg"
   const { email, error, feedback, onChange, clear, submit } = useSubscribe()
@@ -11,7 +14,8 @@ export function BrandColumn() {
   return (
     <div className="flex w-full flex-col gap-6">
       <a
-        href="#"
+        href="/"
+        onClick={(e) => goToSection(e, "/", navigate)}
         className="cursor-target flex items-center gap-2 text-lg font-bold tracking-tight"
       >
         <img src={logo} alt="NAVORYN" className="h-7 w-auto" />

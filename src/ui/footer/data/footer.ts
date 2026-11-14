@@ -5,16 +5,57 @@ import {
   YouTubeIcon,
 } from "@/ui/footer/components/brand/BrandIcons"
 
+export interface FooterLink {
+  label: string
+  href: string
+  /** Page does not exist yet: shown dimmed with a "Soon" tag and not clickable. */
+  disabled?: boolean
+}
+
 export interface FooterColumn {
   title: string
-  links: string[]
+  links: FooterLink[]
 }
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
-  { title: "Services", links: ["Web Design", "Web Apps", "Mobile Apps", "UI/UX", "Maintenance"] },
-  { title: "Company", links: ["About", "Process", "Projects", "Testimonials", "Contact"] },
-  { title: "Resources", links: ["Pricing", "Technology", "Book a Call", "FAQ", "Blog"] },
-  { title: "Legal", links: ["Privacy", "Terms", "Security", "Cookies"] },
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Technologies", href: "/technologies" },
+      { label: "How We Work", href: "#", disabled: true },
+      { label: "Testimonials", href: "/testimonials" },
+      { label: "Blogs", href: "#", disabled: true },
+    ],
+  },
+  {
+    title: "Services",
+    links: [
+      { label: "Web Development", href: "/services" },
+      { label: "Mobile Apps", href: "/services" },
+      { label: "UI/UX Design", href: "/services" },
+      { label: "E-commerce", href: "/services" },
+      { label: "Maintenance", href: "/services" },
+    ],
+  },
+  {
+    title: "Explore",
+    links: [
+      { label: "Pricing", href: "/pricing" },
+      { label: "Portfolio", href: "#", disabled: true },
+      { label: "Book a Call", href: "/book-call" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy", href: "#", disabled: true },
+      { label: "Terms", href: "#", disabled: true },
+      { label: "Security", href: "#", disabled: true },
+      { label: "Cookies", href: "#", disabled: true },
+    ],
+  },
 ]
 
 export const FOOTER_SOCIALS = [

@@ -7,12 +7,11 @@ const STEPS = [
   "Understand your vision",
   "Design experiences",
   "Build with precision",
-  "Optimize performance & speed",
   "Test every detail",
   "Launch & ongoing support",
 ]
 
-const LINE = "text-[0.7rem] sm:text-xs"
+const LINE = "text-[0.6rem] min-[360px]:text-[0.7rem] sm:text-xs"
 
 export default function TerminalWindow() {
   const [ref, ready] = useRevealReady<HTMLDivElement>()

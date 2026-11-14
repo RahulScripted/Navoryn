@@ -1,12 +1,16 @@
+import { useNavigate } from "react-router-dom"
+import { goToSection } from "@/lib/sections"
 import { FOOTER_SOCIALS } from "@/ui/footer/data/footer"
 
 export function FooterBottom() {
+  const navigate = useNavigate()
   return (
     <div className="mt-16 flex flex-col-reverse items-start justify-between gap-6 border-t py-8 sm:flex-row sm:items-center">
       <div className="flex flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:gap-6">
         <span>© {new Date().getFullYear()} NAVORYN. All rights reserved.</span>
         <a
-          href="#"
+          href="/book-call"
+          onClick={(e) => goToSection(e, "/book-call", navigate)}
           className="cursor-target inline-flex items-center gap-2 transition-colors hover:text-foreground"
         >
           <span aria-hidden className="relative flex size-2 shrink-0">

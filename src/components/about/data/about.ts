@@ -12,16 +12,17 @@ import VisionBeam from "@/components/about/ui/animated-beam"
 import DesignCreativity from "@/components/about/ui/design-creativity"
 import MagnifiedBento from "@/components/about/ui/magnified-bento"
 import MonthlyVisitorsChart from "@/components/about/ui/visitors-chart"
-import NavorynTicket from "@/components/about/ui/tear-ticket"
+import CraftWheel from "@/components/about/ui/craft-wheel"
+
 
 export const ABOUT_CARDS: AboutCard[] = [
   {
     id: "expertise",
     tone: "lilac",
     eyebrow: "Our Expertise",
-    title: "Expertise That Turns Ideas Into Reality",
+    title: "Ideas Into Digital Reality",
     description:
-      "We bring together web development, mobile engineering, and digital design to transform complex ideas into intuitive, high-performing digital experiences.",
+      "We combine development and design to build intuitive digital experiences.",
     image: expertiseImage,
     imageAlt:
       "Illustration of developers and designers collaborating on code, mobile applications, and digital design",
@@ -30,52 +31,52 @@ export const ABOUT_CARDS: AboutCard[] = [
     id: "clients",
     tone: "mint",
     eyebrow: "Our Partnerships",
-    title: "Built on Trust. Driven by Collaboration.",
+    title: "Partnerships Built on Trust",
     description:
-      "We believe great outcomes come from meaningful partnerships, open communication, and a shared commitment to getting every detail right.",
+      "We value collaboration, transparency, and lasting client relationships.",
     media: createElement(Pattern),
   },
   {
     id: "craft",
     tone: "peach",
     eyebrow: "Our Standards",
-    title: "Excellence Lives in the Details",
+    title: "Excellence in Every Detail",
     description:
-      "From performance and accessibility to responsive design and refined interactions, we make every detail count toward a better user experience.",
+      "We prioritize performance, accessibility, and seamless user experiences.",
     media: createElement(DesignCreativity),
   },
   {
     id: "process",
     tone: "pink",
     eyebrow: "Our Approach",
-    title: "A Smarter Process. A Clearer Direction.",
+    title: "A Process With Purpose",
     description:
-      "We turn ideas into actionable plans through thoughtful planning, structured execution, continuous feedback, and transparent communication.",
+      "We turn ideas into results through strategic planning and execution.",
     media: createElement(TerminalWindow),
   },
   {
     id: "results",
     tone: "sky",
     eyebrow: "Our Vision",
-    title: "Built for Today. Engineered for Tomorrow.",
+    title: "Designed for What's Next",
     description:
-      "We create adaptable digital foundations that scale with your ambitions, evolve with technology, and support long-term business growth.",
+      "We build adaptable solutions that evolve with your business.",
     media: createElement(VisionBeam),
   },
   {
     id: "future",
     tone: "sky",
     eyebrow: "Our Engineering",
-    title: "Technology That Grows With You",
+    title: "Engineered to Scale",
     description:
-      "We build clean, maintainable, and extensible systems designed to simplify future improvements without compromising reliability.",
+      "We create reliable, maintainable systems built for long-term growth.",
     media: createElement(CraftFeed),
   },
   {
     id: "team",
     tone: "neutral",
     eyebrow: "Our Core Team",
-    title: "Different Perspectives. One Shared Vision.",
+    title: "One Vision. Many Perspectives.",
     bleedImage: teamImage,
     bleedImageAlt:
       "Illustration of a diverse team coming together around a shared vision",
@@ -84,27 +85,28 @@ export const ABOUT_CARDS: AboutCard[] = [
     id: "workflows",
     tone: "neutral",
     eyebrow: "Our Capabilities",
-    title: "Everything Working Together, Seamlessly.",
+    title: "Technology in Harmony",
     description:
-      "Explore the capabilities and services behind our work. Move the interactive lens to discover how every piece fits together.",
+      "Discover how our services and capabilities work together seamlessly.",
     media: createElement(MagnifiedBento),
   },
   {
     id: "visitors",
     tone: "neutral",
     eyebrow: "Our Digital Impact",
-    title: "Measuring Growth, One Milestone at a Time.",
+    title: "Growth Through Insights",
     description:
-      "Explore a sample monthly visitor trend through an interactive analytics experience.",
+      "Explore a sample monthly visitor trend through interactive analytics.",
     media: createElement(MonthlyVisitorsChart, { showHeader: false }),
   },
   {
     id: "ticket",
     tone: "neutral",
     eyebrow: "Our Creative Craft",
-    title: "Interactions That Make an Impression.",
+    title: "Motion With Meaning",
     description:
-      "Experience motion with purpose. Every movement is thoughtfully crafted to make digital interactions feel natural, engaging, and memorable.",
-    media: createElement(NavorynTicket),
+      "We craft purposeful interactions that make every experience memorable.",
+    media: createElement(CraftWheel),
   },
-]
+];
+

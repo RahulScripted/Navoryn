@@ -23,3 +23,23 @@ export function scrollToSection(id: string | undefined, behavior: ScrollBehavior
   if (!el) return
   window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior })
 }
+
+/**
+ * Click handler for in-app links such as /pricing. If the URL is already current the router
+ * would do nothing, so scroll directly; otherwise navigate and let the home page scroll.
+ */
+export function goToSection(
+  e: { preventDefault: () => void },
+  href: string,
+  navigate: (to: string) => void,
+  after?: () => void,
+) {
+  if (!href.startsWith("/")) return
+  e.preventDefault()
+  after?.()
+  // Let the mobile menu release its body scroll lock first.
+  window.setTimeout(() => {
+    if (window.location.pathname === href) scrollToSection(SECTION_BY_SLUG[href.slice(1)])
+    else navigate(href)
+  }, 60)
+}

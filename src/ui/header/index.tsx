@@ -11,7 +11,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { NavorynMark } from "@/components/about/ui/tear-ticket/components/brand/NavorynMark"
+import { NavorynMark } from "@/ui/header/components/NavorynMark"
 import { cn } from "@/lib/utils"
 import { RollText } from "@/utilities/RollText"
 import { ComingSoon } from "@/ui/header/components/ComingSoon"

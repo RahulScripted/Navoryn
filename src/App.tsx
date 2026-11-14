@@ -5,6 +5,7 @@ import PreLoader from '@/ui/preloader'
 import TargetCursor from '@/utilities/TargetCursor/TargetCursor'
 import About from '@/pages/about'
 import WhatWeDo from '@/pages/what-we-do'
+import TextLoopBand from '@/pages/text-loop'
 import Technology from '@/pages/technology'
 import Testimonial from '@/pages/testimonial'
 import Pricing from '@/pages/pricing'
@@ -48,6 +49,7 @@ export default function App() {
         <main className="page-px">
           <About />
           <WhatWeDo />
+          <TextLoopBand />
           <Technology />
           <Testimonial />
           <Pricing />
