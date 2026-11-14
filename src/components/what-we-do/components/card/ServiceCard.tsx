@@ -2,19 +2,19 @@ import { cn } from "@/lib/utils"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
 import { SERVICE_IMAGES } from "../../data/serviceImages"
 import type { Service } from "../../types/service"
-import { ServiceDetails } from "./details/ServiceDetails"
 import { ArrowButton } from "./notch/ArrowButton"
 import { CardNotch } from "./notch/CardNotch"
-import { ServiceMedia } from "./ServiceMedia"
+
+const FOLD = 36
+const FOLD_CLIP = `polygon(0 0, calc(100% - ${FOLD}px) 0, 100% ${FOLD}px, 100% 100%, 0 100%)`
 
 interface ServiceCardProps {
   service: Service
-  index: number
-  total: number
   className?: string
 }
 
-export function ServiceCard({ service, index, total, className }: ServiceCardProps) {
+export function ServiceCard({ service, className }: ServiceCardProps) {
+  const image = SERVICE_IMAGES[service.id]
   return (
     <div
       className={cn(
@@ -22,18 +22,45 @@ export function ServiceCard({ service, index, total, className }: ServiceCardPro
         className,
       )}
     >
-      <article className="cursor-target relative isolate h-full overflow-hidden rounded-[28px] border border-border bg-card text-card-foreground">
+      <article className="cursor-target relative isolate flex h-full flex-col overflow-hidden rounded-[24px] border border-border bg-card text-card-foreground"
+        style={{ clipPath: FOLD_CLIP }}
+      >
         <SpotlightLayer />
-
-        <div className="relative z-10 grid h-full gap-5 p-3 sm:p-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-8 xl:gap-10">
-          <ServiceMedia
-            image={SERVICE_IMAGES[service.id]}
-            className="aspect-[16/10] md:aspect-[5/2] lg:aspect-auto lg:h-full lg:min-h-[24rem]"
-          />
-          <ServiceDetails service={service} index={index} total={total} />
+        <div className="relative z-10 m-2.5 aspect-[16/10] shrink-0 overflow-hidden rounded-[16px] bg-muted/50">
+          {image && (
+            <img
+              src={image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+              className="absolute inset-0 h-full w-full object-contain transition-transform duration-500 ease-out group-hover/card:scale-[1.03]"
+            />
+          )}
+        </div>
+        <div className="relative z-10 flex flex-1 flex-col gap-2 px-4 pb-5 pt-2">
+          <h3 className="text-lg font-bold leading-tight tracking-tight">{service.title}</h3>
+          <p className="line-clamp-3 pr-12 text-sm leading-relaxed text-muted-foreground">
+            {service.description}
+          </p>
         </div>
       </article>
-
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        width={FOLD}
+        height={FOLD}
+        viewBox={`0 0 ${FOLD} ${FOLD}`}
+        className="pointer-events-none absolute right-0 top-0 z-20"
+      >
+        <path
+          d={`M0.5 0 V${FOLD - 0.5} H${FOLD} Z`}
+          fill="var(--muted)"
+          stroke="var(--border)"
+          strokeWidth="1"
+          strokeLinejoin="round"
+        />
+      </svg>
       <CardNotch />
       <ArrowButton label={`Explore ${service.title}`} />
     </div>

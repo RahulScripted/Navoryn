@@ -1,6 +1,6 @@
 export const NOTCH = {
-  disc: 64,
-  block: 80,
-  fillet: 28,
+  disc: 44,
+  block: 54,
+  fillet: 20,
   surface: "var(--background)",
 }

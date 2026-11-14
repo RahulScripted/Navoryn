@@ -1,23 +1,61 @@
-import { useState } from "react"
+import { useLayoutEffect, useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
 import { SERVICES } from "../../data/services"
-import { createProgressBus } from "../../hooks/progressBus"
-import { usePinnedProgress } from "../../hooks/usePinnedProgress"
-import { useStepSnap } from "../../hooks/useStepSnap"
-import { ServiceStack } from "../stack/ServiceStack"
+import { ServiceCard } from "../card/ServiceCard"
 
+gsap.registerPlugin(ScrollTrigger)
+
+/**
+ * Vertical scroll drives a horizontal slide: the row pins in the middle of the
+ * screen, the cards travel sideways until the last one is visible, then the
+ * page continues downward. Without motion (reduced-motion), the row is a plain
+ * horizontally scrollable strip.
+ */
 export function ServiceScroller() {
-  const [bus] = useState(createProgressBus)
-  const { trackRef, stageRef } = usePinnedProgress(bus, SERVICES.length)
+  const pinRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLUListElement>(null)
   const revealRef = useReveal<HTMLDivElement>({ y: 48, scale: 0.97, blur: 10, duration: 1.1 })
-  useStepSnap(trackRef, stageRef, SERVICES.length)
+
+  useLayoutEffect(() => {
+    const pin = pinRef.current
+    const track = trackRef.current
+    if (!pin || !track) return
+
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const distance = () => Math.max(0, track.scrollWidth - pin.clientWidth)
+      gsap.to(track, {
+        x: () => -distance(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: pin,
+          start: "center center",
+          end: () => `+=${distance()}`,
+          pin: true,
+          scrub: 0.6,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      })
+    })
+    return () => mm.revert()
+  }, [])
 
   return (
-    <div ref={trackRef} className="relative w-full overflow-clip">
-      <div ref={stageRef} className="relative w-full will-change-transform">
-        <div ref={revealRef}>
-          <ServiceStack services={SERVICES} bus={bus} />
-        </div>
+    <div ref={revealRef}>
+      <div ref={pinRef} className="@container w-full overflow-x-auto motion-safe:overflow-x-clip">
+        <ul ref={trackRef} className="flex w-max gap-6 py-4">
+          {SERVICES.map((service) => (
+            <li
+              key={service.id}
+              className="w-[100cqw] shrink-0 md:w-[calc((100cqw-1.5rem)/2)] lg:w-[calc((100cqw-3rem)/3)]"
+            >
+              <ServiceCard service={service} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )

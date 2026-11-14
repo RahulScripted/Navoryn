@@ -15,7 +15,7 @@ export function ArrowButton({ label }: ArrowButtonProps) {
       style={{ width: NOTCH.disc, height: NOTCH.disc }}
     >
       <RollText>
-        <ArrowUpRight className="size-5" aria-hidden="true" />
+        <ArrowUpRight className="size-4" aria-hidden="true" />
       </RollText>
     </button>
   )
