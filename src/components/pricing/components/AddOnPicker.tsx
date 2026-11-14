@@ -1,4 +1,4 @@
-import { CheckIcon } from "lucide-react"
+import { CheckIcon } from "@radix-ui/react-icons"
 import { cn } from "@/lib/utils"
 import { ADD_ON_GROUPS, ADDITIONAL_SERVICE_GROUPS } from "../data/pricing"
 

@@ -1,9 +1,9 @@
 import { forwardRef } from "react"
-import type { LucideIcon } from "lucide-react"
+import type { IconComponent } from "@/types/icon"
 import { cn } from "@/lib/utils"
 
 interface BeamNodeProps {
-  icon: LucideIcon
+  icon: IconComponent
   name: string
   className?: string
   mirrored?: boolean

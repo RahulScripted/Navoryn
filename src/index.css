@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

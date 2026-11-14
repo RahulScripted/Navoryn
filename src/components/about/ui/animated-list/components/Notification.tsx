@@ -1,10 +1,10 @@
-import type { LucideIcon } from "lucide-react"
+import type { IconComponent } from "@/types/icon"
 import { cn } from "@/lib/utils"
 
 export interface NotificationItem {
   name: string
   description: string
-  icon: LucideIcon
+  icon: IconComponent
 }
 
 export function Notification({ name, description, icon: Icon }: NotificationItem) {

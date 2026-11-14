@@ -1,4 +1,4 @@
-import { ChevronRightIcon, XIcon } from "lucide-react"
+import { ChevronRightIcon, Cross2Icon } from "@radix-ui/react-icons"
 import { RollText } from "@/utilities/RollText"
 import { useIsDark } from "@/components/technology/hooks/useIsDark"
 import { useSubscribe } from "@/ui/footer/send-email/useSubscribe"
@@ -52,7 +52,7 @@ export function BrandColumn() {
               onClick={clear}
               className="subscribe-field__clear"
             >
-              <XIcon className="size-3.5" />
+              <Cross2Icon className="size-3.5" />
             </button>
           )}
           <p

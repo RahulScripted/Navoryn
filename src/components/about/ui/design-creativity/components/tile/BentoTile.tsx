@@ -1,11 +1,11 @@
 import type { ReactNode } from "react"
 import * as motion from "motion/react-client"
-import type { LucideIcon } from "lucide-react"
+import type { IconComponent } from "@/types/icon"
 import { cn } from "@/lib/utils"
 
 interface BentoTileProps {
   title: string
-  icon?: LucideIcon
+  icon?: IconComponent
   className?: string
   index?: number
   active?: boolean

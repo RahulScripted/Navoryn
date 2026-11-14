@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { motion } from "motion/react"
-import { Lock } from "lucide-react"
+import { LockClosedIcon } from "@radix-ui/react-icons"
 import { cn } from "@/lib/utils"
 
 const INITIAL = [
@@ -39,7 +39,7 @@ export function SecurityBadge() {
           animate={{ scale: shield.active ? 1.1 : 1 }}
           transition={{ duration: 0.3 }}
         >
-          <Lock
+          <LockClosedIcon
             aria-hidden="true"
             className={cn(
               "size-3",

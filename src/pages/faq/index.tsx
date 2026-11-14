@@ -16,7 +16,7 @@ export default function Faq() {
   const imageRef = useReveal<HTMLImageElement>({ y: 0, scale: 0.85, blur: 12, delay: 0.15 })
 
   return (
-    <section className="w-full overflow-x-hidden bg-background py-24 text-foreground sm:py-28 lg:py-32">
+    <section id="faq" className="w-full overflow-x-hidden bg-background py-24 text-foreground sm:py-28 lg:py-32">
       <SectionHeading
         className="mb-16 sm:mb-20"
         title="Your Questions, Answered"

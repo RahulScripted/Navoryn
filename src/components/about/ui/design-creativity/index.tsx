@@ -1,4 +1,4 @@
-import { Globe, Lock } from "lucide-react"
+import { GlobeIcon, LockClosedIcon } from "@radix-ui/react-icons"
 import { BentoTile } from "./components/tile/BentoTile"
 import { GlobalNetwork } from "./components/global-cdn/GlobalNetwork"
 import { ResponsiveMorph } from "./components/responsiveness/ResponsiveMorph"
@@ -24,11 +24,11 @@ export default function DesignCreativity() {
         <SpeedIndicator />
       </BentoTile>
 
-      <BentoTile active={ready} title="Security" icon={Lock} index={3} className="col-span-2">
+      <BentoTile active={ready} title="Security" icon={LockClosedIcon} index={3} className="col-span-2">
         <SecurityBadge />
       </BentoTile>
 
-      <BentoTile active={ready} title="Global CDN" icon={Globe} index={4}>
+      <BentoTile active={ready} title="Global CDN" icon={GlobeIcon} index={4}>
         <GlobalNetwork />
       </BentoTile>
     </div>

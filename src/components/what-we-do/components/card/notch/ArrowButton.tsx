@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react"
+import { ArrowTopRightIcon } from "@radix-ui/react-icons"
 import { RollText } from "@/utilities/RollText"
 import { NOTCH } from "./notch"
 
@@ -15,7 +15,7 @@ export function ArrowButton({ label }: ArrowButtonProps) {
       style={{ width: NOTCH.disc, height: NOTCH.disc }}
     >
       <RollText>
-        <ArrowUpRight className="size-4" aria-hidden="true" />
+        <ArrowTopRightIcon className="size-4" aria-hidden="true" />
       </RollText>
     </button>
   )

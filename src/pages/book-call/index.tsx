@@ -1,10 +1,5 @@
 import { useMemo, useState } from "react"
-import {
-  ChevronRightIcon,
-  ChevronLeftIcon,
-  CheckCircle2Icon,
-  HandshakeIcon,
-} from "lucide-react"
+import { CheckCircledIcon, ChevronLeftIcon, ChevronRightIcon, Share2Icon } from "@radix-ui/react-icons"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { RollText } from "@/utilities/RollText"
@@ -65,7 +60,7 @@ export default function BookCall() {
     return (
       <main className="page-px grid min-h-screen place-items-center bg-background text-foreground">
         <div className="flex max-w-md flex-col items-center text-center">
-          <CheckCircle2Icon className="size-14" />
+          <CheckCircledIcon className="size-14" />
           <h1 className="mt-6 text-2xl font-bold tracking-tight">Request received</h1>
           <p className="mt-3 text-muted-foreground">
             Thanks for reaching out. We&apos;ll confirm your meeting slot over email shortly
@@ -138,7 +133,7 @@ export default function BookCall() {
                 className="cursor-target w-full gap-2"
                 onClick={() => setBargain((v) => !v)}
               >
-                <HandshakeIcon className="size-4" />
+                <Share2Icon className="size-4" />
                 Let&apos;s Bargain
               </Button>
 

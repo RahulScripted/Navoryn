@@ -19,7 +19,7 @@ export default function Testimonial() {
   const wallRef = useReveal<HTMLDivElement>({ y: 48, blur: 10, duration: 1.1 })
 
   return (
-    <section className="relative w-full overflow-x-hidden py-24 sm:py-28 lg:py-32 bg-background text-foreground">
+    <section id="testimonials" className="relative w-full overflow-x-hidden py-24 sm:py-28 lg:py-32 bg-background text-foreground">
       <div className="w-full">
         <SectionHeading
           className="mb-16 sm:mb-20"

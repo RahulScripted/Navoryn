@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import { Globe } from "lucide-react"
+import { GlobeIcon } from "@radix-ui/react-icons"
 
 const PULSES = [0, 1, 2, 3, 4]
 
@@ -16,7 +16,7 @@ export function GlobalNetwork() {
           repeatDelay: 2,
         }}
       >
-        <Globe className="size-6 text-foreground/80" aria-hidden="true" />
+        <GlobeIcon className="size-6 text-foreground/80" aria-hidden="true" />
       </motion.div>
 
       {PULSES.map((pulse) => (

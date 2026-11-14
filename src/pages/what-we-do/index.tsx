@@ -3,7 +3,7 @@ import { ServiceScroller } from "@/components/what-we-do/components/scroller/Ser
 
 export default function WhatWeDo() {
   return (
-    <section className="w-full overflow-x-clip bg-background py-24 text-foreground sm:py-28 lg:py-32">
+    <section id="what-we-do" className="w-full overflow-x-clip bg-background py-24 text-foreground sm:py-28 lg:py-32">
       <SectionHeading
         className="mb-16 sm:mb-20"
         title="Design That Looks Sharp. Code That Performs."

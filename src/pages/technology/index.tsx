@@ -5,6 +5,7 @@ import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 export default function Technology() {
   return (
     <section
+      id="technology"
       className="w-full overflow-x-hidden py-24 sm:py-28 lg:py-32 bg-background text-foreground"
       style={{
         backgroundImage:

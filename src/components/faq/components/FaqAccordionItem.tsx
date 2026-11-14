@@ -1,5 +1,5 @@
 import { useId } from "react"
-import { PlusIcon } from "lucide-react"
+import { PlusIcon } from "@radix-ui/react-icons"
 import { cn } from "@/lib/utils"
 import type { FaqItem } from "@/types/faq"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"

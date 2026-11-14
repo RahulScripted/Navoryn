@@ -4,7 +4,7 @@ import { ABOUT_CARDS } from "@/components/about/data/about"
 
 export default function About() {
   return (
-    <section className="w-full overflow-x-hidden bg-background py-24 text-foreground sm:py-28 lg:py-32">
+    <section id="about" className="w-full overflow-x-hidden bg-background py-24 text-foreground sm:py-28 lg:py-32">
       <SectionHeading
         className="mb-16 sm:mb-20"
         title="Ideas Driven by Creativity & Technology"

@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { CheckIcon, MinusIcon, PlusIcon } from "lucide-react"
+import { CheckIcon, MinusIcon, PlusIcon } from "@radix-ui/react-icons"
 import { cn } from "@/lib/utils"
 import { PAGE_OPTIONS, MAINTENANCE_OPTIONS } from "../data/pricing"
 

@@ -1,4 +1,4 @@
-import { CheckIcon } from "lucide-react"
+import { CheckIcon } from "@radix-ui/react-icons"
 import { useNavigate } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { Badge } from "./Badge"

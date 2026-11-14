@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <Routes>
         <Route element={<TransitionLayout />}>
-          <Route path="/" element={<App />} />
+          <Route path="/:section?" element={<App />} />
           <Route path="/book-call" element={<BookCall />} />
           <Route path="*" element={<NotFound />} />
         </Route>

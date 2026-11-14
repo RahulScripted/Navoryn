@@ -16,7 +16,7 @@ export default function Pricing() {
   const termsRef = useReveal<HTMLParagraphElement>({ y: 16, blur: 4 })
 
   return (
-    <section className="w-full overflow-x-hidden bg-background py-24 text-foreground sm:py-28 lg:py-32">
+    <section id="pricing" className="w-full overflow-x-hidden bg-background py-24 text-foreground sm:py-28 lg:py-32">
       <SectionHeading
         className="mb-16 sm:mb-20"
         title="Pricing That Works for You"
