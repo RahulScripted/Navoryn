@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
+import type { IconComponent } from "@/types/icon"
 import { cn } from "@/lib/utils"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
 import { ArrowButton } from "./notch/ArrowButton"
 import { CardNotch } from "./notch/CardNotch"
+import { ICON_ANIM, type IconAnim } from "./iconAnim"
+import { NOTCH } from "./notch/notch"
 
 const FOLD = 36
 const FOLD_CLIP = `polygon(0 0, calc(100% - ${FOLD}px) 0, 100% ${FOLD}px, 100% 100%, 0 100%)`
@@ -16,6 +19,10 @@ interface CardShellProps {
   imageShift?: { x: number; y: number }
   /** Small label above the title, e.g. "01 / 04 · Web Presence". */
   eyebrow?: string
+  /** Shows this icon in the corner disc instead of the arrow; the disc is then decoration, not a link. */
+  icon?: IconComponent
+  /** Animation for that icon, played when the card is hovered. */
+  iconAnim?: IconAnim
   /** Where the arrow button (and, when `stretched`, the whole card) goes. */
   to: string
   linkLabel: string
@@ -33,6 +40,8 @@ export function CardShell({
   image,
   imageShift,
   eyebrow,
+  icon: Icon,
+  iconAnim = "pop",
   to,
   linkLabel,
   stretched = false,
@@ -109,7 +118,19 @@ export function CardShell({
         />
       )}
       <CardNotch />
-      <ArrowButton to={to} label={linkLabel} />
+      {Icon ? (
+        <span
+          aria-hidden="true"
+          className="absolute right-0 bottom-0 z-30 flex items-center justify-center rounded-full bg-primary text-primary-foreground"
+          style={{ width: NOTCH.disc, height: NOTCH.disc }}
+        >
+          <span className={cn("card-icon flex", ICON_ANIM[iconAnim])}>
+            <Icon className="size-[18px]" />
+          </span>
+        </span>
+      ) : (
+        <ArrowButton to={to} label={linkLabel} />
+      )}
     </div>
   )
 }

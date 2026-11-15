@@ -29,16 +29,6 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     ],
   },
   {
-    title: "Services",
-    links: [
-      { label: "Web Development", href: "/web-development" },
-      { label: "Mobile Apps", href: "/mobile-app-development" },
-      { label: "UI/UX Design", href: "/ui-ux-product-design" },
-      { label: "E-commerce", href: "/ecommerce-payments" },
-      { label: "Maintenance", href: "/maintenance-optimization" },
-    ],
-  },
-  {
     title: "Explore",
     links: [
       { label: "Pricing", href: "/pricing" },

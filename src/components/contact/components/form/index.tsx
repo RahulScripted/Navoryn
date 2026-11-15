@@ -1,10 +1,12 @@
 import { useId, type FormEvent } from "react"
+import { PaperPlaneIcon } from "@radix-ui/react-icons"
 import { Button } from "@/components/pricing/components/Button"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
-import { BUDGET_OPTIONS, SERVICE_OPTIONS, whatsappUrl } from "../data/contact"
-import type { useEnquiryForm } from "../hooks/useEnquiryForm"
-import { CONTROL, Field } from "./Field"
-import { SelectField } from "./SelectField"
+import { BUDGET_OPTIONS, SERVICE_OPTIONS, whatsappUrl } from "@/components/contact/data/contact"
+import type { useEnquiryForm } from "@/components/contact/hooks/useEnquiryForm"
+import { Field } from "./components/Field"
+import { SelectField } from "./components/SelectField"
+import { AREA, CONTROL } from "./lib/styles"
 
 type Form = ReturnType<typeof useEnquiryForm>
 
@@ -102,13 +104,13 @@ export function ContactForm({ form, idPrefix, onSubmit }: ContactFormProps) {
             id={`${idPrefix}-details`}
             name="details"
             rows={5}
-            placeholder="What are you looking to build? Goals, features, timeline..."
+            placeholder="Goals, features, timeline"
             value={values.details}
             onChange={(e) => setField("details", e.target.value)}
             onBlur={() => blurField("details")}
             aria-invalid={Boolean(errors.details)}
             aria-describedby={describe("details")}
-            className={`${CONTROL} min-h-32 flex-1 resize-none`}
+            className={AREA}
           />
         </Field>
 
@@ -122,7 +124,8 @@ export function ContactForm({ form, idPrefix, onSubmit }: ContactFormProps) {
           </p>
         )}
 
-        <Button type="submit" size="lg" disabled={sending} className="cursor-target w-full">
+        <Button type="submit" size="lg" disabled={sending} className="cursor-target w-full gap-2">
+          <PaperPlaneIcon className="size-4" aria-hidden="true" />
           {sending ? "Sending…" : "Send Project Enquiry"}
         </Button>
       </form>

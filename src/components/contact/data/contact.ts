@@ -1,7 +1,6 @@
 import { BUDGET_RANGES } from "@/components/pricing/data/pricing"
 import { SERVICES } from "@/components/what-we-do/data/services"
-import type { IconComponent } from "@/types/icon"
-import { CheckCircledIcon, LayersIcon, LightningBoltIcon, PersonIcon } from "@radix-ui/react-icons"
+import { CircleCheckIcon, LayersIcon, UserIcon, ZapIcon, type AnimatedIconComponent } from "@/utilities/AnimatedIcons"
 
 /** WhatsApp number in international format, digits only (91 = India). Set VITE_WHATSAPP_NUMBER in .env.local. */
 export const WHATSAPP_NUMBER = ((import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined) ?? "").replace(/\D/g, "")
@@ -19,13 +18,13 @@ export const BUDGET_OPTIONS = [NOT_DECIDED, ...BUDGET_RANGES.map((range) => rang
 export interface Benefit {
   title: string
   description: string
-  icon: IconComponent
+  icon: AnimatedIconComponent
 }
 
 export const BENEFITS: Benefit[] = [
-  { title: "Quick Response", description: "We'll get back to you about your enquiry.", icon: LightningBoltIcon },
-  { title: "Personalized Approach", description: "Recommendations based on your project goals.", icon: PersonIcon },
-  { title: "No Obligation", description: "Discuss your idea before making a commitment.", icon: CheckCircledIcon },
+  { title: "Quick Response", description: "We'll get back to you about your enquiry.", icon: ZapIcon },
+  { title: "Personalized Approach", description: "Recommendations based on your project goals.", icon: UserIcon },
+  { title: "No Obligation", description: "Discuss your idea before making a commitment.", icon: CircleCheckIcon },
   { title: "Flexible Solutions", description: "From an MVP to a complete digital platform.", icon: LayersIcon },
 ]
 

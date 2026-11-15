@@ -58,7 +58,8 @@ export default function Header() {
           <NavorynMark className="size-8 transition-transform duration-300 group-hover:scale-110" />
         </a>
 
-        <NavigationMenu viewport={false} className="hidden md:flex" delayDuration={80} skipDelayDuration={400}>
+        <div className="hidden items-center gap-3 md:flex">
+        <NavigationMenu viewport={false} className="flex" delayDuration={80} skipDelayDuration={400}>
           <NavigationMenuList>
             <NavDropdown label="Company" links={COMPANY_LINKS} widthClass="w-[26rem]" />
             <NavDropdown label="Services" links={SERVICE_LINKS} widthClass="w-[32rem]" />
@@ -83,20 +84,18 @@ export default function Header() {
                 </a>
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <a
-                  href="/contact"
-                  onClick={(e) => goToSection(e, "/contact", navigate)}
-                  className="group/roll cursor-target inline-flex h-9 items-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  <RollText>Contact Us</RollText>
-                </a>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-
+        <Button asChild size="sm" className="px-5">
+          <a
+            href={CONTACT_LINK.href}
+            onClick={(e) => goToSection(e, CONTACT_LINK.href, navigate)}
+            className="group/roll cursor-target"
+          >
+            <RollText>{CONTACT_LINK.title}</RollText>
+          </a>
+        </Button>
+        </div>
         <Button
           size="icon"
           variant="ghost"
@@ -129,7 +128,15 @@ export default function Header() {
         />
         <NavLinkItem {...PORTFOLIO_LINK} plain className="px-3 py-3 text-base" />
         <NavLinkItem {...PRICING_LINK} onNavigate={close} plain className="px-3 py-3 text-base" />
-        <NavLinkItem {...CONTACT_LINK} onNavigate={close} plain className="px-3 py-3 text-base" />
+        <Button asChild size="lg" className="mt-3 w-full shrink-0">
+          <a
+            href={CONTACT_LINK.href}
+            onClick={(e) => goToSection(e, CONTACT_LINK.href, navigate, close)}
+            className="group/roll cursor-target"
+          >
+            <RollText>{CONTACT_LINK.title}</RollText>
+          </a>
+        </Button>
       </MobileMenu>
     </header>
   )

@@ -1,9 +1,10 @@
-import { ArrowRightIcon } from "@radix-ui/react-icons"
+import { ChevronRightIcon } from "@radix-ui/react-icons"
 import { Link } from "react-router-dom"
 import whatsappIcon from "@/asset/svgs/whatsapp.svg?url"
 import { Button } from "@/components/pricing/components/Button"
 import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
-import { BENEFITS, whatsappUrl } from "../data/contact"
+import { BENEFITS, whatsappUrl } from "@/components/contact/data/contact"
+import { BenefitCard } from "./components/BenefitCard"
 
 export function ContactIntro({ serviceLabel }: { serviceLabel?: string }) {
   const headRef = useReveal<HTMLDivElement>({ y: 32, blur: 8 })
@@ -22,16 +23,8 @@ export function ContactIntro({ serviceLabel }: { serviceLabel?: string }) {
       <div className="flex flex-col gap-4">
         <h3 className="text-base font-semibold tracking-tight">Why start a conversation?</h3>
         <ul ref={gridRef} className="grid gap-3 sm:grid-cols-2">
-          {BENEFITS.map(({ title, description, icon: Icon }) => (
-            <li key={title} className="cursor-target flex items-start gap-3 rounded-xl border bg-card p-4 text-card-foreground">
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-lg border bg-muted/50">
-                <Icon className="size-4" aria-hidden="true" />
-              </span>
-              <span className="min-w-0">
-                <span className="block text-sm font-semibold">{title}</span>
-                <span className="mt-0.5 block text-sm leading-snug text-muted-foreground">{description}</span>
-              </span>
-            </li>
+          {BENEFITS.map((benefit) => (
+            <BenefitCard key={benefit.title} {...benefit} />
           ))}
         </ul>
       </div>
@@ -40,7 +33,7 @@ export function ContactIntro({ serviceLabel }: { serviceLabel?: string }) {
         <Button asChild size="lg" className="cursor-target w-full sm:w-auto">
           <Link to="/book-call" className="gap-2">
             Get a Free Consultation
-            <ArrowRightIcon className="size-4" aria-hidden="true" />
+            <ChevronRightIcon className="size-4" aria-hidden="true" />
           </Link>
         </Button>
         <Button asChild variant="outline" size="lg" className="cursor-target w-full sm:w-auto">
