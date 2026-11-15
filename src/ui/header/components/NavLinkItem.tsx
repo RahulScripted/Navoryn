@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { NavigationMenuLink } from "@/components/ui/navigation-menu"
+import { NavigationMenuLink } from "@/ui/header/components/navigation-menu"
 import { cn } from "@/lib/utils"
 import { RollText } from "@/utilities/RollText"
 import { ComingSoon } from "@/ui/header/components/ComingSoon"

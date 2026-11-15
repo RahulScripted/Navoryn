@@ -1,3 +1,5 @@
+import { SERVICES } from "@/components/what-we-do/data/services"
+
 export type LinkItem = {
   title: string
   href: string
@@ -14,6 +16,10 @@ export const COMPANY_LINKS: LinkItem[] = [
   { title: "FAQ", href: "/faq" },
 ]
 
-export const SERVICES_LINK: LinkItem = { title: "Services", href: "/services" }
+/** Every service, each linking to its own page (/web-development, ...). */
+export const SERVICE_LINKS: LinkItem[] = SERVICES.map((service) => ({
+  title: service.title,
+  href: `/${service.id}`,
+}))
 export const PORTFOLIO_LINK: LinkItem = { title: "Portfolio", href: "#", disabled: true }
 export const PRICING_LINK: LinkItem = { title: "Pricing", href: "/pricing" }

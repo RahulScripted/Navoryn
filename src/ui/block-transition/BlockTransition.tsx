@@ -234,7 +234,7 @@ export default function BlockTransition({
   const blockStyle = { backgroundColor: color, opacity: 0, visibility: "hidden" as const }
 
   return (
-    <div className={`relative h-full w-full overflow-x-hidden ${className}`}>
+    <div className={`relative h-full w-full overflow-clip ${className}`}>
       <div
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 z-[999] overflow-hidden"
@@ -261,7 +261,7 @@ export default function BlockTransition({
         ref={wrapperRef}
         tabIndex={-1}
         aria-busy={isLeaving || undefined}
-        className="relative h-full w-full overflow-x-hidden outline-none"
+        className="relative h-full w-full overflow-x-clip outline-none"
       >
         {isLeaving ? shownChildrenRef.current : children}
       </div>

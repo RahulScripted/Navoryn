@@ -61,6 +61,7 @@ function Tile({
   isDark: boolean
 }) {
   const resolvedSrc = isDark ? icon.srcDark ?? icon.src : icon.src
+  const flip = isDark && icon.invertOnDark && !icon.srcDark ? DARK_FLIP : undefined
   return (
     <div
       className="grid h-full w-full place-items-center overflow-hidden rounded-[inherit] p-6"
@@ -74,6 +75,7 @@ function Tile({
           src={resolvedSrc}
           alt={icon.label ?? ""}
           draggable={false}
+          style={flip}
           className="h-full w-full object-contain"
         />
       ) : (
@@ -82,6 +84,9 @@ function Tile({
     </div>
   )
 }
+
+/** Flips a dark single-colour logo for dark tiles while keeping its hue. */
+const DARK_FLIP = { filter: "invert(1) hue-rotate(180deg)" }
 
 export function IconFolder(props: IconFolderProps) {
   const { title, tags, icons } = { ...DEFAULTS, ...props }
@@ -281,7 +286,12 @@ export function IconFolder(props: IconFolderProps) {
                     style={{ background: icon.background }}
                   >
                     {pillSrc ? (
-                      <img src={pillSrc} alt="" className="h-full w-full object-contain" />
+                      <img
+                        src={pillSrc}
+                        alt=""
+                        style={isDark && icon.invertOnDark && !icon.srcDark ? DARK_FLIP : undefined}
+                        className="h-full w-full object-contain"
+                      />
                     ) : (
                       icon.node
                     )}

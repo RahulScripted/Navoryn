@@ -1,5 +1,6 @@
+import { createElement } from "react"
 import type { FolderIcon, TechCategory } from "../../../types/technology"
-import { TOOL_ICONS } from "./icons"
+import { findToolIcon } from "./icons"
 
 export const TECH_CATEGORIES: TechCategory[] = [
   {
@@ -53,12 +54,30 @@ const tileBg = "color-mix(in oklab, var(--foreground) 6%, var(--card))"
 
 export function toolIcons(tools: string[]): FolderIcon[] {
   return tools.map((label) => {
-    const entry = TOOL_ICONS[label]
+    const entry = findToolIcon(label)
     return {
       label,
       background: tileBg,
       src: entry?.src,
       srcDark: entry?.srcDark,
+      invertOnDark: entry?.invertOnDark,
+      node: entry ? undefined : initialsMark(label),
     }
   })
+}
+
+/** Fallback tile for tools without a logo: the tool's initials. */
+function initialsMark(label: string) {
+  const words = label.replace(/[^A-Za-z0-9 .]/g, " ").split(/\s+/).filter(Boolean)
+  const initials =
+    words.length > 1 ? words[0][0] + words[1][0] : (words[0] ?? label).replace(/\./g, "").slice(0, 2)
+  return createElement(
+    "svg",
+    { viewBox: "0 0 40 40", className: "h-full w-full", "aria-hidden": true },
+    createElement(
+      "text",
+      { x: 20, y: 21, textAnchor: "middle", dominantBaseline: "central", fontSize: 17, fontWeight: 700, fill: "currentColor", opacity: 0.7 },
+      initials,
+    ),
+  )
 }

@@ -3,6 +3,7 @@ import type { ReactNode } from "react"
 export interface FolderIcon {
   src?: string
   srcDark?: string
+  invertOnDark?: boolean
   node?: ReactNode
   background?: string
   label?: string

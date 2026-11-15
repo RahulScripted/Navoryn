@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import '@/index.css'
 import PreLoader from '@/ui/preloader'
@@ -20,14 +20,18 @@ export default function App() {
   const sectionId = section ? SECTION_BY_SLUG[section] : undefined
   const isUnknown = Boolean(section) && !sectionId
 
-  // Scroll to the section named by the URL, on first load and on every navigation.
+  const arrived = useRef(false)
   useEffect(() => {
     if (isUnknown) return
-    // Within the first 2s the page is still laying out (images, reveals), so retry the scroll.
-    const first = performance.now() < 2000
-    if (first && !sectionId) return
-    const timers = first
-      ? [400, 1500].map((ms) => window.setTimeout(() => scrollToSection(sectionId, 'auto'), ms))
+    const justArrived = !arrived.current
+    arrived.current = true
+    const early = performance.now() < 2000
+    if (justArrived && !sectionId) {
+      if (!early) window.scrollTo({ top: 0, behavior: 'auto' })
+      return
+    }
+    const timers = justArrived
+      ? [100, 500, 1200].map((ms) => window.setTimeout(() => scrollToSection(sectionId, 'auto'), ms))
       : [window.setTimeout(() => scrollToSection(sectionId), 0)]
     return () => timers.forEach(window.clearTimeout)
   }, [sectionId, isUnknown])
