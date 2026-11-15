@@ -12,6 +12,8 @@ interface CardShellProps {
   description: string
   /** Illustration. Leave empty to show the blank media area. */
   image?: string
+  /** Percent offset of the picture inside the media box (centers uneven artwork). */
+  imageShift?: { x: number; y: number }
   /** Small label above the title, e.g. "01 / 04 · Web Presence". */
   eyebrow?: string
   /** Where the arrow button (and, when `stretched`, the whole card) goes. */
@@ -29,6 +31,7 @@ export function CardShell({
   title,
   description,
   image,
+  imageShift,
   eyebrow,
   to,
   linkLabel,
@@ -59,6 +62,7 @@ export function CardShell({
               loading="lazy"
               decoding="async"
               draggable={false}
+              style={imageShift ? { translate: `${imageShift.x}% ${imageShift.y}%` } : undefined}
               className="absolute inset-0 h-full w-full object-contain transition-transform duration-500 ease-out group-hover/card:scale-[1.03]"
             />
           )}

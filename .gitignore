@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files (keep real keys out of git; .env.example is the template)
+.env
+.env.*
+!.env.example

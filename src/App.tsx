@@ -10,6 +10,7 @@ import Technology from '@/pages/technology'
 import Testimonial from '@/pages/testimonial'
 import Pricing from '@/pages/pricing'
 import Faq from '@/pages/faq'
+import Contact from '@/pages/contact'
 import RevealFooter from '@/ui/footer/RevealFooter'
 import Header from '@/ui/header'
 import NotFound from '@/ui/not-found'
@@ -20,20 +21,39 @@ export default function App() {
   const sectionId = section ? SECTION_BY_SLUG[section] : undefined
   const isUnknown = Boolean(section) && !sectionId
 
-  const arrived = useRef(false)
+  // Scroll to the section named by the URL. On arrival (first load, or coming from another page) the
+  // page keeps growing for a while (pinned sections, images), so keep re-aiming for up to 4 seconds
+  // unless the visitor starts scrolling. Later URL changes scroll smoothly.
+  const mountedAt = useRef<number | null>(null)
   useEffect(() => {
     if (isUnknown) return
-    const justArrived = !arrived.current
-    arrived.current = true
-    const early = performance.now() < 2000
-    if (justArrived && !sectionId) {
-      if (!early) window.scrollTo({ top: 0, behavior: 'auto' })
-      return
+    // Time-based (not a one-shot flag) so React's double effect run in dev still counts as arrival.
+    if (mountedAt.current === null) mountedAt.current = performance.now()
+    const justArrived = performance.now() - mountedAt.current < 4500
+    if (!justArrived) {
+      const timer = window.setTimeout(() => scrollToSection(sectionId), 0)
+      return () => window.clearTimeout(timer)
     }
-    const timers = justArrived
-      ? [100, 500, 1200].map((ms) => window.setTimeout(() => scrollToSection(sectionId, 'auto'), ms))
-      : [window.setTimeout(() => scrollToSection(sectionId), 0)]
-    return () => timers.forEach(window.clearTimeout)
+    if (!sectionId) return
+
+    let cancelled = false
+    let timer = 0
+    let tries = 0
+    const stop = () => {
+      cancelled = true
+    }
+    const interrupts = ['wheel', 'touchstart', 'keydown'] as const
+    interrupts.forEach((type) => window.addEventListener(type, stop, { once: true, passive: true }))
+    const aim = () => {
+      if (cancelled || tries++ > 16) return
+      scrollToSection(sectionId, 'auto')
+      timer = window.setTimeout(aim, 250)
+    }
+    timer = window.setTimeout(aim, 100)
+    return () => {
+      window.clearTimeout(timer)
+      interrupts.forEach((type) => window.removeEventListener(type, stop))
+    }
   }, [sectionId, isUnknown])
 
   if (isUnknown) return <NotFound />
@@ -58,6 +78,7 @@ export default function App() {
           <Testimonial />
           <Pricing />
           <Faq />
+          <Contact />
         </main>
       </RevealFooter>
     </>

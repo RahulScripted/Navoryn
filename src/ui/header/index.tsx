@@ -16,7 +16,7 @@ import { MobileMenu } from "@/ui/header/components/MobileMenu"
 import { MobileAccordion } from "@/ui/header/components/MobileAccordion"
 import { NavDropdown } from "@/ui/header/components/NavDropdown"
 import { NavLinkItem } from "@/ui/header/components/NavLinkItem"
-import { COMPANY_LINKS, PORTFOLIO_LINK, PRICING_LINK, SERVICE_LINKS } from "@/ui/header/data/header"
+import { COMPANY_LINKS, PORTFOLIO_LINK, PRICING_LINK, SERVICE_LINKS, CONTACT_LINK } from "@/ui/header/data/header"
 import { goToSection } from "@/ui/header/goToSection"
 import { useScroll } from "@/ui/header/hooks/useScroll"
 
@@ -83,6 +83,17 @@ export default function Header() {
                 </a>
               </NavigationMenuLink>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <a
+                  href="/contact"
+                  onClick={(e) => goToSection(e, "/contact", navigate)}
+                  className="group/roll cursor-target inline-flex h-9 items-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  <RollText>Contact Us</RollText>
+                </a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -118,6 +129,7 @@ export default function Header() {
         />
         <NavLinkItem {...PORTFOLIO_LINK} plain className="px-3 py-3 text-base" />
         <NavLinkItem {...PRICING_LINK} onNavigate={close} plain className="px-3 py-3 text-base" />
+        <NavLinkItem {...CONTACT_LINK} onNavigate={close} plain className="px-3 py-3 text-base" />
       </MobileMenu>
     </header>
   )

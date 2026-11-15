@@ -29,7 +29,7 @@ export function NavDropdown({ label, links, widthClass }: NavDropdownProps) {
         onPointerEnter={noHover}
         onPointerLeave={noHover}
         className={cn(
-          "top-full left-1/2 mt-2 -translate-x-1/2 rounded-md bg-background p-1 text-foreground duration-300 ease-out data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out data-[state=open]:fade-in data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+          "top-full left-1/2 mt-2 origin-top -translate-x-1/2 rounded-md bg-background p-1 text-foreground will-change-[transform,opacity] data-[state=open]:animate-[nav-panel-in_320ms_cubic-bezier(0.16,1,0.3,1)_both] data-[state=closed]:animate-[nav-panel-out_220ms_cubic-bezier(0.4,0,1,1)_both] motion-reduce:animate-none",
         )}
       >
         <ul className={cn("grid grid-cols-2 gap-1", widthClass)}>

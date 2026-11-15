@@ -6,6 +6,7 @@ export const SECTION_BY_SLUG: Record<string, string> = {
   testimonials: "testimonials",
   pricing: "pricing",
   faq: "faq",
+  contact: "contact",
 }
 
 export function isSectionPath(pathname: string) {
@@ -39,6 +40,14 @@ export function goToSection(
   after?.()
   // Let the mobile menu release its body scroll lock first.
   window.setTimeout(() => {
+    // On a service page the contact form is right there (locked to that service): scroll to it
+    // instead of leaving for the home page.
+    const here = window.location.pathname
+    const onHome = here === "/" || isSectionPath(here)
+    if (href === "/contact" && !onHome && document.getElementById("contact")) {
+      scrollToSection("contact")
+      return
+    }
     if (window.location.pathname === href) scrollToSection(SECTION_BY_SLUG[href.slice(1)])
     else navigate(href)
   }, 60)

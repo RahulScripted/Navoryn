@@ -1200,3 +1200,13 @@ body {
   opacity: calc(var(--stack-dim, 0) * 0.35);
   pointer-events: none;
 }
+
+/* Header dropdown: drops in with a soft fade and settles; leaves a little faster. */
+@keyframes nav-panel-in {
+  from { opacity: 0; transform: translateY(-10px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes nav-panel-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-6px) scale(0.97); }
+}

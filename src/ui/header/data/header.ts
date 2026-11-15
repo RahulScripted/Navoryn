@@ -23,3 +23,4 @@ export const SERVICE_LINKS: LinkItem[] = SERVICES.map((service) => ({
 }))
 export const PORTFOLIO_LINK: LinkItem = { title: "Portfolio", href: "#", disabled: true }
 export const PRICING_LINK: LinkItem = { title: "Pricing", href: "/pricing" }
+export const CONTACT_LINK: LinkItem = { title: "Contact Us", href: "/contact" }

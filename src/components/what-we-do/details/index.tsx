@@ -1,9 +1,13 @@
 import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 import { DetailArrows } from "./components/DetailArrows"
 import { DetailCards } from "./components/DetailCards"
+import ContactSection from "@/components/contact"
+import { DetailFaq } from "./components/DetailFaq"
 import { DetailPager } from "./components/DetailPager"
 import { DetailTech } from "./components/DetailTech"
 import { SERVICE_DETAIL_CARDS } from "./data/cards"
+import { DETAIL_IMAGES } from "./data/images"
+import { SERVICE_FAQS } from "./data/faqs"
 import { SERVICE_TECH_CATEGORIES } from "./data/tech"
 import type { ServiceDetail } from "./types/detail"
 
@@ -21,9 +25,11 @@ export default function ServiceDetails({ detail }: { detail: ServiceDetail }) {
           tabletDescription={detail.tabletDescription}
           mobileDescription={detail.mobileDescription}
         />
-        <DetailCards cards={SERVICE_DETAIL_CARDS[detail.id]} serviceTitle={detail.title} />
+        <DetailCards cards={SERVICE_DETAIL_CARDS[detail.id]} images={DETAIL_IMAGES[detail.id]} serviceTitle={detail.title} />
       </section>
       <DetailTech categories={SERVICE_TECH_CATEGORIES[detail.id]} />
+      <DetailFaq key={`faq-${detail.id}`} faqs={SERVICE_FAQS[detail.id]} serviceTitle={detail.title} />
+      <ContactSection key={`contact-${detail.id}`} service={detail.id} />
       <DetailPager detail={detail} />
     </>
   )
