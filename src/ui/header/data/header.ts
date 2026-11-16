@@ -10,7 +10,7 @@ export type LinkItem = {
 export const COMPANY_LINKS: LinkItem[] = [
   { title: "About Us", href: "/about" },
   { title: "Technologies", href: "/technologies" },
-  { title: "How We Work", href: "#", disabled: true },
+  { title: "How We Work", href: "/how-we-work" },
   { title: "Testimonials", href: "/testimonials" },
   { title: "Blogs", href: "#", disabled: true },
   { title: "FAQ", href: "/faq" },

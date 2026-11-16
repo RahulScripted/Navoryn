@@ -23,9 +23,9 @@ interface CardShellProps {
   icon?: IconComponent
   /** Animation for that icon, played when the card is hovered. */
   iconAnim?: IconAnim
-  /** Where the arrow button (and, when `stretched`, the whole card) goes. */
-  to: string
-  linkLabel: string
+  /** Where the arrow button (and, when `stretched`, the whole card) goes. Leave out for a card with no link. */
+  to?: string
+  linkLabel?: string
   /** Make the whole card a link, not just the arrow button. */
   stretched?: boolean
   /** Cut long descriptions to three lines. */
@@ -109,7 +109,7 @@ export function CardShell({
           strokeLinejoin="round"
         />
       </svg>
-      {stretched && (
+      {stretched && to && (
         <Link
           to={to}
           aria-label={linkLabel}
@@ -129,7 +129,7 @@ export function CardShell({
           </span>
         </span>
       ) : (
-        <ArrowButton to={to} label={linkLabel} />
+        to && <ArrowButton to={to} label={linkLabel ?? title} />
       )}
     </div>
   )
