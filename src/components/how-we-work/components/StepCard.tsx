@@ -37,6 +37,8 @@ export function StepCard({ step, last }: { step: WorkStep; last: boolean }) {
         description={step.description}
         eyebrow={`${step.number} / ${step.weeks}`}
         image={step.image}
+        imageShift={step.imageShift}
+        mediaClassName={step.imageDark ? "bg-black" : undefined}
         icon={step.icon}
         iconAnim={step.anim}
       />

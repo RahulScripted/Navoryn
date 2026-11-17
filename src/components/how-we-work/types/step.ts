@@ -14,6 +14,10 @@ export interface WorkStep {
   end: number
   /** Illustration for the card. Empty for now: the card shows its blank image area. */
   image?: string
+  /** Centers uneven transparent margins (percent of the image box). */
+  imageShift?: { x: number; y: number }
+  /** The picture has a solid black background: the image box is painted black to match, so it letterboxes cleanly. */
+  imageDark?: boolean
   icon: IconComponent
   /** Animation the icon plays when its card is hovered. */
   anim: IconAnim

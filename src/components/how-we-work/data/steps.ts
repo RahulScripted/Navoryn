@@ -1,4 +1,8 @@
 import { CodeIcon, MagnifyingGlassIcon, RocketIcon, TargetIcon } from "@radix-ui/react-icons"
+import discoverImage from "@/asset/webps/discover.png"
+import designImage from "@/asset/webps/design.webp"
+import buildImage from "@/asset/webps/build.webp"
+import growImage from "@/asset/webps/grow.webp"
 import type { WorkStep } from "../types/step"
 
 export const STEPS: WorkStep[] = [
@@ -11,6 +15,8 @@ export const STEPS: WorkStep[] = [
       "We get to know your business, your audience, and your ambitions. Through focused conversations and research, we uncover what makes your brand different and where it can go.",
     start: 0,
     end: 2,
+    image: discoverImage,
+    imageShift: { x: -1.18, y: 0.88 },
     icon: MagnifyingGlassIcon,
     anim: "wiggle",
   },
@@ -23,6 +29,7 @@ export const STEPS: WorkStep[] = [
       "We turn insights into direction. Together, we establish your brand positioning, visual identity, messaging, and the principles that guide every creative decision.",
     start: 2,
     end: 4,
+    image: designImage,
     icon: TargetIcon,
     anim: "pop",
   },
@@ -35,6 +42,7 @@ export const STEPS: WorkStep[] = [
       "Ideas take shape through thoughtful design and purposeful development. We explore creative directions, refine the details, and build a digital experience that brings your vision to life.",
     start: 4,
     end: 9,
+    image: buildImage,
     icon: CodeIcon,
     anim: "nudge",
   },
@@ -47,6 +55,7 @@ export const STEPS: WorkStep[] = [
       "We prepare everything for a confident launch, from final assets and handover to ongoing support. And as your business evolves, we're here to help you move forward.",
     start: 9,
     end: 12,
+    image: growImage,
     icon: RocketIcon,
     anim: "rise",
   },

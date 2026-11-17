@@ -17,6 +17,8 @@ interface CardShellProps {
   image?: string
   /** Percent offset of the picture inside the media box (centers uneven artwork). */
   imageShift?: { x: number; y: number }
+  /** Extra classes for the media box, e.g. a background that matches the picture's own. */
+  mediaClassName?: string
   /** Small label above the title, e.g. "01 / 04 · Web Presence". */
   eyebrow?: string
   /** Shows this icon in the corner disc instead of the arrow; the disc is then decoration, not a link. */
@@ -39,6 +41,7 @@ export function CardShell({
   description,
   image,
   imageShift,
+  mediaClassName,
   eyebrow,
   icon: Icon,
   iconAnim = "pop",
@@ -63,7 +66,7 @@ export function CardShell({
         style={{ clipPath: FOLD_CLIP }}
       >
         <SpotlightLayer />
-        <div className="relative z-10 m-2.5 aspect-[16/10] shrink-0 overflow-hidden rounded-[16px] bg-muted/50">
+        <div className={cn("relative z-10 m-2.5 aspect-[16/10] shrink-0 overflow-hidden rounded-[16px] bg-muted/50", mediaClassName)}>
           {image && (
             <img
               src={image}

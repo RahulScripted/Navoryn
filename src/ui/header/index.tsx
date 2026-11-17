@@ -12,11 +12,12 @@ import { NavorynMark } from "@/ui/header/components/NavorynMark"
 import { cn } from "@/lib/utils"
 import { RollText } from "@/utilities/RollText"
 import { ComingSoon } from "@/ui/header/components/ComingSoon"
+import { ContactButton } from "@/ui/header/components/ContactButton"
 import { MobileMenu } from "@/ui/header/components/MobileMenu"
 import { MobileAccordion } from "@/ui/header/components/MobileAccordion"
 import { NavDropdown } from "@/ui/header/components/NavDropdown"
 import { NavLinkItem } from "@/ui/header/components/NavLinkItem"
-import { COMPANY_LINKS, PORTFOLIO_LINK, PRICING_LINK, SERVICE_LINKS, CONTACT_LINK } from "@/ui/header/data/header"
+import { COMPANY_LINKS, PORTFOLIO_LINK, PRICING_LINK, SERVICE_LINKS } from "@/ui/header/data/header"
 import { goToSection } from "@/ui/header/goToSection"
 import { useScroll } from "@/ui/header/hooks/useScroll"
 
@@ -86,15 +87,7 @@ export default function Header() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <Button asChild size="sm" className="px-5">
-          <a
-            href={CONTACT_LINK.href}
-            onClick={(e) => goToSection(e, CONTACT_LINK.href, navigate)}
-            className="group/roll cursor-target"
-          >
-            <RollText>{CONTACT_LINK.title}</RollText>
-          </a>
-        </Button>
+        <ContactButton />
         </div>
         <Button
           size="icon"
@@ -128,15 +121,7 @@ export default function Header() {
         />
         <NavLinkItem {...PORTFOLIO_LINK} plain className="px-3 py-3 text-base" />
         <NavLinkItem {...PRICING_LINK} onNavigate={close} plain className="px-3 py-3 text-base" />
-        <Button asChild size="lg" className="mt-3 w-full shrink-0">
-          <a
-            href={CONTACT_LINK.href}
-            onClick={(e) => goToSection(e, CONTACT_LINK.href, navigate, close)}
-            className="group/roll cursor-target"
-          >
-            <RollText>{CONTACT_LINK.title}</RollText>
-          </a>
-        </Button>
+        <ContactButton size="lg" className="mt-3 w-full shrink-0" onNavigate={close} />
       </MobileMenu>
     </header>
   )
