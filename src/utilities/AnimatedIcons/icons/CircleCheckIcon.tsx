@@ -14,7 +14,6 @@ const TICK: Variants = {
   animate: { opacity: [0, 1], pathLength: [0, 1], transition: { duration: 0.3, delay: 0.4 } },
 }
 
-/** No Obligation: the ring draws, then the tick. */
 export const CircleCheckIcon = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const { controls, handleMouseEnter, handleMouseLeave } = useIconControls(ref, onMouseEnter, onMouseLeave)

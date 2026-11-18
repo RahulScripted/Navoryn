@@ -41,7 +41,6 @@ export function ContactForm({ form, idPrefix, onSubmit }: ContactFormProps) {
           <p className="mt-1 text-sm text-muted-foreground">Tell us a little about what you need.</p>
         </div>
 
-        {/* Honeypot: hidden from people, bots tick it. */}
         <input id={trapId} type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
         <div className="grid gap-x-5 sm:grid-cols-2">

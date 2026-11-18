@@ -1,7 +1,6 @@
 import type { ServiceId } from "../../types/service"
 import type { DetailCard } from "../types/detail"
 
-/** Four highlights per service. `image` is left empty on purpose; add one per card later. */
 export const SERVICE_DETAIL_CARDS: Record<ServiceId, DetailCard[]> = {
   "web-development": [
     { category: "Web Presence", title: "Business Websites", description: "Professional, responsive websites that communicate your brand, showcase your services, and help customers understand why your business matters." },

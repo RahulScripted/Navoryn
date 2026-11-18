@@ -7,12 +7,6 @@ import { ServiceCard } from "../card/ServiceCard"
 
 gsap.registerPlugin(ScrollTrigger)
 
-/**
- * Vertical scroll drives a horizontal slide: the row pins in the middle of the
- * screen, the cards travel sideways until the last one is visible, then the
- * page continues downward. Without motion (reduced-motion), the row is a plain
- * horizontally scrollable strip.
- */
 export function ServiceScroller() {
   const pinRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLUListElement>(null)

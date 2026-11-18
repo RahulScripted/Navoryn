@@ -10,7 +10,6 @@ const PATH: Variants = {
   animate: { opacity: [0, 1], pathLength: [0, 1], transition: { duration: 0.6, opacity: { duration: 0.1 } } },
 }
 
-/** Quick Response: the bolt redraws itself. */
 export const ZapIcon = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const { controls, handleMouseEnter, handleMouseLeave } = useIconControls(ref, onMouseEnter, onMouseLeave)

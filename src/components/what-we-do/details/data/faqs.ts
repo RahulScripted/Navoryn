@@ -1,7 +1,6 @@
 import type { FaqItem } from "@/types/faq"
 import type { ServiceId } from "../../types/service"
 
-/** Five questions per service. Shown with the same accordion as the home page FAQ. */
 export const SERVICE_FAQS: Record<ServiceId, FaqItem[]> = {
   "web-development": [
     {

@@ -7,7 +7,6 @@ import Header from "@/ui/header"
 import RevealFooter from "@/ui/footer/RevealFooter"
 import TargetCursor from "@/utilities/TargetCursor/TargetCursor"
 
-/** How We Work is its own page (like the service pages): header, the section, footer. */
 export default function HowWeWorkPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" })

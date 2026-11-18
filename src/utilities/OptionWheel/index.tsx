@@ -8,7 +8,6 @@ export interface OptionWheelProps {
   textColor?: string
   activeColor?: string
   side?: "left" | "right"
-  /** Font size of the labels in rem. */
   fontSize?: number
   spacing?: number
   curve?: number
@@ -20,11 +19,8 @@ export interface OptionWheelProps {
   inset?: number
   loop?: boolean
   draggable?: boolean
-  /** Scroll the wheel with the mouse wheel / touchpad. Off lets the page scroll over it. */
   wheel?: boolean
-  /** Advance to the next option every N ms (0 turns it off). Needs `loop` to wrap around. */
   autoPlay?: number
-  /** Pause auto-play while the pointer is over the wheel. */
   pauseOnHover?: boolean
   soundUrl?: string
   soundVolume?: number
@@ -104,7 +100,6 @@ export default function OptionWheel({
     }
   })
 
-  // One rAF loop eases the wheel toward its target, then lays every option out along the curve.
   const runFrame = useCallback((now: number) => {
     const cfg = cfgRef.current
     if (!cfg) return
@@ -213,7 +208,6 @@ export default function OptionWheel({
     }
   }, [applyTarget, wheel])
 
-  // Auto-play: step forward on a timer while visible, not hovered and not being dragged.
   useEffect(() => {
     const el = rootRef.current
     if (!el || autoPlay <= 0) return undefined
@@ -294,7 +288,6 @@ export default function OptionWheel({
     [applyTarget],
   )
 
-  // Re-lay out whenever a visual setting changes.
   useEffect(() => {
     applyTarget(targetRef.current, false)
   }, [items, fontSize, spacing, curve, tilt, blur, fade, minOpacity, side, loop, smoothing, applyTarget])

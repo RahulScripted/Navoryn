@@ -8,9 +8,8 @@ import WhatWeDo from '@/pages/what-we-do'
 import TextLoopBand from '@/pages/text-loop'
 import Technology from '@/pages/technology'
 import Testimonial from '@/pages/testimonial'
-import Pricing from '@/pages/pricing'
+import Pricing from '@/components/pricing'
 import Faq from '@/pages/faq'
-import Contact from '@/pages/contact'
 import Cta from '@/components/cta'
 import RevealFooter from '@/ui/footer/RevealFooter'
 import Header from '@/ui/header'
@@ -22,13 +21,9 @@ export default function App() {
   const sectionId = section ? SECTION_BY_SLUG[section] : undefined
   const isUnknown = Boolean(section) && !sectionId
 
-  // Scroll to the section named by the URL. On arrival (first load, or coming from another page) the
-  // page keeps growing for a while (pinned sections, images), so keep re-aiming for up to 4 seconds
-  // unless the visitor starts scrolling. Later URL changes scroll smoothly.
   const mountedAt = useRef<number | null>(null)
   useEffect(() => {
     if (isUnknown) return
-    // Time-based (not a one-shot flag) so React's double effect run in dev still counts as arrival.
     if (mountedAt.current === null) mountedAt.current = performance.now()
     const justArrived = performance.now() - mountedAt.current < 4500
     if (!justArrived) {
@@ -79,7 +74,6 @@ export default function App() {
           <Testimonial />
           <Pricing />
           <Faq />
-          <Contact />
           <Cta />
         </main>
       </RevealFooter>

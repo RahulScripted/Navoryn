@@ -8,7 +8,6 @@ import { goToSection } from "@/ui/header/goToSection"
 
 type Props = LinkItem & {
   onNavigate?: () => void
-  /** Use a plain anchor (required outside <NavigationMenu>, e.g. the mobile menu). */
   plain?: boolean
   className?: string
 }

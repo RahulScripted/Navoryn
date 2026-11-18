@@ -85,7 +85,6 @@ function Tile({
   )
 }
 
-/** Flips a dark single-colour logo for dark tiles while keeping its hue. */
 const DARK_FLIP = { filter: "invert(1) hue-rotate(180deg)" }
 
 export function IconFolder(props: IconFolderProps) {

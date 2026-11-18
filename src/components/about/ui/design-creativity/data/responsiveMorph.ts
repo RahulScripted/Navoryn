@@ -1,4 +1,3 @@
-
 export type Triple = [number, number, number]
 
 export interface MorphRect {

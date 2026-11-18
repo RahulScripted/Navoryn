@@ -15,10 +15,6 @@ function makeReference() {
   return `NVR-${stamp}-${rand}`
 }
 
-/**
- * Form state, validation and Web3Forms submission for the contact section.
- * Pass `lockedService` (a service id) to pre-select and lock the service field.
- */
 export function useEnquiryForm(idPrefix: string, lockedService?: string) {
   const initial = useMemo<EnquiryValues>(
     () => ({ name: "", email: "", service: lockedService ?? "", budget: NOT_DECIDED, details: "" }),
@@ -52,10 +48,9 @@ export function useEnquiryForm(idPrefix: string, lockedService?: string) {
 
   const serviceLabel = SERVICE_OPTIONS.find((option) => option.id === values.service)?.label ?? ""
 
-  /** Validates and sends. Resolves with the ticket on success, or null (errors are shown in the form). */
   const submit = useCallback(
     async (honeypot: boolean): Promise<EnquiryTicket | null> => {
-      if (honeypot) return null // a bot filled the hidden field: drop silently
+      if (honeypot) return null
       setAttempted(true)
       const firstInvalid = FIELD_ORDER.find((field) => allErrors[field])
       if (firstInvalid) {

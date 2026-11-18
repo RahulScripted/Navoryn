@@ -25,7 +25,6 @@ const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffec
 export interface TextLoopProps {
   text?: string
   shape?: LoopShape
-  /** Custom SVG path data in a 1200x520 viewBox. Overrides `shape`. */
   path?: string
   speed?: number
   direction?: "forward" | "reverse"
@@ -50,7 +49,6 @@ export interface TextLoopProps {
   outline?: boolean
   outlineWidth?: number
   className?: string
-  /** Extra classes for the inner <svg> (e.g. to crop the empty space above and below the band). */
   svgClassName?: string
   style?: CSSProperties
 }
@@ -133,7 +131,6 @@ export default function TextLoop({
     [fontSize, fontWeight, letterSpacing],
   )
 
-  // Measure the path and one repetition of the phrase to know how many repeats fill the loop.
   useIsomorphicLayoutEffect(() => {
     const pathEl = pathRef.current
     const measureEl = measureRef.current

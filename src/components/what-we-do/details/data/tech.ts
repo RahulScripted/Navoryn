@@ -1,7 +1,6 @@
 import type { TechCategory } from "@/types/technology"
 import type { ServiceId } from "../../types/service"
 
-// 01. Web Development
 export const WEB_DEVELOPMENT_TECH: TechCategory[] = [
   { no: "01", title: "Frontend & Interface Engineering", tools: ["React.js", "Next.js", "TypeScript", "Redux Toolkit"] },
   { no: "02", title: "Backend & API Development", tools: ["Node.js", "Express.js", "Java", "Ruby on Rails"] },
@@ -11,7 +10,6 @@ export const WEB_DEVELOPMENT_TECH: TechCategory[] = [
   { no: "06", title: "Deployment & Infrastructure", tools: ["AWS", "Vercel", "Docker", "GitHub Actions"] },
 ]
 
-// 02. SaaS & MVP Development
 export const SAAS_MVP_TECH: TechCategory[] = [
   { no: "01", title: "Frontend & Product Engineering", tools: ["Next.js", "React.js", "TypeScript", "Tailwind CSS"] },
   { no: "02", title: "Backend & API Architecture", tools: ["Node.js", "Express.js", "GraphQL", "REST APIs"] },
@@ -21,7 +19,6 @@ export const SAAS_MVP_TECH: TechCategory[] = [
   { no: "06", title: "Cloud & Deployment", tools: ["AWS", "Vercel", "Docker", "Render"] },
 ]
 
-// 03. Mobile App Development
 export const MOBILE_APP_TECH: TechCategory[] = [
   { no: "01", title: "Mobile Frameworks & Languages", tools: ["React Native", "Expo", "Flutter", "TypeScript"] },
   { no: "02", title: "Navigation & UI", tools: ["React Navigation", "Expo Router", "NativeWind", "React Native Paper"] },
@@ -30,7 +27,6 @@ export const MOBILE_APP_TECH: TechCategory[] = [
   { no: "05", title: "Device Features & Notifications", tools: ["Firebase Cloud Messaging", "Expo Notifications"] },
 ]
 
-// 04. UI/UX & Product Design
 export const UI_UX_PRODUCT_DESIGN_TECH: TechCategory[] = [
   { no: "01", title: "UI & Visual Design", tools: ["Figma", "Adobe Photoshop", "Adobe Illustrator", "Sketch"] },
   { no: "02", title: "Wireframing & Prototyping", tools: ["Figma", "Framer"] },
@@ -38,7 +34,6 @@ export const UI_UX_PRODUCT_DESIGN_TECH: TechCategory[] = [
   { no: "05", title: "AI & Creative Design Tools", tools: ["Adobe Firefly", "Framer Motion", "Claude"] },
 ]
 
-// 05. Website & App Redesign
 export const WEBSITE_APP_REDESIGN_TECH: TechCategory[] = [
   { no: "01", title: "Frontend Modernization", tools: ["React.js", "Next.js", "TypeScript", "Redux Toolkit"] },
   { no: "02", title: "UI & Design Systems", tools: ["Figma", "Storybook", "Radix UI", "shadcn/ui"] },
@@ -48,7 +43,6 @@ export const WEBSITE_APP_REDESIGN_TECH: TechCategory[] = [
   { no: "06", title: "Version Control & Deployment", tools: ["Git", "GitHub", "Vercel", "Netlify"] },
 ]
 
-// 06. SEO & Digital Growth
 export const SEO_DIGITAL_GROWTH_TECH: TechCategory[] = [
   { no: "01", title: "SEO Research & Keywords", tools: ["Ahrefs", "Semrush"] },
   { no: "02", title: "Analytics & Conversion Tracking", tools: ["Google Analytics 4", "Google Tag Manager", "Hotjar"] },
@@ -58,7 +52,6 @@ export const SEO_DIGITAL_GROWTH_TECH: TechCategory[] = [
   { no: "06", title: "AI & Content Optimization", tools: ["ChatGPT", "Claude", "Grammarly"] },
 ]
 
-// 07. API & Platform Integrations
 export const API_PLATFORM_INTEGRATIONS_TECH: TechCategory[] = [
   { no: "01", title: "Backend & API Development", tools: ["Node.js", "Express.js", "Java", "Ruby on Rails"] },
   { no: "02", title: "API Protocols & Communication", tools: ["GraphQL", "WebSockets", "REST APIs"] },
@@ -68,7 +61,6 @@ export const API_PLATFORM_INTEGRATIONS_TECH: TechCategory[] = [
   { no: "06", title: "Webhooks & Integration Automation", tools: ["Zapier", "Make", "n8n"] },
 ]
 
-// 08. Social Media Integrations
 export const SOCIAL_MEDIA_INTEGRATIONS_TECH: TechCategory[] = [
   { no: "01", title: "Social Media Platform APIs", tools: ["Meta", "Instagram", "LinkedIn", "YouTube"] },
   { no: "02", title: "Messaging & Communication", tools: ["WhatsApp Business", "Twilio", "Telegram", "SendGrid"] },
@@ -78,7 +70,6 @@ export const SOCIAL_MEDIA_INTEGRATIONS_TECH: TechCategory[] = [
   { no: "06", title: "Analytics & Engagement", tools: ["Meta", "LinkedIn", "Google"] },
 ]
 
-// 09. Business Automation
 export const BUSINESS_AUTOMATION_TECH: TechCategory[] = [
   { no: "01", title: "Workflow & Process Automation", tools: ["n8n", "Zapier", "Make"] },
   { no: "02", title: "Custom Development & Scripting", tools: ["Node.js", "Python", "TypeScript", "Bash"] },
@@ -87,7 +78,6 @@ export const BUSINESS_AUTOMATION_TECH: TechCategory[] = [
   { no: "06", title: "AI & Intelligent Automation", tools: ["LangChain", "Hugging Face", "OpenAI", "Claude"] },
 ]
 
-// 10. E-commerce & Payments
 export const ECOMMERCE_PAYMENTS_TECH: TechCategory[] = [
   { no: "01", title: "E-commerce Platforms & Storefronts", tools: ["Shopify", "WooCommerce", "Magento", "BigCommerce"] },
   { no: "02", title: "Frontend & Store Experience", tools: ["Next.js", "React.js", "TypeScript", "Tailwind CSS"] },
@@ -96,7 +86,6 @@ export const ECOMMERCE_PAYMENTS_TECH: TechCategory[] = [
   { no: "05", title: "Analytics & Marketing", tools: ["Google", "Meta", "Google Tag Manager"] },
 ]
 
-// 11. Legacy System Modernization
 export const LEGACY_MODERNIZATION_TECH: TechCategory[] = [
   { no: "01", title: "Modern Frontend Frameworks", tools: ["React.js", "Next.js", "TypeScript", "JavaScript"] },
   { no: "02", title: "Backend & Enterprise Frameworks", tools: ["Node.js", "Spring Boot", "Java", "Ruby on Rails"] },
@@ -105,7 +94,6 @@ export const LEGACY_MODERNIZATION_TECH: TechCategory[] = [
   { no: "05", title: "Testing & Code Quality", tools: ["Jest", "Postman", "Playwright", "GitHub"] },
 ]
 
-// 12. Maintenance & Optimization
 export const MAINTENANCE_OPTIMIZATION_TECH: TechCategory[] = [
   { no: "01", title: "Testing & Quality Assurance", tools: ["Jest", "Vitest", "Playwright", "Postman"] },
   { no: "02", title: "Performance & Monitoring", tools: ["Lighthouse", "Sentry", "Datadog", "New Relic"] },
@@ -114,7 +102,6 @@ export const MAINTENANCE_OPTIMIZATION_TECH: TechCategory[] = [
   { no: "05", title: "AI & Developer Productivity", tools: ["GitHub", "Cursor", "ChatGPT", "CodeRabbit"] },
 ]
 
-// Service id -> technology categories
 export const SERVICE_TECH_CATEGORIES: Record<ServiceId, TechCategory[]> = {
   "web-development": WEB_DEVELOPMENT_TECH,
   "saas-mvp-development": SAAS_MVP_TECH,

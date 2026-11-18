@@ -9,11 +9,9 @@ import { RollText } from "@/utilities/RollText"
 interface ContactButtonProps {
   size?: "sm" | "lg"
   className?: string
-  /** Called after the click (the mobile menu uses it to close itself). */
   onNavigate?: () => void
 }
 
-/** The "Let's Talk" call to action, with the same ↗ arrow (and roll-on-hover) as the service cards. */
 export function ContactButton({ size = "sm", className, onNavigate }: ContactButtonProps) {
   const navigate = useNavigate()
   return (

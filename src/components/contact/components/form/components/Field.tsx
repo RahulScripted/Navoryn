@@ -7,17 +7,11 @@ interface FieldProps {
   required?: boolean
   error?: string
   hint?: string
-  /** Stretch to fill the remaining height of the form (used by the message box). */
   grow?: boolean
   className?: string
-  /** The control. It must come first so the floating label can follow it (CSS sibling selectors). */
   children: ReactNode
 }
 
-/**
- * Underline field with a floating label: the same look as the footer's email input. The message
- * line is absolutely positioned under the control, so showing an error never moves anything.
- */
 export function Field({ id, label, required, error, hint, grow, className, children }: FieldProps) {
   const message = error ?? hint
   return (

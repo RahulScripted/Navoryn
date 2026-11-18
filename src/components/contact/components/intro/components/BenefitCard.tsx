@@ -2,7 +2,6 @@ import { useRef } from "react"
 import type { IconHandle } from "@/utilities/AnimatedIcons"
 import type { Benefit } from "@/components/contact/data/contact"
 
-/** One benefit card. Hovering (or focusing) anywhere on the card plays its icon animation. */
 export function BenefitCard({ title, description, icon: Icon }: Benefit) {
   const iconRef = useRef<IconHandle>(null)
   return (

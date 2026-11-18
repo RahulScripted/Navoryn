@@ -15,7 +15,7 @@ interface SectionHeadingProps {
 
 const DESCRIPTION = "text-base leading-relaxed text-muted-foreground sm:text-lg"
 
-function Description({ children, className }: { children: ReactNode; className?: string }) {
+export function Description({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <ScrollReveal
       as="p"

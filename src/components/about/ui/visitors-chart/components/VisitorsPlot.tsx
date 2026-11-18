@@ -9,6 +9,16 @@ interface VisitorsPlotProps {
 
 const AXIS_TICK = { fill: "#8290A3", fontSize: 11 }
 
+function PlotPoint({ cx, cy }: { cx?: number; cy?: number }) {
+  if (cx == null || cy == null) return null
+  return (
+    <g className="visitors-point" pointerEvents="none">
+      <circle cx={cx} cy={cy} r={10} className="visitors-point__halo" />
+      <circle cx={cx} cy={cy} r={5} className="visitors-point__dot" />
+    </g>
+  )
+}
+
 export function VisitorsPlot({ data, animate }: VisitorsPlotProps) {
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -25,14 +35,14 @@ export function VisitorsPlot({ data, animate }: VisitorsPlotProps) {
           width={48}
           tick={AXIS_TICK}
         />
-        <Tooltip content={<ChartTooltip />} cursor={{ stroke: "#3a3a3a", strokeWidth: 1 }} isAnimationActive={false} />
+        <Tooltip content={<ChartTooltip />} cursor={false} offset={18} isAnimationActive={false} />
         <Line
           type="monotone"
           dataKey="visitors"
           stroke="#D6D6D6"
           strokeWidth={2.2}
           dot={false}
-          activeDot={false}
+          activeDot={<PlotPoint />}
           isAnimationActive={animate}
           animationDuration={1200}
           animationEasing="ease-out"

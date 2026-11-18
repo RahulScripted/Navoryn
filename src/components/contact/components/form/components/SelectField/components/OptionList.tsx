@@ -17,7 +17,6 @@ interface OptionListProps {
   onChoose: (index: number) => void
 }
 
-/** The dropdown panel, rendered in a portal so the form card can't clip it. Same motion as the navbar menus. */
 export function OptionList({ listId, label, options, value, active, open, place, panelRef, optionId, onActive, onChoose }: OptionListProps) {
   return createPortal(
     <ul

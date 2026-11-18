@@ -1,8 +1,8 @@
 import { CodeIcon, MagnifyingGlassIcon, RocketIcon, TargetIcon } from "@radix-ui/react-icons"
-import discoverImage from "@/asset/webps/discover.png"
-import designImage from "@/asset/webps/design.webp"
-import buildImage from "@/asset/webps/build.webp"
-import growImage from "@/asset/webps/grow.webp"
+import discoverImage from "@/asset/webps/progress/discover.png"
+import designImage from "@/asset/webps/progress/design.webp"
+import buildImage from "@/asset/webps/progress/build.webp"
+import growImage from "@/asset/webps/progress/grow.webp"
 import type { WorkStep } from "../types/step"
 
 export const STEPS: WorkStep[] = [
@@ -61,5 +61,4 @@ export const STEPS: WorkStep[] = [
   },
 ]
 
-/** Columns on the chart: W01 to W12. */
 export const WEEK_LABELS = Array.from({ length: 12 }, (_, i) => `W${String(i + 1).padStart(2, "0")}`)

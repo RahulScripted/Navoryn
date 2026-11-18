@@ -15,7 +15,6 @@ const BODY: Variants = {
 }
 const FROM_CENTER = { transformBox: "fill-box", transformOrigin: "center" } as const
 
-/** Personalized Approach: the head pops and the shoulders redraw. */
 export const UserIcon = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const { controls, handleMouseEnter, handleMouseLeave } = useIconControls(ref, onMouseEnter, onMouseLeave)

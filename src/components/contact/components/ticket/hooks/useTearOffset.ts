@@ -1,6 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react"
 
-/** Height of the ticket header, kept up to date, so the tear line and side cut-outs sit on its bottom edge. */
 export function useTearOffset(initial = 110) {
   const headRef = useRef<HTMLDivElement | null>(null)
   const [cut, setCut] = useState(initial)

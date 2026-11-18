@@ -1,7 +1,7 @@
 import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 import { DetailArrows } from "./components/DetailArrows"
 import { DetailCards } from "./components/DetailCards"
-import ContactSection from "@/components/contact"
+import Cta from "@/components/cta"
 import { DetailFaq } from "./components/DetailFaq"
 import { DetailTech } from "./components/DetailTech"
 import { SERVICE_DETAIL_CARDS } from "./data/cards"
@@ -28,7 +28,7 @@ export default function ServiceDetails({ detail }: { detail: ServiceDetail }) {
       </section>
       <DetailTech categories={SERVICE_TECH_CATEGORIES[detail.id]} />
       <DetailFaq key={`faq-${detail.id}`} faqs={SERVICE_FAQS[detail.id]} serviceTitle={detail.title} />
-      <ContactSection key={`contact-${detail.id}`} service={detail.id} />
+      <Cta />
       <DetailArrows detail={detail} />
     </>
   )

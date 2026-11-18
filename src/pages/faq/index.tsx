@@ -4,7 +4,7 @@ import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 import { FaqAccordionItem } from "@/components/faq/components/FaqAccordionItem"
 import { Button } from "@/components/pricing/components/Button"
 import { FAQS } from "@/components/faq/data/faq"
-import contactImage from "@/asset/webps/contact.webp"
+import contactImage from "@/asset/webps/home/miscellaneous/contact.webp"
 import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
 

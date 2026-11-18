@@ -4,10 +4,6 @@ import { goToSection } from "@/lib/sections"
 import { RollText } from "@/utilities/RollText"
 import { CTA } from "../data/cta"
 
-/**
- * The whole bar is the button. It takes the visitor to the contact form: scrolling to it on the home
- * page, or going there from any other page.
- */
 export function CtaLink() {
   const navigate = useNavigate()
   return (

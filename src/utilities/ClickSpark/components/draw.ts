@@ -41,7 +41,6 @@ export function starPath(ctx: CanvasRenderingContext2D, x: number, y: number, ra
   ctx.closePath()
 }
 
-/** Resolves any CSS color the canvas understands into [r, g, b]. */
 export function channels(ctx: CanvasRenderingContext2D, color: string): number[] {
   ctx.fillStyle = color
   const normal = String(ctx.fillStyle)

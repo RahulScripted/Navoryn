@@ -66,7 +66,6 @@ export function toolIcons(tools: string[]): FolderIcon[] {
   })
 }
 
-/** Fallback tile for tools without a logo: the tool's initials. */
 function initialsMark(label: string) {
   const words = label.replace(/[^A-Za-z0-9 .]/g, " ").split(/\s+/).filter(Boolean)
   const initials =

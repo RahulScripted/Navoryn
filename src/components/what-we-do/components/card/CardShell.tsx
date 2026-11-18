@@ -13,29 +13,19 @@ const FOLD_CLIP = `polygon(0 0, calc(100% - ${FOLD}px) 0, 100% ${FOLD}px, 100% 1
 interface CardShellProps {
   title: string
   description: string
-  /** Illustration. Leave empty to show the blank media area. */
   image?: string
-  /** Percent offset of the picture inside the media box (centers uneven artwork). */
   imageShift?: { x: number; y: number }
-  /** Extra classes for the media box, e.g. a background that matches the picture's own. */
   mediaClassName?: string
-  /** Small label above the title, e.g. "01 / 04 · Web Presence". */
   eyebrow?: string
-  /** Shows this icon in the corner disc instead of the arrow; the disc is then decoration, not a link. */
   icon?: IconComponent
-  /** Animation for that icon, played when the card is hovered. */
   iconAnim?: IconAnim
-  /** Where the arrow button (and, when `stretched`, the whole card) goes. Leave out for a card with no link. */
   to?: string
   linkLabel?: string
-  /** Make the whole card a link, not just the arrow button. */
   stretched?: boolean
-  /** Cut long descriptions to three lines. */
   clamp?: boolean
   className?: string
 }
 
-/** The folded-corner card with the arrow notch, shared by the service list and the service pages. */
 export function CardShell({
   title,
   description,

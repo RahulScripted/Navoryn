@@ -2,11 +2,6 @@ import { CardShell } from "@/components/what-we-do/components/card/CardShell"
 import { cssVars, progress, reached } from "../lib/timeline"
 import type { WorkStep } from "../types/step"
 
-/**
- * One phase, drawn with the same folded-corner card as the services (image area, label, title,
- * description, notch). Below `lg` it also gets a node and a rail segment so the list reads as a
- * vertical timeline that fills as you scroll. The card itself never changes colour.
- */
 export function StepCard({ step, last }: { step: WorkStep; last: boolean }) {
   return (
     <li

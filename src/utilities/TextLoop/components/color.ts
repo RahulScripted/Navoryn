@@ -5,7 +5,6 @@ function parseHex(value: string | undefined): number[] | null {
   return [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16))
 }
 
-/** Mixes a hex color toward white by `amount` (0-1). Non-hex values are returned unchanged. */
 export function tint(color: string, amount: number) {
   const rgb = parseHex(color)
   if (!rgb) return color
@@ -14,7 +13,6 @@ export function tint(color: string, amount: number) {
     .join("")}`
 }
 
-/** Picks black or white ink for readable text on the given hex background. */
 export function inkOn(color: string) {
   const rgb = parseHex(color)
   if (!rgb) return "#ffffff"

@@ -1,47 +1,44 @@
 import { useLayoutEffect, type RefObject } from "react"
-import { gsap } from "@/utilities/ScrollReveal/components/trigger/scroll"
+import { docTop, gsap } from "@/utilities/ScrollReveal/components/trigger/scroll"
 
 interface Refs {
-  /** Desktop pin target: the intro and the cards together, so the intro stays put while the cards slide. */
-  wrap: RefObject<HTMLElement | null>
-  /** The clipping window the cards slide through. Phone and tablet pin this alone, like the services row. */
+  title: RefObject<HTMLElement | null>
+  row: RefObject<HTMLElement | null>
   view: RefObject<HTMLElement | null>
   track: RefObject<HTMLElement | null>
 }
 
 const MOTION = "(prefers-reduced-motion: no-preference)"
-const HEADER = 64 // the fixed header
-const FIT_MARGIN = 24 // air above and below the block when it fits
+const HEADER = 64
+const FIT_MARGIN = 24
 
-/**
- * Vertical scroll drives a horizontal slide, the same as the services row. On desktop the whole block
- * pins with the intro on the left; below that the intro sits above and only the card row pins.
- * With reduced motion nothing pins and the row is a plain horizontally scrollable strip.
- */
-export function useBeliefsScroll({ wrap, view, track }: Refs) {
+export function useBeliefsScroll({ title, row, view, track }: Refs) {
   useLayoutEffect(() => {
-    const wrapEl = wrap.current
+    const rowEl = row.current
     const viewEl = view.current
     const trackEl = track.current
-    if (!wrapEl || !viewEl || !trackEl) return undefined
+    if (!rowEl || !viewEl || !trackEl) return undefined
 
     const distance = () => Math.max(0, trackEl.scrollWidth - viewEl.clientWidth)
     const slide = () => ({ x: () => -distance(), ease: "none" as const })
     const common = { end: () => `+=${distance()}`, pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true }
 
-    // The slide begins exactly when the pinned block reaches the middle of the part of the screen below the
-    // fixed header, never before, so it is fully in view first. A block too tall to fit there is pinned
-    // from just under the header instead (nothing else is possible on a very short window).
-    const startFor = (el: HTMLElement) => () =>
-      el.offsetHeight + FIT_MARGIN > window.innerHeight - HEADER ? `top top+=${HEADER + 8}` : `center center+=${HEADER / 2}`
+    const startFor = (el: HTMLElement) => () => {
+      const screen = window.innerHeight
+      if (el.offsetHeight + FIT_MARGIN > screen - HEADER) return `top ${HEADER + 8}px`
+      const centeredTop = (screen + HEADER) / 2 - el.offsetHeight / 2
+      const heading = title.current
+      const gap = heading ? docTop(el) - (docTop(heading) + heading.offsetHeight) : Infinity
+      return `top ${Math.min(centeredTop, HEADER + gap)}px`
+    }
 
     const mm = gsap.matchMedia()
     mm.add(`(min-width: 1024px) and ${MOTION}`, () => {
-      gsap.to(trackEl, { ...slide(), scrollTrigger: { id: "beliefs", trigger: wrapEl, start: startFor(wrapEl), ...common } })
+      gsap.to(trackEl, { ...slide(), scrollTrigger: { id: "beliefs", trigger: rowEl, start: startFor(rowEl), ...common } })
     })
     mm.add(`(max-width: 1023px) and ${MOTION}`, () => {
       gsap.to(trackEl, { ...slide(), scrollTrigger: { id: "beliefs", trigger: viewEl, start: startFor(viewEl), ...common } })
     })
     return () => mm.revert()
-  }, [wrap, view, track])
+  }, [title, row, view, track])
 }

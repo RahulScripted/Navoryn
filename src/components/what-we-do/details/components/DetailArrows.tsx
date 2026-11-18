@@ -4,13 +4,11 @@ import { cn } from "@/lib/utils"
 import { SERVICE_DETAILS } from "../data/details"
 import type { ServiceDetail } from "../types/detail"
 
-/** Round arrow on phones; from `sm` up it widens to show where it leads (the service name). */
 const LINK =
   "cursor-target group/arrow flex size-11 min-w-0 items-center justify-center gap-3 rounded-full border bg-card text-card-foreground transition-colors duration-300 hover:bg-accent sm:size-auto sm:max-w-[48%] sm:justify-start sm:rounded-2xl sm:px-5 sm:py-3"
 
 const ICON = "size-5 shrink-0 transition-transform duration-300"
 
-/** `<` and `>` buttons to the previous / next service, at the end of the page. Only the sides that exist are shown. */
 export function DetailArrows({ detail }: { detail: ServiceDetail }) {
   const index = SERVICE_DETAILS.findIndex((item) => item.id === detail.id)
   const previous = SERVICE_DETAILS[index - 1]

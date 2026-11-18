@@ -1,7 +1,5 @@
-/** How a card's corner icon moves when the card is hovered. The keyframes (ci-*) live in index.css. */
 export type IconAnim = "spin" | "spin-y" | "pop" | "wiggle" | "nudge" | "rise" | "bounce" | "flash" | "grow"
 
-// Full class names so Tailwind can see them. Each plays once per hover.
 export const ICON_ANIM: Record<IconAnim, string> = {
   spin: "group-hover/card:animate-[ci-spin_0.8s_ease-in-out]",
   "spin-y": "group-hover/card:animate-[ci-spin-y_0.9s_ease-in-out]",

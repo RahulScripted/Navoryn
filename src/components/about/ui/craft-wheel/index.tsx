@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react"
 import OptionWheel from "@/utilities/OptionWheel"
 import { CRAFT_ITEMS } from "./data/items"
 
-// Longest label is ~23 characters; this ratio keeps it inside the card at any width.
 const LONGEST = Math.max(...CRAFT_ITEMS.map((item) => item.length))
 const INSET = 20
 
@@ -15,7 +14,6 @@ export default function CraftWheel() {
     if (!el) return undefined
     const fit = () => {
       const usable = el.clientWidth - INSET - 12
-      // ~0.56em per character at weight 600, converted from px to rem.
       setFontSize(Math.min(2.25, Math.max(1, usable / (LONGEST * 0.56 * 16))))
     }
     fit()

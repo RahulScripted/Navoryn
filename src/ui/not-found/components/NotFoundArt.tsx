@@ -1,4 +1,4 @@
-import rawArt from "@/asset/svgs/404-error.svg?raw"
+import rawArt from "@/asset/svgs/miscellaneous/404-error.svg?raw"
 
 const art = rawArt
   .replace(/<style[\s\S]*?<\/style>/g, "")

@@ -25,10 +25,6 @@ interface Options {
   onBlur?: () => void
 }
 
-/**
- * State and keyboard handling for the custom select: open/close with an exit animation, flipping
- * upward when there's no room below, arrows / Home / End / Enter / Space / Esc, and type-to-jump.
- */
 export function useSelectMenu({ options, value, locked, onChange, onBlur }: Options) {
   const listId = useId()
   const buttonRef = useRef<HTMLButtonElement | null>(null)
@@ -82,14 +78,12 @@ export function useSelectMenu({ options, value, locked, onChange, onBlur }: Opti
     closePanel(true)
   }
 
-  // Take the panel out of the DOM once its exit animation has played.
   useEffect(() => {
     if (open || !mounted) return undefined
     const timer = window.setTimeout(() => setMounted(false), EXIT_MS)
     return () => window.clearTimeout(timer)
   }, [open, mounted])
 
-  // While open: follow the button on scroll/resize and close on an outside press.
   useEffect(() => {
     if (!open) return undefined
     const onOutside = (e: PointerEvent) => {
@@ -107,7 +101,6 @@ export function useSelectMenu({ options, value, locked, onChange, onBlur }: Opti
     }
   }, [open, measure, closePanel])
 
-  // Keep the highlighted option in view.
   useEffect(() => {
     if (open) document.getElementById(optionId(active))?.scrollIntoView({ block: "nearest" })
   }, [open, active, optionId])

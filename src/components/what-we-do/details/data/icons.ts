@@ -16,7 +16,6 @@ export interface DetailIcon {
 
 const i = (icon: IconComponent, anim: IconAnim): DetailIcon => ({ icon, anim })
 
-/** One icon per highlight card, in card order, with the animation it plays when the card is hovered. */
 export const DETAIL_ICONS: Record<ServiceId, DetailIcon[]> = {
   "web-development": [i(GlobeIcon, "spin-y"), i(DashboardIcon, "pop"), i(IdCardIcon, "wiggle"), i(GearIcon, "spin")],
   "saas-mvp-development": [i(CubeIcon, "spin-y"), i(StackIcon, "bounce"), i(GroupIcon, "pop"), i(RocketIcon, "rise")],

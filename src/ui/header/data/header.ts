@@ -3,7 +3,6 @@ import { SERVICES } from "@/components/what-we-do/data/services"
 export type LinkItem = {
   title: string
   href: string
-  /** Not live yet: rendered as a non-clickable "Coming Soon" item. */
   disabled?: boolean
 }
 
@@ -16,7 +15,6 @@ export const COMPANY_LINKS: LinkItem[] = [
   { title: "FAQ", href: "/faq" },
 ]
 
-/** Every service, each linking to its own page (/web-development, ...). */
 export const SERVICE_LINKS: LinkItem[] = SERVICES.map((service) => ({
   title: service.title,
   href: `/${service.id}`,

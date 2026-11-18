@@ -9,11 +9,9 @@ const noHover = (e: { preventDefault: () => void }) => e.preventDefault()
 interface NavDropdownProps {
   label: string
   links: LinkItem[]
-  /** Width of the list, e.g. "w-[26rem]". Two columns. */
   widthClass: string
 }
 
-/** Desktop dropdown: opens on click (not hover) and lists its links in two columns. */
 export function NavDropdown({ label, links, widthClass }: NavDropdownProps) {
   return (
     <NavigationMenuItem className="relative">

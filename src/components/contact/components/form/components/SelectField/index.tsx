@@ -15,12 +15,10 @@ interface SelectFieldProps {
   required?: boolean
   placeholder?: string
   error?: string
-  /** Fixed to the current value (shows a lock). */
   locked?: boolean
   hint?: string
 }
 
-/** Custom select in the footer-input underline style: a button + a listbox that drops in like the navbar menus. */
 export function SelectField({
   id, label, value, options, onChange, onBlur, required, placeholder, error, locked, hint,
 }: SelectFieldProps) {

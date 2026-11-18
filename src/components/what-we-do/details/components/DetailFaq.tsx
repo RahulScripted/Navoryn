@@ -4,7 +4,6 @@ import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
 import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 import type { FaqItem } from "@/types/faq"
 
-/** Same accordion and layout as the home page FAQ, filled with this service's questions. */
 export function DetailFaq({ faqs, serviceTitle }: { faqs: FaqItem[]; serviceTitle: string }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const gridRef = useReveal<HTMLDivElement>({ children: true, y: 28, blur: 6, stagger: 0.06 })

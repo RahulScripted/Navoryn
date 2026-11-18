@@ -1,6 +1,5 @@
 import type { ReactNode } from "react"
 
-/** The 24x24 stroked svg frame shared by every animated icon. */
 export function IconSvg({ size, children }: { size: number; children: ReactNode }) {
   return (
     <svg

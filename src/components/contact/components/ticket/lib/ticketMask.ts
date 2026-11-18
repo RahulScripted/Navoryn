@@ -1,10 +1,9 @@
 import type { CSSProperties } from "react"
 
-const NOTCH = 12 // radius of the side cut-outs, in px
+const NOTCH = 12
 
 const SIDES = `radial-gradient(circle ${NOTCH}px at 0 var(--cut), transparent ${NOTCH - 0.5}px, #000 ${NOTCH}px), radial-gradient(circle ${NOTCH}px at 100% var(--cut), transparent ${NOTCH - 0.5}px, #000 ${NOTCH}px)`
 
-/** Cuts a half-circle out of each side edge at --cut so the ticket looks torn along the dashed line. */
 export const TICKET_MASK: CSSProperties = {
   maskImage: SIDES,
   maskComposite: "intersect",

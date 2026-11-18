@@ -1,9 +1,8 @@
-
 import type { AboutCard } from "@/types/about"
 import { createElement } from "react"
 
-import expertiseImage from "@/asset/webps/experts.webp"
-import teamImage from "@/asset/webps/team-members.webp"
+import expertiseImage from "@/asset/webps/home/about/experts.webp"
+import teamImage from "@/asset/webps/home/about/team-members.webp"
 
 import Pattern from "@/components/about/ui/message-chat"
 import TerminalWindow from "@/components/about/ui/terminal"
@@ -13,7 +12,6 @@ import DesignCreativity from "@/components/about/ui/design-creativity"
 import MagnifiedBento from "@/components/about/ui/magnified-bento"
 import MonthlyVisitorsChart from "@/components/about/ui/visitors-chart"
 import CraftWheel from "@/components/about/ui/craft-wheel"
-
 
 export const ABOUT_CARDS: AboutCard[] = [
   {

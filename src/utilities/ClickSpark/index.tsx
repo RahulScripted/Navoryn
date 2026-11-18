@@ -13,7 +13,6 @@ import {
 } from "./components/draw"
 
 export interface ClickSparkHandle {
-  /** Fires a burst. x and y are px from the top-left of the wrapper (centered when omitted). */
   spark: (x?: number, y?: number) => void
 }
 
@@ -35,12 +34,7 @@ export interface ClickSparkProps {
   layer?: "front" | "back"
   extraScale?: number
   disabled?: boolean
-  /**
-   * Listen on the whole document and draw on a fixed full-screen layer, so every click
-   * on the page (including portals such as the mobile menu) sparks. No children needed.
-   */
   global?: boolean
-  /** Only spark when the clicked element matches (or is inside) this CSS selector. */
   selector?: string
   className?: string
   style?: CSSProperties

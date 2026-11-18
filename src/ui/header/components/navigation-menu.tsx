@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils"
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> & {
-    /** Set false to render each dropdown under its own trigger instead of a shared viewport. */
     viewport?: boolean
   }
 >(({ className, children, viewport = true, ...props }, ref) => (

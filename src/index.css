@@ -331,7 +331,6 @@ body {
   color: var(--muted-foreground);
 }
 
-/* Contact form: the footer's underline "subscribe-field" look, as full-width form fields. */
 .subscribe-field--form {
   flex: none;
   width: 100%;
@@ -363,7 +362,6 @@ body {
 .subscribe-field__input--select[data-empty="true"] {
   color: var(--muted-foreground);
 }
-/* A locked field (the service on a service page) looks like any other field; it just can't be changed. */
 .subscribe-field__input:disabled {
   cursor: default;
   opacity: 1;
@@ -1046,8 +1044,25 @@ body {
 .visitors-chart .recharts-line-curve {
   stroke: color-mix(in oklch, var(--foreground) 82%, transparent);
 }
-.visitors-chart .recharts-tooltip-cursor {
-  stroke: color-mix(in oklch, var(--foreground) 22%, transparent);
+.visitors-chart .visitors-point__halo {
+  fill: color-mix(in oklch, var(--foreground) 14%, transparent);
+}
+.visitors-chart .visitors-point__dot {
+  fill: var(--foreground);
+  stroke: var(--background);
+  stroke-width: 2.5px;
+}
+.visitors-chart .visitors-point circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: visitors-point-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes visitors-point-in {
+  from { transform: scale(0.3); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visitors-chart .visitors-point circle { animation: none; }
 }
 @media (max-width: 639px) {
   .visitors-chart .recharts-cartesian-axis-tick-value {
@@ -1241,7 +1256,6 @@ body {
   pointer-events: none;
 }
 
-/* Header dropdown: drops in with a soft fade and settles; leaves a little faster. */
 @keyframes nav-panel-in {
   from { opacity: 0; transform: translateY(-10px) scale(0.96); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
@@ -1251,7 +1265,6 @@ body {
   to   { opacity: 0; transform: translateY(-6px) scale(0.97); }
 }
 
-/* Service detail cards: the corner icon plays one of these once each time the card is hovered. */
 @keyframes ci-spin { to { transform: rotate(360deg); } }
 @keyframes ci-spin-y {
   from { transform: perspective(120px) rotateY(0deg); }

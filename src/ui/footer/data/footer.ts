@@ -8,7 +8,6 @@ import {
 export interface FooterLink {
   label: string
   href: string
-  /** Page does not exist yet: shown dimmed with a "Soon" tag and not clickable. */
   disabled?: boolean
 }
 

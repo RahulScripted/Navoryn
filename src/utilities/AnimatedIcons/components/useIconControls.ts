@@ -13,10 +13,6 @@ export interface IconProps extends HTMLAttributes<HTMLDivElement> {
 
 export type AnimatedIconComponent = ForwardRefExoticComponent<IconProps & RefAttributes<IconHandle>>
 
-/**
- * Shared hover logic for the animated icons. With no `ref` the icon animates on its own hover.
- * With a `ref` the parent drives it (call `startAnimation` / `stopAnimation`, e.g. on card hover).
- */
 export function useIconControls(
   ref: ForwardedRef<IconHandle>,
   onMouseEnter: IconProps["onMouseEnter"],

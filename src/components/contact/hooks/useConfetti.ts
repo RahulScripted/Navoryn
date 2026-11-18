@@ -3,7 +3,6 @@ import { useIsDark } from "@/components/technology/hooks/useIsDark"
 
 const DURATION_MS = 15_000
 
-/** Fires confetti from both sides of the screen for 15 seconds, in theme colors. */
 export function useConfetti() {
   const isDark = useIsDark()
   const stopRef = useRef<(() => void) | null>(null)
@@ -25,7 +24,7 @@ export function useConfetti() {
         spread: 75,
         origin: { x },
         colors,
-        zIndex: 1001, // above the thank-you modal (z-1000)
+        zIndex: 1001,
         disableForReducedMotion: true,
       })
 

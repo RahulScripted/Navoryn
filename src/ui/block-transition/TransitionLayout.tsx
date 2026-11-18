@@ -8,11 +8,9 @@ export default function TransitionLayout() {
   const location = useLocation()
   const outlet = useOutlet()
   const isDark = useIsDark()
-  // Section URLs (/pricing, /faq...) are the same page, so they must not replay the transition.
   const key = isSectionPath(location.pathname) ? "/" : location.pathname
   return (
     <>
-      {/* Sparks on every click, anywhere on every page. */}
       <ClickSpark
         global
         sparkColor={isDark ? "#fafafa" : "#0a0a0a"}

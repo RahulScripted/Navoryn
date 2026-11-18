@@ -1,6 +1,5 @@
 import { useEffect, type RefObject } from "react"
 
-/** Modal behavior: lock page scroll, focus the dialog, close on Esc, keep Tab inside, restore focus. */
 export function useModalBehavior(dialogRef: RefObject<HTMLElement | null>, onClose: () => void) {
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null

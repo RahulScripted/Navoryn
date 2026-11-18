@@ -35,7 +35,6 @@ interface Options {
   ribbonWidth: number
 }
 
-/** Drives the text along the path: auto-travel, hover pause, drag/fling and scroll boost. */
 export function useLoopMotion(o: Options) {
   const {
     metrics, rootRef, svgRef, headRef, tailRef, crossHeadRef, crossTailRef, progressRef,

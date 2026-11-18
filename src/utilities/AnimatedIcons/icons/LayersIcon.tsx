@@ -18,7 +18,6 @@ const BOTTOM: Variants = {
   animate: { y: [0, 2.5, 0], transition: { duration: 0.55, ease: "easeInOut" } },
 }
 
-/** Flexible Solutions: the layers pull apart and settle back. */
 export const LayersIcon = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const { controls, handleMouseEnter, handleMouseLeave } = useIconControls(ref, onMouseEnter, onMouseLeave)

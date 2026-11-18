@@ -21,7 +21,6 @@ import { COMPANY_LINKS, PORTFOLIO_LINK, PRICING_LINK, SERVICE_LINKS } from "@/ui
 import { goToSection } from "@/ui/header/goToSection"
 import { useScroll } from "@/ui/header/hooks/useScroll"
 
-
 export default function Header() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)

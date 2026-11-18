@@ -11,7 +11,6 @@ export interface Look {
   highlightColor: string
 }
 
-
 export const SCRUB_SPAN = 0.5
 export const RISE_MASK = "inset(-1em -1em -0.15em -1em)"
 

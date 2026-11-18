@@ -2,7 +2,6 @@ import { BUDGET_RANGES } from "@/components/pricing/data/pricing"
 import { SERVICES } from "@/components/what-we-do/data/services"
 import { CircleCheckIcon, LayersIcon, UserIcon, ZapIcon, type AnimatedIconComponent } from "@/utilities/AnimatedIcons"
 
-/** WhatsApp number in international format, digits only (91 = India). Set VITE_WHATSAPP_NUMBER in .env.local. */
 export const WHATSAPP_NUMBER = ((import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined) ?? "").replace(/\D/g, "")
 
 export const NOT_DECIDED = "Not decided yet"

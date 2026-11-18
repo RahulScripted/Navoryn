@@ -7,10 +7,6 @@ import NotFound from "@/ui/not-found"
 import Header from "@/ui/header"
 import RevealFooter from "@/ui/footer/RevealFooter"
 
-/**
- * `id` comes from the route (not the live URL): during the block transition the outgoing page
- * stays mounted while the URL already points elsewhere, and reading the URL would flash a 404.
- */
 export default function ServiceDetailPage({ id }: { id: string }) {
   const detail = getServiceDetail(id)
 

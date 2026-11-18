@@ -15,7 +15,6 @@ interface ThankYouTicketProps {
   onClose: () => void
 }
 
-/** Thank-you modal styled as a torn ticket: brand header, dashed tear line, enquiry details. */
 export function ThankYouTicket({ ticket, onClose }: ThankYouTicketProps) {
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement | null>(null)
@@ -40,7 +39,6 @@ export function ThankYouTicket({ ticket, onClose }: ThankYouTicketProps) {
           className="overflow-hidden rounded-2xl border bg-card text-card-foreground"
           style={{ ...TICKET_MASK, "--cut": `${cut}px` } as CSSProperties}
         >
-          {/* Header */}
           <div ref={headRef} className="relative flex flex-col gap-4 bg-muted/60 px-6 pt-6 pb-6 sm:flex-row sm:items-center sm:gap-6 sm:px-8">
             <div className="flex shrink-0 items-center gap-2.5">
               <NavorynMark className="size-9" />
@@ -63,10 +61,8 @@ export function ThankYouTicket({ ticket, onClose }: ThankYouTicketProps) {
             </button>
           </div>
 
-          {/* Tear line */}
           <div aria-hidden="true" className="border-t-2 border-dashed border-border" />
 
-          {/* Details */}
           <div className="flex flex-col gap-6 px-6 py-6 sm:px-8">
             <dl className="grid grid-cols-2 gap-x-6 gap-y-5">
               <div className="col-span-2">

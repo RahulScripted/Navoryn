@@ -9,7 +9,6 @@ import { useEnquiryForm } from "./hooks/useEnquiryForm"
 import type { EnquiryTicket } from "./types/contact"
 
 interface ContactSectionProps {
-  /** Lock the form to one service (used on the service pages). Omit on the home page. */
   service?: ServiceId
 }
 
