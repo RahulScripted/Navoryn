@@ -58,3 +58,11 @@ export function watchLayout() {
   })
   observer.observe(document.body)
 }
+
+// Pinned and scrubbed sections measure the page once. Anything that changes the layout afterwards (a web
+// font arriving, a picture loading) would leave them positioned for the old layout, so a pinned row
+// could appear on top of the content above it. Re-measure after every layout change, on every page.
+if (typeof window !== "undefined") {
+  watchLayout()
+  document.fonts?.ready.then(() => ScrollTrigger.refresh()).catch(() => {})
+}

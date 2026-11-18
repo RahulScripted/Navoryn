@@ -11,6 +11,7 @@ import Testimonial from '@/pages/testimonial'
 import Pricing from '@/pages/pricing'
 import Faq from '@/pages/faq'
 import Contact from '@/pages/contact'
+import Cta from '@/components/cta'
 import RevealFooter from '@/ui/footer/RevealFooter'
 import Header from '@/ui/header'
 import NotFound from '@/ui/not-found'
@@ -79,6 +80,7 @@ export default function App() {
           <Pricing />
           <Faq />
           <Contact />
+          <Cta />
         </main>
       </RevealFooter>
     </>

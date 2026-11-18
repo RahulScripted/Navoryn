@@ -1,4 +1,6 @@
 import { useEffect } from "react"
+import Beliefs from "@/components/beliefs"
+import Cta from "@/components/cta"
 import HowWeWork from "@/components/how-we-work"
 import PreLoader from "@/ui/preloader"
 import Header from "@/ui/header"
@@ -19,6 +21,8 @@ export default function HowWeWorkPage() {
       <RevealFooter>
         <main className="page-px">
           <HowWeWork />
+          <Beliefs />
+          <Cta />
         </main>
       </RevealFooter>
     </>

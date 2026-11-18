@@ -6,7 +6,6 @@ import { STEPS } from "./data/steps"
 import { useTimeline } from "./hooks/useTimeline"
 
 export default function HowWeWork() {
-  // `--t` is 1 (the finished timeline) until the hook takes over, so nothing is ever left half-drawn.
   const timelineRef = useTimeline<HTMLDivElement>({ duration: 7000 })
   const listRef = useReveal<HTMLOListElement>({ children: true, y: 40, stagger: 0.12 })
 
