@@ -10,6 +10,7 @@ import {
 } from "@/ui/header/components/navigation-menu"
 import { NavorynMark } from "@/ui/header/components/NavorynMark"
 import { cn } from "@/lib/utils"
+import { SvgTextDraw } from "@/utilities/SvgTextDraw"
 import { RollText } from "@/utilities/RollText"
 import { ComingSoon } from "@/ui/header/components/ComingSoon"
 import { ContactButton } from "@/ui/header/components/ContactButton"
@@ -57,6 +58,23 @@ export default function Header() {
         >
           <NavorynMark className="size-8 transition-transform duration-300 group-hover:scale-110" />
         </a>
+        <div
+          aria-hidden={scrolled}
+          className={cn(
+            "mr-auto flex items-center gap-3 overflow-hidden whitespace-nowrap transition-all duration-300",
+            scrolled ? "max-w-0 -translate-x-2 opacity-0" : "max-w-xs translate-x-0 opacity-100",
+          )}
+        >
+          <span className="h-8 w-px bg-foreground/60" />
+          <div className="flex flex-col gap-1">
+            <SvgTextDraw className="h-3 sm:h-3.5" strokeWidth={9} speed={1.4}>
+              WE DESIGN
+            </SvgTextDraw>
+            <SvgTextDraw className="h-3 sm:h-3.5" strokeWidth={9} speed={1.4} delay={0.8}>
+              WHAT'S NEXT
+            </SvgTextDraw>
+          </div>
+        </div>
 
         <div className="hidden items-center gap-3 md:flex">
         <NavigationMenu viewport={false} className="flex" delayDuration={80} skipDelayDuration={400}>

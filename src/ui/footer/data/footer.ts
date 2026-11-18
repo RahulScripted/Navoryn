@@ -20,9 +20,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/about" },
+      { label: "About NAVORYN", href: "/about-navoryn" },
       { label: "Technologies", href: "/technologies" },
-      { label: "How We Work", href: "/how-we-work" },
       { label: "Testimonials", href: "/testimonials" },
       { label: "Blogs", href: "#", disabled: true },
     ],

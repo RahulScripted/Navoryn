@@ -7,12 +7,8 @@ export type LinkItem = {
 }
 
 export const COMPANY_LINKS: LinkItem[] = [
-  { title: "About Us", href: "/about" },
-  { title: "Technologies", href: "/technologies" },
-  { title: "How We Work", href: "/how-we-work" },
-  { title: "Testimonials", href: "/testimonials" },
+  { title: "About NAVORYN", href: "/about-navoryn" },
   { title: "Blogs", href: "#", disabled: true },
-  { title: "FAQ", href: "/faq" },
 ]
 
 export const SERVICE_LINKS: LinkItem[] = SERVICES.map((service) => ({

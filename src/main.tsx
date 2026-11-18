@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')!).render(
         <Route element={<TransitionLayout />}>
           <Route path="/:section?" element={<App />} />
           <Route path="/book-call" element={<BookCall />} />
-          <Route path="/how-we-work" element={<HowWeWorkPage />} />
+          <Route path="/about-navoryn" element={<HowWeWorkPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           {SERVICE_DETAILS.map((d) => (
