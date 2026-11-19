@@ -94,7 +94,11 @@ interface SlideProps {
 
 function Slide({ kind, i, pos, w, active, reduce }: SlideProps) {
   const h = (w * SCREEN_H) / SCREEN_W
-  const d = useTransform(pos, (p) => i - p)
+  const n = SCREENS.length
+  const d = useTransform(pos, (p) => {
+    const raw = (((i - p) % n) + n) % n
+    return raw >= n / 2 ? raw - n : raw
+  })
   const x = useTransform(d, (v) =>
     reduce ? v * (w + 16) : Math.sign(v) * Math.min(Math.abs(v), 1) * w * 0.66 + Math.max(0, Math.abs(v) - 1) * w * 0.22 * Math.sign(v),
   )
@@ -176,7 +180,7 @@ export function LensReel() {
     return () => ro.disconnect()
   }, [])
   useEffect(() => {
-    const id = window.setInterval(() => setIndex((n) => (n + 1) % SCREENS.length), SCREEN_SECONDS * 1000)
+    const id = window.setInterval(() => setIndex((n) => n + 1), SCREEN_SECONDS * 1000)
     return () => window.clearInterval(id)
   }, [])
   useEffect(() => {
@@ -187,7 +191,7 @@ export function LensReel() {
     <div ref={wrap} aria-hidden="true" className="absolute inset-0 overflow-hidden" style={{ perspective: 1000 }}>
       <ul className="relative size-full" style={{ transformStyle: "preserve-3d" }}>
         {SCREENS.map((kind, i) => (
-          <Slide key={kind} kind={kind} i={i} pos={pos} w={w} active={i === index} reduce={reduce} />
+          <Slide key={kind} kind={kind} i={i} pos={pos} w={w} active={i === index % SCREENS.length} reduce={reduce} />
         ))}
       </ul>
     </div>

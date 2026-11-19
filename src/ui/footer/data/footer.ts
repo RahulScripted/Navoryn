@@ -42,7 +42,6 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "Privacy", href: "#", disabled: true },
       { label: "Terms", href: "#", disabled: true },
       { label: "Security", href: "#", disabled: true },
-      { label: "Cookies", href: "#", disabled: true },
     ],
   },
 ]

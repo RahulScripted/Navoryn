@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import PreloaderShell from "./components/layout/PreloaderShell"
+import { markPreloaderDone } from "./hooks/usePreloaderDone"
 
 const WORD_COUNT  = 3
 const INTERVAL_MS = 4000
@@ -16,10 +17,16 @@ export default function PreLoader() {
   const [mounted, setMounted] = useState(!alreadySeen)
 
   useEffect(() => {
-    if (alreadySeen) return
+    if (alreadySeen) {
+      markPreloaderDone()
+      return
+    }
     sessionStorage.setItem(SEEN_KEY, "1")
 
-    const fadeTimer = setTimeout(() => setVisible(false), TOTAL_MS)
+    const fadeTimer = setTimeout(() => {
+      setVisible(false)
+      markPreloaderDone()
+    }, TOTAL_MS)
     const unmountTimer = setTimeout(() => setMounted(false), TOTAL_MS + EXIT_MS)
     return () => {
       clearTimeout(fadeTimer)

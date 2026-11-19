@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import '@/index.css'
 import PreLoader from '@/ui/preloader'
 import TargetCursor from '@/utilities/TargetCursor/TargetCursor'
+import Hero from '@/pages/hero'
 import About from '@/pages/about'
 import WhatWeDo from '@/pages/what-we-do'
 import TextLoopBand from '@/pages/text-loop'
@@ -67,6 +68,7 @@ export default function App() {
 
       <RevealFooter>
         <main className="page-px">
+          <Hero />
           <About />
           <WhatWeDo />
           <TextLoopBand />
