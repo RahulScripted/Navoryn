@@ -7,7 +7,12 @@ import saas1 from "@/asset/webps/services/saas/saas-1.webp"
 import saas2 from "@/asset/webps/services/saas/saas-2.webp"
 import saas3 from "@/asset/webps/services/saas/saas-3.webp"
 import saas4 from "@/asset/webps/services/saas/saas-4.webp"
+import mobile1 from "@/asset/webps/services/mobile/mobile-1.webp"
 import mobile2 from "@/asset/webps/services/mobile/mobile-2.webp"
+import mobile3 from "@/asset/webps/services/mobile/mobile-3.webp"
+import mobile4 from "@/asset/webps/services/mobile/mobile-4.webp"
+import ui1 from "@/asset/webps/services/ui-ux/ui-1.webp"
+import ui2 from "@/asset/webps/services/ui-ux/ui-2.webp"
 
 export interface DetailImage {
   src: string
@@ -27,5 +32,14 @@ export const DETAIL_IMAGES: Partial<Record<ServiceId, (DetailImage | null)[]>> =
     { src: saas3, shift: { x: -0.24, y: 0.59 } },
     { src: saas4, shift: { x: -3.02, y: -1.22 } },
   ],
-  "mobile-app-development": [null, { src: mobile2, shift: { x: -0.58, y: -1.03 } }],
+  "mobile-app-development": [
+    { src: mobile1, shift: { x: -2.75, y: 1.07 } },
+    { src: mobile2, shift: { x: -0.58, y: -1.03 } },
+    { src: mobile3, shift: { x: -0.89, y: 1.66 } },
+    { src: mobile4, shift: { x: -0.67, y: 3.08 } },
+  ],
+  "ui-ux-product-design": [
+    { src: ui1, shift: { x: -0.03, y: -1.76 } },
+    { src: ui2, shift: { x: 0.67, y: -1.76 } },
+  ],
 }
