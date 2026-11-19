@@ -13,6 +13,8 @@ import mobile3 from "@/asset/webps/services/mobile/mobile-3.webp"
 import mobile4 from "@/asset/webps/services/mobile/mobile-4.webp"
 import ui1 from "@/asset/webps/services/ui-ux/ui-1.webp"
 import ui2 from "@/asset/webps/services/ui-ux/ui-2.webp"
+import ui3 from "@/asset/webps/services/ui-ux/ui-3.webp"
+import ui4 from "@/asset/webps/services/ui-ux/ui-4.webp"
 
 export interface DetailImage {
   src: string
@@ -41,5 +43,7 @@ export const DETAIL_IMAGES: Partial<Record<ServiceId, (DetailImage | null)[]>> =
   "ui-ux-product-design": [
     { src: ui1, shift: { x: -0.03, y: -1.76 } },
     { src: ui2, shift: { x: 0.67, y: -1.76 } },
+    { src: ui3, shift: { x: -1.29, y: 3.08 } },
+    { src: ui4, shift: { x: -3.08, y: 1.07 } },
   ],
 }
