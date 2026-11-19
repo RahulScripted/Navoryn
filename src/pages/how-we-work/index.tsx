@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import Beliefs from "@/components/beliefs"
 import Cta from "@/components/cta"
+import AboutNavoryn from "@/components/about-navoryn"
 import HowWeWork from "@/components/how-we-work"
 import PreLoader from "@/ui/preloader"
 import Header from "@/ui/header"
@@ -19,6 +20,7 @@ export default function HowWeWorkPage() {
       <TargetCursor targetSelector=".cursor-target" spinDuration={2} hideDefaultCursor parallaxOn />
       <RevealFooter>
         <main className="page-px">
+          <AboutNavoryn />
           <HowWeWork />
           <Beliefs />
           <Cta />

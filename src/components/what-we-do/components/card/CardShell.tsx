@@ -1,3 +1,4 @@
+import type { ReactNode } from "react"
 import { Link } from "react-router-dom"
 import type { IconComponent } from "@/types/icon"
 import { cn } from "@/lib/utils"
@@ -14,6 +15,7 @@ interface CardShellProps {
   title: string
   description: string
   image?: string
+  media?: ReactNode
   imageShift?: { x: number; y: number }
   mediaClassName?: string
   eyebrow?: string
@@ -30,6 +32,7 @@ export function CardShell({
   title,
   description,
   image,
+  media,
   imageShift,
   mediaClassName,
   eyebrow,
@@ -57,6 +60,7 @@ export function CardShell({
       >
         <SpotlightLayer />
         <div className={cn("relative z-10 m-2.5 aspect-[16/10] shrink-0 overflow-hidden rounded-[16px] bg-muted/50", mediaClassName)}>
+          {media}
           {image && (
             <img
               src={image}
