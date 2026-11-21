@@ -6,6 +6,7 @@ export interface PricingPackage {
   timeline: string
   features: string[]
   featured?: boolean
+  glitter?: boolean
 }
 
 export interface AddOn {

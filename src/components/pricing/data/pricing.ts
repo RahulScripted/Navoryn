@@ -23,9 +23,9 @@ export const PACKAGES: PricingPackage[] = [
   {
     id: "pro",
     badge: "Pro",
-    pages: "6–10 pages",
-    price: "₹20,000–₹35,000",
-    timeline: "10–14 days",
+    pages: "6 – 10 pages",
+    price: "₹20,000 – ₹35,000",
+    timeline: "10 – 14 days",
     featured: true,
     features: [
       "6 to 10 pages",
@@ -41,6 +41,8 @@ export const PACKAGES: PricingPackage[] = [
     pages: "10+ pages",
     price: "Custom quote",
     timeline: "a timeline based on scope",
+    featured: true,
+    glitter: true,
     features: [
       "10+ pages, unlimited sections",
       "Advanced integrations & dashboards",
@@ -216,8 +218,8 @@ export const MAINTENANCE_OPTIONS: BudgetRange[] = [
 
 export const PAGE_OPTIONS = [
   { id: "p1", label: "1 page", pages: 1 },
-  { id: "p2", label: "2–3 pages", pages: 3 },
-  { id: "p3", label: "4–5 pages", pages: 5 },
-  { id: "p4", label: "6–10 pages", pages: 6 },
+  { id: "p2", label: "2 – 3 pages", pages: 3 },
+  { id: "p3", label: "4 – 5 pages", pages: 5 },
+  { id: "p4", label: "6 – 10 pages", pages: 6 },
   { id: "p5", label: "10+ pages", pages: 11 },
 ]

@@ -1,9 +1,12 @@
 import { ArrowTopRightIcon } from "@radix-ui/react-icons"
+import { useRef } from "react"
 import { useReducedMotion } from "motion/react"
 import { useImpactExpand } from "@/components/impact/useImpactExpand"
 import { useVideoInView } from "@/components/impact/useVideoInView"
 import { scrollToSection } from "@/lib/sections"
 import { RollText } from "@/utilities/RollText"
+import VariableProximity from "@/utilities/VariableProximity/VariableProximity"
+import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
 import impactVideo from "@/asset/videos/hero.mp4"
 import impactPoster from "@/asset/webps/home/impact-poster.webp"
 const DESCRIPTION =
@@ -12,20 +15,38 @@ export default function Impact() {
   const reduced = Boolean(useReducedMotion())
   const { stage, slot, layer, video, caption, lineTop, lineBottom } = useImpactExpand(!reduced)
   useVideoInView(video)
+  const headingBox = useRef<HTMLDivElement>(null)
+  const titleRef = useReveal<HTMLHeadingElement>({ y: 0, blur: 10, duration: 1 })
+  const proximity = (label: string) => (
+    <VariableProximity
+      label={label}
+      containerRef={headingBox}
+      fromFontVariationSettings="'wght' 500, 'opsz' 9"
+      toFontVariationSettings="'wght' 1000, 'opsz' 40"
+      radius={140}
+      falloff="gaussian"
+      smoothing={0.25}
+    />
+  )
   const heading = (
-    <h2 className="pointer-events-none relative z-30 px-5 text-center text-[2.5rem] leading-[1.08] font-bold tracking-tight sm:text-7xl lg:text-8xl">
-      <span ref={lineTop} className="block">
-        We Turn Bold{" "}
-        <span
-          ref={slot}
-          aria-hidden="true"
-          className="inline-block h-[0.74em] w-[1.7em] rounded-full align-[-0.05em]"
-        />
-      </span>
-      <span ref={lineBottom} className="block">
-        Ideas Into <span className="text-muted-foreground">Impact.</span>
-      </span>
-    </h2>
+    <div ref={headingBox} className="relative z-30">
+      <h2
+        ref={titleRef}
+        className="pointer-events-none px-5 text-center text-[2.5rem] leading-[1.08] font-bold tracking-tight sm:text-7xl lg:text-8xl"
+      >
+        <span ref={lineTop} className="block">
+          {proximity("We Turn Bold")}{" "}
+          <span
+            ref={slot}
+            aria-hidden="true"
+            className="inline-block h-[0.74em] w-[1.7em] rounded-full align-[-0.05em]"
+          />
+        </span>
+        <span ref={lineBottom} className="block">
+          {proximity("Ideas Into")} <span className="text-muted-foreground">{proximity("Impact.")}</span>
+        </span>
+      </h2>
+    </div>
   )
   const media = (
     <>

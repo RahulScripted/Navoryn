@@ -55,7 +55,8 @@ function BlogItem({ blog }: { blog: Blog }) {
         description={blog.description}
         linkLabel={`Read case study: ${blog.title}`}
         image={blog.image}
-        arrow
+        to={blog.to}
+        stretched
         background={
           <span
             aria-hidden="true"

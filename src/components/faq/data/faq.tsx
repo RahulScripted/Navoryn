@@ -16,8 +16,8 @@ export const FAQS: FaqItem[] = [
         </p>
         <ul className="list-disc space-y-1 pl-5">
           <li>Single-page website: ₹5,000</li>
-          <li>2–3 pages: ₹8,000–₹15,000</li>
-          <li>6–10 pages: ₹20,000–₹35,000</li>
+          <li>2 – 3 pages: ₹8,000 – ₹15,000</li>
+          <li>6 – 10 pages: ₹20,000 – ₹35,000</li>
           <li>10+ pages: Custom quotation</li>
         </ul>
         <p>
@@ -36,9 +36,9 @@ export const FAQS: FaqItem[] = [
           estimates are:
         </p>
         <ul className="list-disc space-y-1 pl-5">
-          <li>Single-page website: 4–5 days</li>
-          <li>2–3 pages: Approximately 7 days</li>
-          <li>6–10 pages: Approximately 10–14 days</li>
+          <li>Single-page website: 4 – 5 days</li>
+          <li>2 – 3 pages: Approximately 7 days</li>
+          <li>6 – 10 pages: Approximately 10 – 14 days</li>
         </ul>
         <p>
           Timelines begin after requirements, content, and project direction are approved.

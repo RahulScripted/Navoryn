@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/utilities/Badge"
 import { BorderTrail } from "./BorderTrail"
+import { Glitter } from "./Glitter"
 import { SlideButton } from "./SlideButton"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
 import type { PricingPackage } from "@/types/pricing"
@@ -30,7 +31,10 @@ export function PackageCard({ pkg }: { pkg: PricingPackage }) {
       <SpotlightLayer />
 
       <div className="flex items-center justify-between">
-        <Badge variant={pkg.featured ? "default" : "secondary"}>{pkg.badge}</Badge>
+        <span className="relative inline-flex isolate">
+          <Badge variant={pkg.featured ? "default" : "secondary"}>{pkg.badge}</Badge>
+          {pkg.glitter && <Glitter />}
+        </span>
         <span className="text-sm text-muted-foreground">{pkg.pages}</span>
       </div>
 
