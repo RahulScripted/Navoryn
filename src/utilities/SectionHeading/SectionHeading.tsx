@@ -11,6 +11,7 @@ interface SectionHeadingProps {
   tabletDescription?: ReactNode
   eyebrow?: string
   align?: "center" | "left"
+  titleAside?: ReactNode
   className?: string
 }
 
@@ -38,6 +39,7 @@ export function SectionHeading({
   tabletDescription,
   eyebrow,
   align = "center",
+  titleAside,
   className,
 }: SectionHeadingProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -62,6 +64,7 @@ export function SectionHeading({
         </span>
       )}
 
+      <div className={cn("flex flex-wrap items-center gap-x-5 gap-y-3", align === "left" ? "w-full justify-between" : "justify-center")}>
       <h2 ref={titleRef} className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
         <VariableProximity
           label={title}
@@ -73,6 +76,8 @@ export function SectionHeading({
           smoothing={0.25}
         />
       </h2>
+        {titleAside}
+      </div>
 
       {description &&
         (mobileDescription || tabletDescription ? (

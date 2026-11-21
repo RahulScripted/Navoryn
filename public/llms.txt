@@ -5,7 +5,7 @@
 ## Company
 
 - [Home](/): Overview of Navoryn, our services, technologies and FAQs
-- [About Navoryn](/about-navoryn): What we believe in and how we work
+- [About](/about-navoryn): What we believe in and how we work
 - [Pricing](/pricing): Packages, add-ons and an instant estimate
 - [Contact](/contact): Tell us about your project
 - [Book a call](/book-call): Schedule a call to discuss your project
@@ -24,3 +24,9 @@
 - [E-commerce and payments](/ecommerce-payments): Online stores and payment integrations
 - [Legacy modernization](/legacy-modernization): Upgrading and migrating older systems
 - [Maintenance and optimization](/maintenance-optimization): Ongoing support and performance tuning
+
+## Legal
+
+- [Privacy Policy](/privacy-policy): What information we collect and how we protect it
+- [Terms & Conditions](/terms-and-conditions): Project agreements, pricing, payments and support
+- [Security](/security): How we handle client information, files and credentials

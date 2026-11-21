@@ -20,7 +20,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Company",
     links: [
-      { label: "About NAVORYN", href: "/about-navoryn" },
+      { label: "About", href: "/about-navoryn" },
       { label: "Technologies", href: "/technologies" },
       { label: "Testimonials", href: "/testimonials" },
       { label: "Blogs", href: "#blogs" },
@@ -39,9 +39,9 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "#", disabled: true },
-      { label: "Terms", href: "#", disabled: true },
-      { label: "Security", href: "#", disabled: true },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions" },
+      { label: "Security", href: "/security" },
     ],
   },
 ]

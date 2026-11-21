@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import Impact from "@/pages/impact"
 import About from "@/pages/about"
 import WhatWeDo from "@/pages/what-we-do"
 import TextLoopBand from "@/pages/text-loop"
@@ -14,6 +15,7 @@ export default function HomeSections({ onMounted }: { onMounted: () => void }) {
   }, [onMounted])
   return (
     <>
+      <Impact />
       <About />
       <WhatWeDo />
       <TextLoopBand />

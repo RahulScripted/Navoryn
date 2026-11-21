@@ -9,7 +9,7 @@ import TargetCursor from "@/utilities/TargetCursor/TargetCursor"
 import { usePageMeta } from "@/lib/pageMeta"
 
 export default function HowWeWorkPage() {
-  usePageMeta({ title: "About Navoryn", description: "Meet Navoryn, an independent digital studio. Learn what we believe in, how we work, and how we turn ambitious ideas into meaningful digital experiences." })
+  usePageMeta({ title: "About", description: "Meet Navoryn, an independent digital studio. Learn what we believe in, how we work, and how we turn ambitious ideas into meaningful digital experiences." })
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" })
   }, [])

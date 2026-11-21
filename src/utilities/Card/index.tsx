@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
 import { ArrowButton } from "./components/ArrowButton"
 import { CardNotch } from "./components/CardNotch"
+import { FoldCorner } from "./components/FoldCorner"
+import { FOLD_CLIP } from "./lib/fold"
 import { ICON_ANIM, type IconAnim } from "./lib/iconAnim"
 import { NOTCH } from "./lib/notch"
 
-const FOLD = 36
-const FOLD_CLIP = `polygon(0 0, calc(100% - ${FOLD}px) 0, 100% ${FOLD}px, 100% 100%, 0 100%)`
 
 interface CardShellProps {
   title: string
@@ -98,22 +98,7 @@ export function CardShell({
           </p>
         </div>
       </article>
-      <svg
-        aria-hidden="true"
-        focusable="false"
-        width={FOLD}
-        height={FOLD}
-        viewBox={`0 0 ${FOLD} ${FOLD}`}
-        className="pointer-events-none absolute right-0 top-0 z-20"
-      >
-        <path
-          d={`M0.5 0 V${FOLD - 0.5} H${FOLD} Z`}
-          fill="var(--muted)"
-          stroke="var(--border)"
-          strokeWidth="1"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <FoldCorner />
       {stretched && to && (
         <Link
           to={to}
