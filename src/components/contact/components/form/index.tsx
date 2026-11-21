@@ -1,6 +1,6 @@
 import { useId, type FormEvent } from "react"
 import { PaperPlaneIcon } from "@radix-ui/react-icons"
-import { Button } from "@/components/pricing/components/Button"
+import { Button } from "@/utilities/Button"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
 import { BUDGET_OPTIONS, SERVICE_OPTIONS, whatsappUrl } from "@/components/contact/data/contact"
 import type { useEnquiryForm } from "@/components/contact/hooks/useEnquiryForm"

@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { FolderIcon, IconFolderProps } from "../../../types/technology"
-import { useIsDark } from "../hooks/useIsDark"
+import { useIsDark } from "@/utilities/useIsDark"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
 
 const DEFAULTS = {

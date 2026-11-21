@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "motion/react"
-import { useIsDark } from "@/components/technology/hooks/useIsDark"
+import { useIsDark } from "@/utilities/useIsDark"
 import ShinyText from "@/utilities/ShinyText"
 import { HERO_TAGLINES, SHINE_COLORS, TAGLINE_MS } from "../data/hero"
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { useIsDark } from "@/components/technology/hooks/useIsDark"
+import { useIsDark } from "@/utilities/useIsDark"
 
 type Shape = "circle" | "beam"
 

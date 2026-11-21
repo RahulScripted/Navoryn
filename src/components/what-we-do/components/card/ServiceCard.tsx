@@ -1,6 +1,6 @@
 import { SERVICE_IMAGES } from "../../data/serviceImages"
 import type { Service } from "../../types/service"
-import { CardShell } from "./CardShell"
+import { CardShell } from "@/utilities/Card"
 
 interface ServiceCardProps {
   service: Service

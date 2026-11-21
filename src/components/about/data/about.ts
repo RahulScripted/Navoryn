@@ -1,5 +1,5 @@
 import type { AboutCard } from "@/types/about"
-import { createElement } from "react"
+import { createElement, lazy, Suspense } from "react"
 
 import expertiseImage from "@/asset/webps/home/about/experts.webp"
 import teamImage from "@/asset/webps/home/about/team-members.webp"
@@ -10,10 +10,10 @@ import CraftFeed from "@/components/about/ui/animated-list"
 import VisionBeam from "@/components/about/ui/animated-beam"
 import DesignCreativity from "@/components/about/ui/design-creativity"
 import MagnifiedBento from "@/components/about/ui/magnified-bento"
-import MonthlyVisitorsChart from "@/components/about/ui/visitors-chart"
 import CraftWheel from "@/components/about/ui/craft-wheel"
 import LanguageMorph from "@/components/about/ui/language-morph"
 
+const MonthlyVisitorsChart = lazy(() => import("@/components/about/ui/visitors-chart"))
 export const ABOUT_CARDS: AboutCard[] = [
   {
     id: "promise",
@@ -96,7 +96,7 @@ export const ABOUT_CARDS: AboutCard[] = [
     title: "Growth Through Insights",
     description:
       "Explore a sample monthly visitor trend through interactive analytics.",
-    media: createElement(MonthlyVisitorsChart, { showHeader: false }),
+    media: createElement(Suspense, { fallback: null }, createElement(MonthlyVisitorsChart, { showHeader: false })),
   },
   {
     id: "ticket",

@@ -6,7 +6,7 @@ import {
   RocketIcon, Share2Icon, ShuffleIcon, StackIcon, TableIcon, TargetIcon, TimerIcon, UpdateIcon, ViewGridIcon,
 } from "@radix-ui/react-icons"
 import type { IconComponent } from "@/types/icon"
-import type { IconAnim } from "@/components/what-we-do/components/card/iconAnim"
+import type { IconAnim } from "@/utilities/Card/lib/iconAnim"
 import type { ServiceId } from "../../types/service"
 
 export interface DetailIcon {

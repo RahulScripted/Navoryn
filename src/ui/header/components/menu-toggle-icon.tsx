@@ -1,37 +1,41 @@
 import { cn } from "@/lib/utils"
-
-type MenuToggleIconProps = React.ComponentProps<"svg"> & {
+type MenuToggleProps = React.ComponentProps<"svg"> & {
   open: boolean
   duration?: number
 }
-
 export function MenuToggleIcon({
   open,
   className,
-  duration = 300,
+  fill = "none",
+  stroke = "currentColor",
+  strokeWidth = 2.5,
+  strokeLinecap = "round",
+  strokeLinejoin = "round",
+  duration = 500,
   ...props
-}: MenuToggleIconProps) {
-  const line = {
-    style: { transitionDuration: `${duration}ms`, transformOrigin: "center", transformBox: "fill-box" as const },
-    className: "transition-transform ease-in-out",
-  }
+}: MenuToggleProps) {
   return (
     <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      className={cn(className)}
+      strokeWidth={strokeWidth}
+      fill={fill}
+      stroke={stroke}
+      viewBox="0 0 32 32"
+      strokeLinecap={strokeLinecap}
+      strokeLinejoin={strokeLinejoin}
       aria-hidden="true"
+      className={cn("transition-transform ease-in-out", open && "-rotate-45", className)}
+      style={{ transitionDuration: `${duration}ms` }}
       {...props}
     >
-      <line x1="4" y1="7" x2="20" y2="7" {...line}
-        style={{ ...line.style, transform: open ? "translateY(5px) rotate(45deg)" : "none" }} />
-      <line x1="4" y1="12" x2="20" y2="12" {...line}
-        style={{ ...line.style, transform: open ? "scaleX(0)" : "none" }} />
-      <line x1="4" y1="17" x2="20" y2="17" {...line}
-        style={{ ...line.style, transform: open ? "translateY(-5px) rotate(-45deg)" : "none" }} />
+      <path
+        className={cn(
+          "transition-all ease-in-out",
+          open ? "[stroke-dasharray:20_300] [stroke-dashoffset:-32.42px]" : "[stroke-dasharray:12_63]",
+        )}
+        style={{ transitionDuration: `${duration}ms` }}
+        d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+      />
+      <path d="M7 16 27 16" />
     </svg>
   )
 }

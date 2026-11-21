@@ -1,4 +1,4 @@
-import type { IconAnim } from "@/components/what-we-do/components/card/iconAnim"
+import type { IconAnim } from "@/utilities/Card/lib/iconAnim"
 import type { IconComponent } from "@/types/icon"
 
 export interface WorkStep {

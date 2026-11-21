@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 import { useNavigate } from "react-router-dom"
 import { Button } from "@/ui/header/components/button"
 import { MenuToggleIcon } from "@/ui/header/components/menu-toggle-icon"
@@ -14,18 +15,15 @@ import { SvgTextDraw } from "@/utilities/SvgTextDraw"
 import { RollText } from "@/utilities/RollText"
 import { ComingSoon } from "@/ui/header/components/ComingSoon"
 import { ContactButton } from "@/ui/header/components/ContactButton"
-import { MobileMenu } from "@/ui/header/components/MobileMenu"
-import { MobileAccordion } from "@/ui/header/components/MobileAccordion"
+import { CurvedMenu } from "@/ui/header/components/CurvedMenu"
 import { NavDropdown } from "@/ui/header/components/NavDropdown"
-import { NavLinkItem } from "@/ui/header/components/NavLinkItem"
-import { ABOUT_LINK, PORTFOLIO_LINK, PRICING_LINK, SERVICE_LINKS } from "@/ui/header/data/header"
+import { ABOUT_LINK, SERVICE_LINKS } from "@/ui/header/data/header"
 import { goToSection } from "@/ui/header/goToSection"
 import { useScroll } from "@/ui/header/hooks/useScroll"
 
 export default function Header() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
-  const [section, setSection] = useState<"services" | null>(null)
   const scrolled = useScroll(10)
   const close = () => setOpen(false)
 
@@ -45,11 +43,17 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-[100] w-full border-b border-transparent text-foreground transition-colors duration-300",
+        "fixed inset-x-0 top-0 z-[100] mx-auto w-full max-w-full border-b border-transparent text-foreground transition-all duration-300 ease-out md:rounded-md md:border",
         (scrolled || open) && "border-border bg-background/80 backdrop-blur-lg",
+        scrolled && !open && "md:top-4 md:max-w-4xl md:shadow-lg md:shadow-black/5",
       )}
     >
-      <nav className="flex h-16 w-full items-center justify-between px-(--page-x)">
+      <nav
+        className={cn(
+          "flex h-16 w-full items-center justify-between px-(--page-x) transition-all duration-300 ease-out",
+          scrolled && "md:h-14 md:px-3",
+        )}
+      >
         <a
           href="/"
           aria-label="Navoryn home"
@@ -116,33 +120,23 @@ export default function Header() {
         </NavigationMenu>
         <ContactButton />
         </div>
+      </nav>
+
+      <CurvedMenu open={open} onClose={close} />
+      {createPortal(
         <Button
           size="icon"
-          variant="ghost"
+          variant="outline"
           onClick={() => setOpen((v) => !v)}
-          className="cursor-target md:hidden"
+          className="cursor-target fixed top-3 right-4 z-[102] rounded-full bg-background/90 backdrop-blur-lg md:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label="Toggle menu"
         >
-          <MenuToggleIcon open={open} className="size-5" duration={300} />
-        </Button>
-      </nav>
-
-      <MobileMenu open={open} className="flex flex-col gap-1 overflow-y-auto">
-        <NavLinkItem {...ABOUT_LINK} onNavigate={close} plain className="px-3 py-3 text-base" />
-        <MobileAccordion
-          id="mobile-services"
-          label="Services"
-          links={SERVICE_LINKS}
-          open={section === "services"}
-          onToggle={() => setSection((v) => (v === "services" ? null : "services"))}
-          onNavigate={close}
-        />
-        <NavLinkItem {...PORTFOLIO_LINK} plain className="px-3 py-3 text-base" />
-        <NavLinkItem {...PRICING_LINK} onNavigate={close} plain className="px-3 py-3 text-base" />
-        <ContactButton size="lg" className="mt-3 w-full shrink-0" onNavigate={close} />
-      </MobileMenu>
+          <MenuToggleIcon open={open} className="size-6" duration={500} />
+        </Button>,
+        document.body,
+      )}
     </header>
   )
 }

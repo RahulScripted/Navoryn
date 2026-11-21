@@ -1,7 +1,7 @@
 import { CheckIcon } from "@radix-ui/react-icons"
 import { useNavigate } from "react-router-dom"
 import { cn } from "@/lib/utils"
-import { Badge } from "./Badge"
+import { Badge } from "@/utilities/Badge"
 import { BorderTrail } from "./BorderTrail"
 import { SlideButton } from "./SlideButton"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { motion, useReducedMotion } from "motion/react"
 import { usePreloaderDone } from "@/ui/preloader/hooks/usePreloaderDone"
 import { CircuitBoard } from "./components/CircuitBoard"
@@ -18,6 +19,21 @@ export default function Hero() {
   const { frameRef, circuitRef, deviceRef, hot, onPointerMove, onPointerLeave } = useHeroPointer(reduced)
   const { pulse, send } = useSignal()
   const anchor = useDeviceAnchor(frameRef, deviceRef)
+  const [inView, setInView] = useState(true)
+  const [small, setSmall] = useState(() => window.matchMedia("(max-width: 639px)").matches)
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 639px)")
+    const onChange = () => setSmall(media.matches)
+    media.addEventListener("change", onChange)
+    return () => media.removeEventListener("change", onChange)
+  }, [])
+  useEffect(() => {
+    const frame = frameRef.current
+    if (!frame) return
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting))
+    observer.observe(frame)
+    return () => observer.disconnect()
+  }, [frameRef])
   const pick = (variant: typeof rise) => (reduced ? instant : variant)
 
   return (
@@ -27,10 +43,11 @@ export default function Hero() {
       animate={ready ? "show" : "hidden"}
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
+      data-paused={!ready || !inView ? "true" : undefined}
       className="hero-frame relative isolate flex lg:min-h-[max(680px,100svh)] flex-col overflow-hidden bg-muted/40"
     >
       <motion.div ref={circuitRef} variants={pick(fade)} className="hero-circuit pointer-events-none absolute inset-0 -z-10">
-        <CircuitBoard hot={hot} reduced={reduced} anchor={anchor} />
+        <CircuitBoard hot={hot} reduced={reduced || small} anchor={anchor} />
       </motion.div>
       <motion.div
         variants={stagger(0.12, 0.1)}

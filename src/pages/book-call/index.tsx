@@ -2,9 +2,10 @@ import { useMemo, useState } from "react"
 import { CheckCircledIcon, ChevronLeftIcon, ChevronRightIcon, Share2Icon } from "@radix-ui/react-icons"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import { cn } from "@/lib/utils"
+import { usePageMeta } from "@/lib/pageMeta"
 import { RollText } from "@/utilities/RollText"
-import { Button } from "@/components/pricing/components/Button"
-import { Badge } from "@/components/pricing/components/Badge"
+import { Button } from "@/utilities/Button"
+import { Badge } from "@/utilities/Badge"
 import { Configurator, type ConfiguratorState } from "@/components/pricing/components/Configurator"
 import { AddOnPicker } from "@/components/pricing/components/AddOnPicker"
 import { EstimatePanel } from "@/components/pricing/components/EstimatePanel"
@@ -28,6 +29,7 @@ const PLAN_PRESETS: Record<string, string> = {
 type Step = "configure" | "addons" | "book"
 
 export default function BookCall() {
+  usePageMeta({ title: "Book a Call", description: "Book a free call with Navoryn to discuss your website, web app or mobile app project and get a tailored estimate." })
   const navigate = useNavigate()
   const [params] = useSearchParams()
   const plan = params.get("plan") ?? "custom"

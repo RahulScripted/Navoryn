@@ -1,0 +1,7 @@
+import { lazy } from 'react'
+export const BookCall = lazy(() => import('./book-call'))
+export const ServiceDetailPage = lazy(() => import('./service-detail'))
+export const HowWeWorkPage = lazy(() => import('./how-we-work'))
+export const ContactPage = lazy(() => import('./contact'))
+export const PricingPage = lazy(() => import('./pricing'))
+export const AppRoutes = lazy(() => import('../AppRoutes'))

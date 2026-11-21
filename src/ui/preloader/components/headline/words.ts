@@ -1,8 +1,8 @@
 import type { StickerWord } from "./StickerSwapHeadline"
 
-const IMG_1 = "https://images.unsplash.com/photo-1592187270271-9a4b84faa228?w=320&h=320&fit=crop&crop=center&auto=format"
-const IMG_2 = "https://images.unsplash.com/photo-1602848596140-33c2b48c6ade?w=320&h=320&fit=crop&crop=center&auto=format"
-const IMG_3 = "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=320&h=320&fit=crop&crop=center&auto=format"
+const IMG_1 = "/preloader/sticker-1.webp"
+const IMG_2 = "/preloader/sticker-2.webp"
+const IMG_3 = "/preloader/sticker-3.webp"
 
 export const words: StickerWord[] = [
   { word: "Curious", alt: "A halved orange",       sticker: IMG_1 },

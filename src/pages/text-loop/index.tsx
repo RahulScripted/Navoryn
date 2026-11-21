@@ -1,5 +1,5 @@
 import TextLoop from "@/utilities/TextLoop"
-import { useIsDark } from "@/components/technology/hooks/useIsDark"
+import { useIsDark } from "@/utilities/useIsDark"
 
 export default function TextLoopBand() {
   const isDark = useIsDark()

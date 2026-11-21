@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react"
-import { useIsDark } from "@/components/technology/hooks/useIsDark"
+import { useIsDark } from "@/utilities/useIsDark"
 
 const DURATION_MS = 15_000
 

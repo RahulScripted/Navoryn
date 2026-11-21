@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from "@radix-ui/react-icons"
 import { Link } from "react-router-dom"
 import whatsappIcon from "@/asset/svgs/tech-stack/social/whatsapp.svg?url"
-import { Button } from "@/components/pricing/components/Button"
+import { Button } from "@/utilities/Button"
 import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
 import { BENEFITS, whatsappUrl } from "@/components/contact/data/contact"
 import { BenefitCard } from "./components/BenefitCard"

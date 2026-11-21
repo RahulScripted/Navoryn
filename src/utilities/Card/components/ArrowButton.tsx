@@ -1,7 +1,7 @@
 import { ArrowTopRightIcon } from "@radix-ui/react-icons"
 import { Link } from "react-router-dom"
 import { RollText } from "@/utilities/RollText"
-import { NOTCH } from "./notch"
+import { NOTCH } from "../lib/notch"
 
 interface ArrowButtonProps {
   label: string

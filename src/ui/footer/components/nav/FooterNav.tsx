@@ -10,7 +10,7 @@ export function FooterNav() {
     <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
       {FOOTER_COLUMNS.map((column) => (
         <div key={column.title} className="min-w-0">
-          <h3 className="text-sm font-medium">{column.title}</h3>
+          <h2 className="text-sm font-medium">{column.title}</h2>
           <ul className="mt-4 flex flex-col gap-3">
             {column.links.map((link) => (
               <li key={link.label}>

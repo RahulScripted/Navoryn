@@ -1,7 +1,8 @@
+import { Suspense } from "react"
 import { useLocation, useOutlet } from "react-router-dom"
 import BlockTransition from "@/ui/block-transition/BlockTransition"
 import ClickSpark from "@/utilities/ClickSpark"
-import { useIsDark } from "@/components/technology/hooks/useIsDark"
+import { useIsDark } from "@/utilities/useIsDark"
 import CookieConsentNotice from "@/components/cookie-consent"
 import { isSectionPath } from "@/lib/sections"
 
@@ -22,7 +23,9 @@ export default function TransitionLayout() {
       />
       <CookieConsentNotice />
       <BlockTransition transitionKey={key} columns={5} duration={1} enableContentShift>
-        <div key={key}>{outlet}</div>
+        <div key={key}>
+          <Suspense fallback={null}>{outlet}</Suspense>
+        </div>
       </BlockTransition>
     </>
   )

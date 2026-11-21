@@ -69,7 +69,7 @@ function Word({ w, i }: { w: StickerWord; i: number }) {
           style={{ transform: "rotate(" + tilt + "deg)" }}
           data-tilt={tilt}
         >
-          <img src={w.sticker} alt={w.alt ?? ""} draggable={false} width={320} height={320} />
+          <img src={w.sticker} alt={w.alt ?? ""} draggable={false} width={240} height={240} />
         </span>
       </span>
       {after ? <span className="ssh-part ssh-after">{after}</span> : null}

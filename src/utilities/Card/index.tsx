@@ -3,10 +3,10 @@ import { Link } from "react-router-dom"
 import type { IconComponent } from "@/types/icon"
 import { cn } from "@/lib/utils"
 import { SpotlightLayer } from "@/utilities/SpotlightCard"
-import { ArrowButton } from "./notch/ArrowButton"
-import { CardNotch } from "./notch/CardNotch"
-import { ICON_ANIM, type IconAnim } from "./iconAnim"
-import { NOTCH } from "./notch/notch"
+import { ArrowButton } from "./components/ArrowButton"
+import { CardNotch } from "./components/CardNotch"
+import { ICON_ANIM, type IconAnim } from "./lib/iconAnim"
+import { NOTCH } from "./lib/notch"
 
 const FOLD = 36
 const FOLD_CLIP = `polygon(0 0, calc(100% - ${FOLD}px) 0, 100% ${FOLD}px, 100% 100%, 0 100%)`

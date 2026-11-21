@@ -1,4 +1,4 @@
-import { NOTCH } from "./notch"
+import { NOTCH } from "../lib/notch"
 
 export function CardNotch() {
   const { disc, block, fillet, surface } = NOTCH

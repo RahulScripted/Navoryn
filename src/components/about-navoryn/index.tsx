@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { ArrowTopRightIcon } from "@radix-ui/react-icons"
-import { CardShell } from "@/components/what-we-do/components/card/CardShell"
+import { CardShell } from "@/utilities/Card"
 import { GrowthChart } from "./components/GrowthChart"
 import { LensReel } from "./components/LensReel"
 import { RollText } from "@/utilities/RollText"

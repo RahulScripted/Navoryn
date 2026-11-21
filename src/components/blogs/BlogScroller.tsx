@@ -1,8 +1,8 @@
 import { useLayoutEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Badge } from "@/components/pricing/components/Badge"
-import { CardShell } from "@/components/what-we-do/components/card/CardShell"
+import { Badge } from "@/utilities/Badge"
+import { CardShell } from "@/utilities/Card"
 import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
 import { BLOGS, type Blog } from "./blogs"
 gsap.registerPlugin(ScrollTrigger)

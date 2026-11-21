@@ -1,4 +1,4 @@
-import { CardShell } from "@/components/what-we-do/components/card/CardShell"
+import { CardShell } from "@/utilities/Card"
 import { cssVars, progress, reached } from "../lib/timeline"
 import type { WorkStep } from "../types/step"
 

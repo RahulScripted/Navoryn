@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -56,7 +55,7 @@
   --secondary:              oklch(0.97 0 0);
   --secondary-foreground:   oklch(0.205 0 0);
   --muted:                  oklch(0.97 0 0);
-  --muted-foreground:       oklch(0.556 0 0);
+  --muted-foreground:       oklch(0.48 0 0);
   --accent:                 oklch(0.97 0 0);
   --accent-foreground:      oklch(0.205 0 0);
   --destructive:            oklch(0.577 0.245 27.325);
@@ -1338,6 +1337,12 @@ body {
   stroke-linecap: round;
   stroke-dasharray: 70 930;
   animation: hero-run 6s linear infinite;
+}
+.hero-frame[data-paused] .hero-pulse,
+.hero-frame[data-paused] .hero-ping,
+.hero-frame[data-paused] .hero-device-float,
+.hero-frame[data-paused] .hero-device-shadow {
+  animation-play-state: paused;
 }
 .hero-chip-body {
   transform-box: fill-box;

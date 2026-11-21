@@ -1,0 +1,26 @@
+# Navoryn
+
+> Navoryn is an independent digital studio that designs and builds high-performance websites, web apps, mobile apps and custom dashboards for ambitious businesses.
+
+## Company
+
+- [Home](/): Overview of Navoryn, our services, technologies and FAQs
+- [About Navoryn](/about-navoryn): What we believe in and how we work
+- [Pricing](/pricing): Packages, add-ons and an instant estimate
+- [Contact](/contact): Tell us about your project
+- [Book a call](/book-call): Schedule a call to discuss your project
+
+## Services
+
+- [Web development](/web-development): Websites, customer portals and web applications
+- [SaaS and MVP development](/saas-mvp-development): Product foundations and scalable SaaS platforms
+- [Mobile app development](/mobile-app-development): iOS, Android and cross-platform apps
+- [UI/UX and product design](/ui-ux-product-design): Interface design, UX research and design systems
+- [Website and app redesign](/website-app-redesign): Visual, performance and frontend modernization
+- [SEO and digital growth](/seo-digital-growth): Technical SEO, content and analytics
+- [API and platform integrations](/api-platform-integrations): Custom APIs and third-party integrations
+- [Social media integrations](/social-media-integrations): Social login, feeds and lead integrations
+- [Business automation](/business-automation): Workflow, notification and reporting automation
+- [E-commerce and payments](/ecommerce-payments): Online stores and payment integrations
+- [Legacy modernization](/legacy-modernization): Upgrading and migrating older systems
+- [Maintenance and optimization](/maintenance-optimization): Ongoing support and performance tuning

@@ -1,5 +1,5 @@
 import { CodeIcon, MagnifyingGlassIcon, RocketIcon, TargetIcon } from "@radix-ui/react-icons"
-import discoverImage from "@/asset/webps/progress/discover.png"
+import discoverImage from "@/asset/webps/progress/discover.webp"
 import designImage from "@/asset/webps/progress/design.webp"
 import buildImage from "@/asset/webps/progress/build.webp"
 import growImage from "@/asset/webps/progress/grow.webp"

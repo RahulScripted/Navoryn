@@ -1,5 +1,5 @@
 import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
-import { CardShell } from "../../components/card/CardShell"
+import { CardShell } from "@/utilities/Card"
 import type { DetailIcon } from "../data/icons"
 import type { DetailImage } from "../data/images"
 import type { DetailCard } from "../types/detail"

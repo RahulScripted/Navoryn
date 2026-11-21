@@ -1,4 +1,4 @@
-import { CardShell } from "@/components/what-we-do/components/card/CardShell"
+import { CardShell } from "@/utilities/Card"
 import type { Belief } from "../types/belief"
 
 export function BeliefCard({ belief }: { belief: Belief }) {
