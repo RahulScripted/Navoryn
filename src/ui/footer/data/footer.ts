@@ -23,7 +23,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "About NAVORYN", href: "/about-navoryn" },
       { label: "Technologies", href: "/technologies" },
       { label: "Testimonials", href: "/testimonials" },
-      { label: "Blogs", href: "#", disabled: true },
+      { label: "Blogs", href: "#blogs" },
     ],
   },
   {
@@ -47,8 +47,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
 ]
 
 export const FOOTER_SOCIALS = [
-  { name: "Facebook", icon: FacebookIcon },
-  { name: "X", icon: XIcon },
-  { name: "LinkedIn", icon: LinkedInIcon },
-  { name: "YouTube", icon: YouTubeIcon },
+  { name: "Facebook", icon: FacebookIcon, color: "#1877F2" },
+  { name: "X", icon: XIcon, color: "var(--foreground)" },
+  { name: "LinkedIn", icon: LinkedInIcon, color: "#0A66C2" },
+  { name: "YouTube", icon: YouTubeIcon, color: "#FF0000" },
 ]

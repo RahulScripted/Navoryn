@@ -20,9 +20,19 @@ export function scrollToSection(id: string | undefined, behavior: ScrollBehavior
 export function goToSection(
   e: { preventDefault: () => void },
   href: string,
-  navigate: (to: string) => void,
+  navigate: (to: string, options?: { state?: unknown }) => void,
   after?: () => void,
 ) {
+  if (href.startsWith("#") && href.length > 1) {
+    e.preventDefault()
+    after?.()
+    const id = href.slice(1)
+    window.setTimeout(() => {
+      if (window.location.pathname === "/") scrollToSection(id)
+      else navigate("/", { state: { scrollTo: id } })
+    }, 60)
+    return
+  }
   if (!href.startsWith("/")) return
   e.preventDefault()
   after?.()

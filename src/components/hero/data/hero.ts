@@ -19,7 +19,7 @@ export const HERO_DESCRIPTION =
 
 export const HERO_PRIMARY: HeroLink = { label: "Start a project", href: "/contact" }
 
-export const HERO_SECONDARY: HeroLink = { label: "Explore services", href: "/services" }
+export const HERO_SECONDARY: HeroLink = { label: "Explore services", href: "#what-we-do" }
 
 
 export const HERO_TAGLINES = [

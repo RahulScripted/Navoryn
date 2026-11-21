@@ -2,6 +2,7 @@ import { useLocation, useOutlet } from "react-router-dom"
 import BlockTransition from "@/ui/block-transition/BlockTransition"
 import ClickSpark from "@/utilities/ClickSpark"
 import { useIsDark } from "@/components/technology/hooks/useIsDark"
+import CookieConsentNotice from "@/components/cookie-consent"
 import { isSectionPath } from "@/lib/sections"
 
 export default function TransitionLayout() {
@@ -19,6 +20,7 @@ export default function TransitionLayout() {
         sparkRadius={26}
         duration={500}
       />
+      <CookieConsentNotice />
       <BlockTransition transitionKey={key} columns={5} duration={1} enableContentShift>
         <div key={key}>{outlet}</div>
       </BlockTransition>

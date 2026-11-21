@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { ArrowRightIcon, ArrowTopRightIcon } from "@radix-ui/react-icons"
-import { goToSection } from "@/lib/sections"
+import { goToSection, scrollToSection } from "@/lib/sections"
 import { RollText } from "@/utilities/RollText"
 import { HERO_PRIMARY, HERO_SECONDARY } from "../data/hero"
 
@@ -24,7 +24,10 @@ export function HeroActions() {
       </a>
       <a
         href={HERO_SECONDARY.href}
-        onClick={(e) => goToSection(e, HERO_SECONDARY.href, navigate)}
+        onClick={(e) => {
+          e.preventDefault()
+          scrollToSection("what-we-do")
+        }}
         className="group/roll cursor-target flex h-12 items-center gap-3 rounded-xl border border-border bg-background/70 px-5 text-foreground backdrop-blur-sm transition-[transform,border-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-foreground/40"
       >
         <RollText>

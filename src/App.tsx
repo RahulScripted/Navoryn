@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import '@/index.css'
 import PreLoader from '@/ui/preloader'
 import TargetCursor from '@/utilities/TargetCursor/TargetCursor'
@@ -20,7 +20,8 @@ import { SECTION_BY_SLUG, scrollToSection } from '@/lib/sections'
 
 export default function App() {
   const { section } = useParams()
-  const sectionId = section ? SECTION_BY_SLUG[section] : undefined
+  const { state } = useLocation()
+  const sectionId = section ? SECTION_BY_SLUG[section] : (state?.scrollTo as string | undefined)
   const isUnknown = Boolean(section) && !sectionId
 
   const mountedAt = useRef<number | null>(null)

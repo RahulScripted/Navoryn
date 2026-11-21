@@ -12,8 +12,18 @@ import DesignCreativity from "@/components/about/ui/design-creativity"
 import MagnifiedBento from "@/components/about/ui/magnified-bento"
 import MonthlyVisitorsChart from "@/components/about/ui/visitors-chart"
 import CraftWheel from "@/components/about/ui/craft-wheel"
+import LanguageMorph from "@/components/about/ui/language-morph"
 
 export const ABOUT_CARDS: AboutCard[] = [
+  {
+    id: "promise",
+    tone: "neutral",
+    eyebrow: "Our Promise",
+    title: "Made Around You",
+    description:
+      "Built on Understanding. Connected by Language.",
+    media: createElement(LanguageMorph),
+  },
   {
     id: "expertise",
     tone: "lilac",
@@ -24,6 +34,15 @@ export const ABOUT_CARDS: AboutCard[] = [
     image: expertiseImage,
     imageAlt:
       "Illustration of developers and designers collaborating on code, mobile applications, and digital design",
+  },
+  {
+    id: "workflows",
+    tone: "neutral",
+    eyebrow: "Our Capabilities",
+    title: "Technology in Harmony",
+    description:
+      "Discover how our services and capabilities work together seamlessly.",
+    media: createElement(MagnifiedBento),
   },
   {
     id: "clients",
@@ -71,24 +90,6 @@ export const ABOUT_CARDS: AboutCard[] = [
     media: createElement(CraftFeed),
   },
   {
-    id: "team",
-    tone: "neutral",
-    eyebrow: "Our Core Team",
-    title: "One Vision. Many Perspectives.",
-    bleedImage: teamImage,
-    bleedImageAlt:
-      "Illustration of a diverse team coming together around a shared vision",
-  },
-  {
-    id: "workflows",
-    tone: "neutral",
-    eyebrow: "Our Capabilities",
-    title: "Technology in Harmony",
-    description:
-      "Discover how our services and capabilities work together seamlessly.",
-    media: createElement(MagnifiedBento),
-  },
-  {
     id: "visitors",
     tone: "neutral",
     eyebrow: "Our Digital Impact",
@@ -106,5 +107,13 @@ export const ABOUT_CARDS: AboutCard[] = [
       "We craft purposeful interactions that make every experience memorable.",
     media: createElement(CraftWheel),
   },
+  {
+    id: "team",
+    tone: "neutral",
+    eyebrow: "Our Core Team",
+    title: "One Vision. Many Perspectives.",
+    bleedImage: teamImage,
+    bleedImageAlt:
+      "Illustration of a diverse team coming together around a shared vision",
+  },
 ];
-

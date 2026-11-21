@@ -21,12 +21,13 @@ export function FooterBottom() {
         </a>
       </div>
       <div className="flex w-full items-center justify-between gap-1 sm:w-auto sm:justify-start lg:gap-2">
-        {FOOTER_SOCIALS.map(({ name, icon: Icon }) => (
+        {FOOTER_SOCIALS.map(({ name, icon: Icon, color }) => (
           <a
             key={name}
             href="#"
             aria-label={name}
-            className="cursor-target inline-flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground lg:size-12"
+            style={{ "--brand": color } as React.CSSProperties}
+            className="cursor-target inline-flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-(--brand) lg:size-12"
           >
             <Icon className="size-4 lg:size-6" />
           </a>

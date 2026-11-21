@@ -80,11 +80,11 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
           </div>
         )}
 
-        {!bleedImage && (
+        {!bleedImage && (media || image) && (
           <div className="about-tile__media mt-auto min-h-0 w-full flex-1 overflow-hidden">
             {media ? (
               media
-            ) : image ? (
+            ) : (
               <img
                 src={image}
                 alt={imageAlt ?? ""}
@@ -92,15 +92,6 @@ export function MasonryCard({ card, className }: MasonryCardProps) {
                 decoding="async"
                 className="h-full w-full rounded-[18px] object-contain"
               />
-            ) : (
-              <div
-                aria-hidden
-                className="flex h-full w-full items-center justify-center rounded-[18px] bg-muted"
-              >
-                <span className="text-[0.55rem] font-bold uppercase tracking-widest text-muted-foreground">
-                  Image
-                </span>
-              </div>
             )}
           </div>
         )}
