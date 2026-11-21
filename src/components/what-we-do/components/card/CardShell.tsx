@@ -19,6 +19,9 @@ interface CardShellProps {
   imageShift?: { x: number; y: number }
   mediaClassName?: string
   eyebrow?: string
+  badges?: ReactNode
+  background?: ReactNode
+  arrow?: boolean
   icon?: IconComponent
   iconAnim?: IconAnim
   to?: string
@@ -36,6 +39,9 @@ export function CardShell({
   imageShift,
   mediaClassName,
   eyebrow,
+  badges,
+  background,
+  arrow = false,
   icon: Icon,
   iconAnim = "pop",
   to,
@@ -59,6 +65,7 @@ export function CardShell({
         style={{ clipPath: FOLD_CLIP }}
       >
         <SpotlightLayer />
+        {background}
         <div className={cn("relative z-10 m-2.5 aspect-[16/10] shrink-0 overflow-hidden rounded-[16px] bg-muted/50", mediaClassName)}>
           {media}
           {image && (
@@ -74,6 +81,7 @@ export function CardShell({
           )}
         </div>
         <div className="relative z-10 flex flex-1 flex-col gap-2 px-4 pb-5 pt-2">
+          {badges && <div className="flex flex-wrap gap-2">{badges}</div>}
           {eyebrow && (
             <span className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted-foreground">
               {eyebrow}
@@ -126,7 +134,7 @@ export function CardShell({
           </span>
         </span>
       ) : (
-        to && <ArrowButton to={to} label={linkLabel ?? title} />
+        (to || arrow) && <ArrowButton to={to} label={linkLabel ?? title} />
       )}
     </div>
   )

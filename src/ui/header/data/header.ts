@@ -6,10 +6,7 @@ export type LinkItem = {
   disabled?: boolean
 }
 
-export const COMPANY_LINKS: LinkItem[] = [
-  { title: "About NAVORYN", href: "/about-navoryn" },
-  { title: "Blogs", href: "#", disabled: true },
-]
+export const ABOUT_LINK: LinkItem = { title: "About", href: "/about-navoryn" }
 
 export const SERVICE_LINKS: LinkItem[] = SERVICES.map((service) => ({
   title: service.title,

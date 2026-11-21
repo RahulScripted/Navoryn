@@ -10,6 +10,7 @@ interface SectionHeadingProps {
   mobileDescription?: ReactNode
   tabletDescription?: ReactNode
   eyebrow?: string
+  align?: "center" | "left"
   className?: string
 }
 
@@ -36,6 +37,7 @@ export function SectionHeading({
   mobileDescription,
   tabletDescription,
   eyebrow,
+  align = "center",
   className,
 }: SectionHeadingProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -46,7 +48,8 @@ export function SectionHeading({
     <div
       ref={containerRef}
       className={cn(
-        "relative md:mx-auto flex w-full md:max-w-6xl flex-col items-center gap-4 text-center",
+        "relative flex w-full flex-col gap-4",
+        align === "left" ? "items-start text-left" : "items-center text-center md:mx-auto md:max-w-6xl",
         className,
       )}
     >

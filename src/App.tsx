@@ -11,6 +11,7 @@ import Technology from '@/pages/technology'
 import Testimonial from '@/pages/testimonial'
 import Pricing from '@/components/pricing'
 import Faq from '@/pages/faq'
+import Blogs from '@/pages/blogs'
 import Cta from '@/components/cta'
 import RevealFooter from '@/ui/footer/RevealFooter'
 import Header from '@/ui/header'
@@ -76,6 +77,7 @@ export default function App() {
           <Testimonial />
           <Pricing />
           <Faq />
+          <Blogs />
           <Cta />
         </main>
       </RevealFooter>
