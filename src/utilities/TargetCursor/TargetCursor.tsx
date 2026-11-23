@@ -339,7 +339,8 @@ const TargetCursor = ({
       if (event.pointerType && event.pointerType !== "mouse") return
       pointer.x = event.clientX
       pointer.y = event.clientY
-      const inside = insideScope(pointer.x, pointer.y, event.target as Element)
+      const hidden = !!(event.target as Element | null)?.closest?.("[data-cursor-hide]")
+      const inside = !hidden && insideScope(pointer.x, pointer.y, event.target as Element)
       if (inside !== pointer.inside) {
         pointer.inside = inside
         hideCursor()

@@ -9,12 +9,14 @@ import Pricing from "@/components/pricing"
 import Faq from "@/pages/faq"
 import Blogs from "@/pages/blogs"
 import Cta from "@/components/cta"
+import Portfolio from "@/components/portfolio"
 export default function HomeSections({ onMounted }: { onMounted: () => void }) {
   useEffect(() => {
     onMounted()
   }, [onMounted])
   return (
     <>
+      <Portfolio />
       <Impact />
       <About />
       <WhatWeDo />

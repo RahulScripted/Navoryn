@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import App from './App.tsx'
-import { BookCall, CaseStudyPage, ContactPage, HowWeWorkPage, PricingPage, PrivacyPolicyPage, SecurityPage, ServiceDetailPage, TermsPage } from './pages/lazy'
+import { BookCall, CaseStudyPage, ContactPage, HowWeWorkPage, PortfolioPage, PricingPage, PrivacyPolicyPage, SecurityPage, ServiceDetailPage, TermsPage } from './pages/lazy'
 import { SERVICE_DETAILS } from './components/what-we-do/details/data/details'
 import NotFound from './ui/not-found'
 import TransitionLayout from './ui/block-transition/TransitionLayout'
@@ -13,6 +13,7 @@ export default function AppRoutes() {
         <Route path="/book-call" element={<BookCall />} />
         <Route path="/about-navoryn" element={<HowWeWorkPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-and-conditions" element={<TermsPage />} />

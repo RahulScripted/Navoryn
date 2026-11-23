@@ -13,11 +13,10 @@ import { NavorynMark } from "@/ui/header/components/NavorynMark"
 import { cn } from "@/lib/utils"
 import { SvgTextDraw } from "@/utilities/SvgTextDraw"
 import { RollText } from "@/utilities/RollText"
-import { ComingSoon } from "@/ui/header/components/ComingSoon"
 import { ContactButton } from "@/ui/header/components/ContactButton"
 import { CurvedMenu } from "@/ui/header/components/CurvedMenu"
 import { NavDropdown } from "@/ui/header/components/NavDropdown"
-import { ABOUT_LINK, SERVICE_LINKS } from "@/ui/header/data/header"
+import { ABOUT_LINK, PORTFOLIO_LINK, SERVICE_LINKS } from "@/ui/header/data/header"
 import { goToSection } from "@/ui/header/goToSection"
 import { useScroll } from "@/ui/header/hooks/useScroll"
 
@@ -96,13 +95,15 @@ export default function Header() {
             </NavigationMenuItem>
             <NavDropdown label="Services" links={SERVICE_LINKS} widthClass="w-[32rem]" />
             <NavigationMenuItem>
-              <span
-                aria-disabled="true"
-                className="inline-flex h-9 cursor-not-allowed items-center gap-2 rounded-md px-4 py-2 text-sm font-medium opacity-50"
-              >
-                Portfolio
-                <ComingSoon />
-              </span>
+              <NavigationMenuLink asChild>
+                <a
+                  href={PORTFOLIO_LINK.href}
+                  onClick={(e) => goToSection(e, PORTFOLIO_LINK.href, navigate)}
+                  className="group/roll cursor-target inline-flex h-9 items-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  <RollText>{PORTFOLIO_LINK.title}</RollText>
+                </a>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
