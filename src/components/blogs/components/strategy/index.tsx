@@ -1,4 +1,9 @@
 import { CodeIcon, MagicWandIcon, MixerHorizontalIcon, Pencil2Icon, TargetIcon } from "@radix-ui/react-icons"
+import pointImage1 from "@/asset/webps/home/blogs/Strategy/Strategy-1.webp"
+import pointImage2 from "@/asset/webps/home/blogs/Strategy/Strategy-2.webp"
+import pointImage3 from "@/asset/webps/home/blogs/Strategy/Strategy-3.webp"
+import pointImage4 from "@/asset/webps/home/blogs/Strategy/Strategy-4.webp"
+import pointImage5 from "@/asset/webps/home/blogs/Strategy/Strategy-5.webp"
 import image from "@/asset/webps/home/blog-service/blog-detail-1.webp"
 import { CaseStudyLayout } from "../shared/CaseStudyLayout"
 import type { CaseStudy } from "../shared/types"
@@ -24,6 +29,7 @@ const STUDY: CaseStudy = {
   points: [
     {
       number: "01",
+      image: pointImage1,
       icon: TargetIcon,
       iconAnim: "pop",
       title: "Start with the idea, understand the purpose",
@@ -32,6 +38,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "02",
+      image: pointImage2,
       icon: MixerHorizontalIcon,
       iconAnim: "nudge",
       title: "Bring clarity to complexity",
@@ -40,6 +47,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "03",
+      image: pointImage3,
       icon: Pencil2Icon,
       iconAnim: "wiggle",
       title: "Design with intention",
@@ -48,6 +56,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "04",
+      image: pointImage4,
       icon: CodeIcon,
       iconAnim: "nudge",
       title: "Turn design into something real",
@@ -56,6 +65,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "05",
+      image: pointImage5,
       icon: MagicWandIcon,
       iconAnim: "wiggle",
       title: "Refine every detail",

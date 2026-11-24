@@ -1,4 +1,8 @@
 import { CubeIcon, DashboardIcon, Link2Icon, MagnifyingGlassIcon, RocketIcon, TimerIcon } from "@radix-ui/react-icons"
+import pointImage1 from "@/asset/webps/home/blogs/Technology/Technology-1.webp"
+import pointImage2 from "@/asset/webps/home/blogs/Technology/Technology-2.webp"
+import pointImage3 from "@/asset/webps/home/blogs/Technology/Technology-3.webp"
+import pointImage4 from "@/asset/webps/home/blogs/Technology/Technology-4.webp"
 import image from "@/asset/webps/home/blog-service/blog-detail-4.webp"
 import { CaseStudyLayout } from "../shared/CaseStudyLayout"
 import type { CaseStudy } from "../shared/types"
@@ -24,6 +28,7 @@ const STUDY: CaseStudy = {
   points: [
     {
       number: "01",
+      image: pointImage1,
       icon: MagnifyingGlassIcon,
       iconAnim: "wiggle",
       title: "Understand the problem before choosing the tools",
@@ -32,6 +37,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "02",
+      image: pointImage2,
       icon: Link2Icon,
       iconAnim: "wiggle",
       title: "Connect the pieces that make it work",
@@ -40,6 +46,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "03",
+      image: pointImage3,
       icon: DashboardIcon,
       iconAnim: "pop",
       title: "Turn complex workflows into simple experiences",
@@ -48,6 +55,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "04",
+      image: pointImage4,
       icon: CubeIcon,
       iconAnim: "spin-y",
       title: "Choose technology with a purpose",

@@ -4,6 +4,7 @@ export type CaseStudyPoint = {
   number: string
   icon: IconComponent
   iconAnim: IconAnim
+  image?: string
   title: string
   description: string
 }

@@ -44,6 +44,7 @@ export function CaseStudyScroller({ points }: { points: CaseStudyPoint[] }) {
               <CardShell
                 title={point.title}
                 description={point.description}
+                image={point.image}
                 icon={point.icon}
                 iconAnim={point.iconAnim}
                 background={

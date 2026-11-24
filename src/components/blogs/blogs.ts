@@ -1,7 +1,7 @@
-import blog1 from "@/asset/webps/home/blogs/Blog1.webp"
-import blog2 from "@/asset/webps/home/blogs/Blog2.webp"
-import blog3 from "@/asset/webps/home/blogs/Blog3.webp"
-import blog4 from "@/asset/webps/home/blogs/Blog4.webp"
+import blog1 from "@/asset/webps/home/blogs/Overview/Blog1.webp"
+import blog2 from "@/asset/webps/home/blogs/Overview/Blog2.webp"
+import blog3 from "@/asset/webps/home/blogs/Overview/Blog3.webp"
+import blog4 from "@/asset/webps/home/blogs/Overview/Blog4.webp"
 export type Blog = {
   number: string
   category: string
