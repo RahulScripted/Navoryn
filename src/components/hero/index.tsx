@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { motion, useReducedMotion } from "motion/react"
 import { usePreloaderDone } from "@/ui/preloader/hooks/usePreloaderDone"
 import { CircuitBoard } from "./components/CircuitBoard"
+import { HeroAvatars } from "./Avtar"
 import { HeroActions } from "./components/HeroActions"
 import { HeroDevice } from "./components/HeroDevice"
 import { HeroHeadline } from "./components/HeroHeadline"
@@ -71,11 +72,14 @@ export default function Hero() {
           <HeroTagline />
         </motion.div>
       </motion.div>
-      <div className="relative z-10 mt-auto flex justify-center px-5 pt-12 pb-8 sm:pb-10">
+      <div className="relative z-10 mt-auto flex justify-center px-5 pt-12">
         <motion.div variants={pick(drop)}>
           <HeroDevice deviceRef={deviceRef} pulse={pulse} ready={ready} onPress={send} />
         </motion.div>
       </div>
+      <motion.div variants={pick(rise)} className="relative z-20 flex justify-center px-5 pt-8 pb-8 sm:pb-10">
+        <HeroAvatars />
+      </motion.div>
     </motion.div>
   )
 }
