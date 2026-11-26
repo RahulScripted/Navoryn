@@ -3,6 +3,8 @@ import pointImage1 from "@/asset/webps/home/blogs/Technology/Technology-1.webp"
 import pointImage2 from "@/asset/webps/home/blogs/Technology/Technology-2.webp"
 import pointImage3 from "@/asset/webps/home/blogs/Technology/Technology-3.webp"
 import pointImage4 from "@/asset/webps/home/blogs/Technology/Technology-4.webp"
+import pointImage5 from "@/asset/webps/home/blogs/Technology/Technology-5.webp"
+import pointImage6 from "@/asset/webps/home/blogs/Technology/Technology-6.webp"
 import image from "@/asset/webps/home/blog-service/blog-detail-4.webp"
 import { CaseStudyLayout } from "../shared/CaseStudyLayout"
 import type { CaseStudy } from "../shared/types"
@@ -64,6 +66,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "05",
+      image: pointImage5,
       icon: TimerIcon,
       iconAnim: "spin",
       title: "Build with performance and reliability in mind",
@@ -72,6 +75,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "06",
+      image: pointImage6,
       icon: RocketIcon,
       iconAnim: "rise",
       title: "Leave room for what's next",

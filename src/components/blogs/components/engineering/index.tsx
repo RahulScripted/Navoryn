@@ -1,4 +1,9 @@
 import { Component1Icon, GearIcon, LayersIcon, LightningBoltIcon, LockClosedIcon, ShuffleIcon } from "@radix-ui/react-icons"
+import pointImage1 from "@/asset/webps/home/blogs/Engineering/Engineering-1.webp"
+import pointImage2 from "@/asset/webps/home/blogs/Engineering/Engineering-2.webp"
+import pointImage3 from "@/asset/webps/home/blogs/Engineering/Engineering-3.webp"
+import pointImage4 from "@/asset/webps/home/blogs/Engineering/Engineering-4.webp"
+import pointImage5 from "@/asset/webps/home/blogs/Engineering/Engineering-5.webp"
 import image from "@/asset/webps/home/blog-service/blog-detail-3.webp"
 import { CaseStudyLayout } from "../shared/CaseStudyLayout"
 import type { CaseStudy } from "../shared/types"
@@ -24,6 +29,7 @@ const STUDY: CaseStudy = {
   points: [
     {
       number: "01",
+      image: pointImage1,
       icon: LayersIcon,
       iconAnim: "bounce",
       title: "Architecture before acceleration",
@@ -32,6 +38,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "02",
+      image: pointImage2,
       icon: Component1Icon,
       iconAnim: "spin",
       title: "Build reusable, not repetitive",
@@ -40,6 +47,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "03",
+      image: pointImage3,
       icon: LightningBoltIcon,
       iconAnim: "flash",
       title: "Performance is part of the experience",
@@ -48,6 +56,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "04",
+      image: pointImage4,
       icon: ShuffleIcon,
       iconAnim: "nudge",
       title: "Design for flexibility",
@@ -56,6 +65,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "05",
+      image: pointImage5,
       icon: LockClosedIcon,
       iconAnim: "wiggle",
       title: "Reliability beyond the first release",
