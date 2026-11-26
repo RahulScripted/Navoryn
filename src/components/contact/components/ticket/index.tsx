@@ -23,10 +23,10 @@ interface ThankYouTicketProps {
   headline?: TicketRow
   rows?: TicketRow[]
   note?: string
-  showBookCall?: boolean
+  secondary?: { label: string; to: string }
 }
 
-export function ThankYouTicket({ ticket, onClose, subtitle, headline, rows, note, showBookCall = true }: ThankYouTicketProps) {
+export function ThankYouTicket({ ticket, onClose, subtitle, headline, rows, note, secondary = { label: "Book a call", to: "/book-call" } }: ThankYouTicketProps) {
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement | null>(null)
   const { headRef, cut } = useTearOffset()
@@ -93,20 +93,20 @@ export function ThankYouTicket({ ticket, onClose, subtitle, headline, rows, note
               ))}
             </dl>
 
-            <div className="flex flex-col items-start justify-between gap-4 rounded-xl bg-muted/60 p-4 sm:flex-row sm:items-center">
+            <div className="flex flex-col gap-4 rounded-xl bg-muted/60 p-4">
               <p className="flex items-start gap-2.5 text-sm text-muted-foreground">
                 <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-foreground text-background">
                   <CheckIcon className="size-3.5" aria-hidden="true" />
                 </span>
                 {note ?? `We'll reply to ${ticket.email} soon. Keep the reference handy.`}
               </p>
-              <div className="flex w-full shrink-0 gap-2 sm:w-auto">
-                {showBookCall && (
-<Button variant="outline" asChild className="cursor-target flex-1 sm:flex-none">
-                  <Link to="/book-call" onClick={onClose}>Book a call</Link>
+              <div className="flex w-full gap-2">
+                <Button variant="outline" asChild className="cursor-target flex-1">
+                  <Link to={secondary.to} onClick={onClose}>
+                    {secondary.label}
+                  </Link>
                 </Button>
-)}
-                <Button onClick={onClose} className="cursor-target flex-1 sm:flex-none">
+                <Button onClick={onClose} className="cursor-target flex-1">
                   Done
                 </Button>
               </div>
