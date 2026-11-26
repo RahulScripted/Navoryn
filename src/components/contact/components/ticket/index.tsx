@@ -10,18 +10,37 @@ import { useModalBehavior } from "./hooks/useModalBehavior"
 import { useTearOffset } from "./hooks/useTearOffset"
 import { TICKET_MASK } from "./lib/ticketMask"
 
+export interface TicketRow {
+  label: string
+  value: string
+  className?: string
+}
+
 interface ThankYouTicketProps {
   ticket: EnquiryTicket
   onClose: () => void
+  subtitle?: string
+  headline?: TicketRow
+  rows?: TicketRow[]
+  note?: string
+  showBookCall?: boolean
 }
 
-export function ThankYouTicket({ ticket, onClose }: ThankYouTicketProps) {
+export function ThankYouTicket({ ticket, onClose, subtitle, headline, rows, note, showBookCall = true }: ThankYouTicketProps) {
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement | null>(null)
   const { headRef, cut } = useTearOffset()
   useModalBehavior(dialogRef, onClose)
 
   const firstName = ticket.name.split(" ")[0]
+  const lead = headline ?? { label: "Service", value: ticket.serviceLabel }
+  const details = rows ?? [
+    { label: "Name", value: ticket.name },
+    { label: "Budget range", value: ticket.budget },
+    { label: "Email", value: ticket.email },
+    { label: "Reference", value: ticket.reference },
+    { label: "Date", value: ticket.date, className: "col-span-2 sm:col-span-1" },
+  ]
 
   return createPortal(
     <div className="fixed inset-0 z-[1000] flex items-center justify-center overflow-y-auto p-4 sm:p-6">
@@ -49,7 +68,7 @@ export function ThankYouTicket({ ticket, onClose }: ThankYouTicketProps) {
               <h2 id={titleId} className="text-xl font-bold tracking-tight">
                 Thank you, {firstName}.
               </h2>
-              <p className="mt-0.5 text-sm text-muted-foreground">Your project enquiry is on its way to us.</p>
+              <p className="mt-0.5 text-sm text-muted-foreground">{subtitle ?? "Your project enquiry is on its way to us."}</p>
             </div>
             <button
               type="button"
@@ -66,14 +85,12 @@ export function ThankYouTicket({ ticket, onClose }: ThankYouTicketProps) {
           <div className="flex flex-col gap-6 px-6 py-6 sm:px-8">
             <dl className="grid grid-cols-2 gap-x-6 gap-y-5">
               <div className="col-span-2">
-                <dt className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted-foreground">Service</dt>
-                <dd className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl">{ticket.serviceLabel}</dd>
+                <dt className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted-foreground">{lead.label}</dt>
+                <dd className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl">{lead.value}</dd>
               </div>
-              <TicketInfo label="Name" value={ticket.name} />
-              <TicketInfo label="Budget range" value={ticket.budget} />
-              <TicketInfo label="Email" value={ticket.email} />
-              <TicketInfo label="Reference" value={ticket.reference} />
-              <TicketInfo label="Date" value={ticket.date} className="col-span-2 sm:col-span-1" />
+              {details.map((row) => (
+                <TicketInfo key={row.label} label={row.label} value={row.value} className={row.className} />
+              ))}
             </dl>
 
             <div className="flex flex-col items-start justify-between gap-4 rounded-xl bg-muted/60 p-4 sm:flex-row sm:items-center">
@@ -81,12 +98,14 @@ export function ThankYouTicket({ ticket, onClose }: ThankYouTicketProps) {
                 <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-foreground text-background">
                   <CheckIcon className="size-3.5" aria-hidden="true" />
                 </span>
-                We&apos;ll reply to {ticket.email} soon. Keep the reference handy.
+                {note ?? `We'll reply to ${ticket.email} soon. Keep the reference handy.`}
               </p>
               <div className="flex w-full shrink-0 gap-2 sm:w-auto">
-                <Button variant="outline" asChild className="cursor-target flex-1 sm:flex-none">
+                {showBookCall && (
+<Button variant="outline" asChild className="cursor-target flex-1 sm:flex-none">
                   <Link to="/book-call" onClick={onClose}>Book a call</Link>
                 </Button>
+)}
                 <Button onClick={onClose} className="cursor-target flex-1 sm:flex-none">
                   Done
                 </Button>
