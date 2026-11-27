@@ -65,13 +65,13 @@ export default function BookCall() {
   }
 
   return (
-    <main className="page-px min-h-screen bg-background pb-14 text-foreground">
+    <main className="page-px bg-background pb-14 text-foreground">
       <div className="w-full">
         <h1 className="sr-only">Book a call</h1>
         <PlanFeatures plan={plan} />
         <section
           aria-label="Book a call"
-          className={cn("w-full overflow-x-hidden", hasPlan ? "pt-24 pb-14 sm:pt-28 lg:pt-32" : "py-14 sm:py-20")}
+          className={cn("w-full overflow-x-clip", hasPlan ? "pt-24 pb-14 sm:pt-28 lg:pt-32" : "py-14 sm:py-20")}
         >
           <SectionHeading
             className="mb-16 sm:mb-20"

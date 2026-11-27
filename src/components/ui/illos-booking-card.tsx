@@ -1,6 +1,7 @@
 "use client";
 
 
+import Counter from "./counter/Counter";
 import { memo, useEffect, useId, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 const cx = (...c: (string | false | undefined)[]) => c.filter(Boolean).join(" ");
@@ -99,6 +100,37 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 const FIELD =
   "h-10 w-full rounded-[10px] bg-transparent px-3 text-sm text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--foreground)_14%,transparent)] outline-none placeholder:text-muted-foreground aria-invalid:shadow-[inset_0_0_0_1.5px_var(--destructive)]";
+
+/** Time left until the booked call, split into days, hours and minutes. It updates every 30 seconds. */
+function Countdown({ target }: { target: Date }) {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(Date.now()), 30_000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  const minutesLeft = Math.max(0, Math.floor((target.getTime() - now) / 60_000));
+  const parts = [
+    { label: "days", value: Math.floor(minutesLeft / 1440) },
+    { label: "hours", value: Math.floor((minutesLeft % 1440) / 60) },
+    { label: "minutes", value: minutesLeft % 60 },
+  ];
+
+  return (
+    <div className="flex w-full flex-col gap-2 border-t border-border pt-5">
+      <p className="text-xs font-medium text-muted-foreground">Your call starts in</p>
+      <div role="timer" className="flex items-end gap-5 text-foreground">
+        {parts.map((part) => (
+          <div key={part.label} className="flex flex-col gap-0.5">
+            <Counter value={part.value} minDigits={2} fontSize={32} fontWeight={600} />
+            <span className="text-xs text-muted-foreground">{part.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function IllosBookingCard({
   title = "Intro call",
@@ -539,6 +571,7 @@ export function IllosBookingCard({
           >
             Change time
           </button>
+          {booked && time && <Countdown target={at(day, time)} />}
         </div>
       </div>
     </section>
