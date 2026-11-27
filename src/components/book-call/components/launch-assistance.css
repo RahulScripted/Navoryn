@@ -1,0 +1,159 @@
+.launch-assistance {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.launch-assistance svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 224px;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.launch-assistance__card { fill: #f7f8fc; stroke: #cbd3ee; stroke-width: 1.5; }
+.launch-assistance__toolbar { fill: #ebeffa; }
+.launch-assistance__dot { fill: #aeb9dd; }
+.launch-assistance__address { fill: #fff; }
+.launch-assistance__panel { fill: #dde3f5; }
+.launch-assistance__soft { fill: #dde3f5; }
+.launch-assistance__ink { fill: #1b2340; }
+.launch-assistance__blue { fill: #2f5bff; }
+.launch-assistance__mint { fill: #12b27a; }
+.launch-assistance__label {
+  fill: #1b2340;
+  font-size: 14px;
+  font-weight: 700;
+}
+.launch-assistance__sub {
+  fill: #5a658f;
+  font-size: 10px;
+}
+.launch-assistance__domain {
+  fill: #1b2340;
+  font-size: 9.5px;
+  font-weight: 600;
+}
+.launch-assistance__ring {
+  fill: none;
+  stroke: #aeb9dd;
+  stroke-width: 2;
+}
+.launch-assistance__spinner {
+  fill: none;
+  stroke: #2f5bff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 14 49;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: launch-spin .9s linear infinite;
+}
+.launch-assistance__check {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.launch-assistance__done {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.launch-assistance__progress {
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+.launch-assistance__lock {
+  fill: #12b27a;
+  animation: launch-lock 8s ease infinite both;
+}
+.launch-assistance__lock path {
+  fill: none;
+  stroke: #8e9ac4;
+  stroke-width: 1.4;
+}
+.launch-assistance__reveal {
+  transform-box: fill-box;
+  transform-origin: right center;
+  animation: launch-reveal 8s steps(16,end) infinite both;
+}
+.launch-assistance__preview-off {
+  opacity: .75;
+}
+.launch-assistance__preview-live {
+  opacity: 0;
+  animation: launch-preview 8s ease infinite both;
+}
+.launch-assistance__offline {
+  animation: launch-offline 8s ease infinite both;
+}
+.launch-assistance__offline-pill { fill: #e3e7f5; }
+.launch-assistance__offline-dot { fill: #8e9ac4; }
+.launch-assistance__offline-text {
+  fill: #5a658f;
+  font-size: 12px;
+  font-weight: 700;
+}
+.launch-assistance__live {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: launch-live 8s cubic-bezier(.3,1.6,.5,1) infinite both;
+}
+.launch-assistance__live-text {
+  fill: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+.launch-assistance__pulse {
+  fill: none;
+  stroke: #12b27a;
+  stroke-width: 2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: launch-pulse 8s ease-out infinite both;
+}
+.launch-assistance__row-one { animation: launch-row-one 8s ease infinite both; }
+.launch-assistance__row-two { animation: launch-row-two 8s ease infinite both; }
+.launch-assistance__row-three { animation: launch-row-three 8s ease infinite both; }
+.launch-assistance__progress-one { animation: launch-progress-one 8s cubic-bezier(.4,0,.2,1) infinite both; }
+.launch-assistance__progress-two { animation: launch-progress-two 8s cubic-bezier(.4,0,.2,1) infinite both; }
+.launch-assistance__progress-three { animation: launch-progress-three 8s cubic-bezier(.4,0,.2,1) infinite both; }
+.launch-assistance__spinner-one { animation: launch-spinner-one 8s linear infinite, launch-spin .9s linear infinite; }
+.launch-assistance__spinner-two { animation: launch-spinner-two 8s linear infinite, launch-spin .9s linear infinite; }
+.launch-assistance__spinner-three { animation: launch-spinner-three 8s linear infinite, launch-spin .9s linear infinite; }
+.launch-assistance__done-one { animation: launch-done-one 8s cubic-bezier(.3,1.6,.5,1) infinite both; }
+.launch-assistance__done-two { animation: launch-done-two 8s cubic-bezier(.3,1.6,.5,1) infinite both; }
+.launch-assistance__done-three { animation: launch-done-three 8s cubic-bezier(.3,1.6,.5,1) infinite both; }
+
+@keyframes launch-spin { to { transform: rotate(360deg); } }
+@keyframes launch-row-one { 0%,3% { opacity:.4 } 6%,92% { opacity:1 } 98%,100% { opacity:.4 } }
+@keyframes launch-row-two { 0%,23% { opacity:.4 } 26%,92% { opacity:1 } 98%,100% { opacity:.4 } }
+@keyframes launch-row-three { 0%,43% { opacity:.4 } 46%,92% { opacity:1 } 98%,100% { opacity:.4 } }
+@keyframes launch-progress-one { 0%,6% { transform:scaleX(0) } 22%,92% { transform:scaleX(1) } 98%,100% { transform:scaleX(0) } }
+@keyframes launch-progress-two { 0%,26% { transform:scaleX(0) } 42%,92% { transform:scaleX(1) } 98%,100% { transform:scaleX(0) } }
+@keyframes launch-progress-three { 0%,46% { transform:scaleX(0) } 62%,92% { transform:scaleX(1) } 98%,100% { transform:scaleX(0) } }
+@keyframes launch-spinner-one { 0%,5% { opacity:0 } 7%,21% { opacity:1 } 22%,100% { opacity:0 } }
+@keyframes launch-spinner-two { 0%,25% { opacity:0 } 27%,41% { opacity:1 } 42%,100% { opacity:0 } }
+@keyframes launch-spinner-three { 0%,45% { opacity:0 } 47%,61% { opacity:1 } 62%,100% { opacity:0 } }
+@keyframes launch-done-one { 0%,22% { transform:scale(0) } 26%,92% { transform:scale(1) } 98%,100% { transform:scale(0) } }
+@keyframes launch-done-two { 0%,42% { transform:scale(0) } 46%,92% { transform:scale(1) } 98%,100% { transform:scale(0) } }
+@keyframes launch-done-three { 0%,62% { transform:scale(0) } 66%,92% { transform:scale(1) } 98%,100% { transform:scale(0) } }
+@keyframes launch-reveal { 0%,26% { transform:scaleX(1) } 42%,92% { transform:scaleX(0) } 93%,100% { transform:scaleX(1) } }
+@keyframes launch-lock { 0%,64% { fill:#aeb9dd } 67%,92% { fill:#12b27a } 95%,100% { fill:#aeb9dd } }
+@keyframes launch-preview { 0%,66% { opacity:0 } 74%,92% { opacity:1 } 98%,100% { opacity:0 } }
+@keyframes launch-offline { 0%,64% { opacity:1 } 67%,92% { opacity:0 } 97%,100% { opacity:1 } }
+@keyframes launch-live { 0%,65% { opacity:0;transform:scale(.6) } 70%,92% { opacity:1;transform:scale(1) } 96%,100% { opacity:0;transform:scale(.6) } }
+@keyframes launch-pulse { 0%,70% { opacity:0;transform:scale(1) } 72% { opacity:.7 } 80% { opacity:0;transform:scale(2.6) } 81%,100% { opacity:0 } }
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-assistance * { animation: none !important; }
+  .launch-assistance__spinner { opacity: 0; }
+  .launch-assistance__offline { opacity: 1; }
+  .launch-assistance__live,
+  .launch-assistance__pulse { opacity: 0; }
+}

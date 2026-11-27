@@ -2,9 +2,9 @@ import { useRef } from "react"
 import { motion, useMotionTemplate, useMotionValue } from "motion/react"
 import { MagnifyingLens } from "./components/lens/MagnifyingLens"
 import { TagRow } from "./components/marquee/TagRow"
-import { LENS_SIZE, TAG_ROWS } from "./data/tags"
+import { LENS_SIZE, TAG_ROWS, type TagItem } from "./data/tags"
 
-export default function MagnifiedBento() {
+export default function MagnifiedBento({ rows = TAG_ROWS }: { rows?: TagItem[][] }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const lensX = useMotionValue(0)
   const lensY = useMotionValue(0)
@@ -21,7 +21,7 @@ export default function MagnifiedBento() {
         style={{ WebkitMaskImage: inverseMask, maskImage: inverseMask }}
         className="flex h-full w-full flex-col justify-center gap-4"
       >
-        {TAG_ROWS.map((row, index) => (
+        {rows.map((row, index) => (
           <TagRow key={`row-${index}`} row={row} index={index} />
         ))}
       </motion.div>
@@ -31,7 +31,7 @@ export default function MagnifiedBento() {
         className="pointer-events-none absolute inset-0 z-10 flex select-none flex-col justify-center gap-4"
         style={{ clipPath }}
       >
-        {TAG_ROWS.map((row, index) => (
+        {rows.map((row, index) => (
           <TagRow key={`row-reveal-${index}`} row={row} index={index} magnified />
         ))}
       </motion.div>

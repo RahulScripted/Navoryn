@@ -3,10 +3,11 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { cn } from "@/lib/utils"
 import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
+import { NextProject } from "./components/NextProject"
 import { ProjectDeck } from "./components/ProjectDeck"
 import { PORTFOLIO_INTRO, PROJECTS } from "./data/projects"
 gsap.registerPlugin(ScrollTrigger)
-export default function Portfolio({ className }: { className?: string }) {
+export default function Portfolio({ className, showNext = true }: { className?: string; showNext?: boolean }) {
   const headingRef = useRef<HTMLDivElement>(null)
   const deckRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
@@ -38,6 +39,7 @@ export default function Portfolio({ className }: { className?: string }) {
       <div ref={deckRef}>
         <ProjectDeck projects={PROJECTS} />
       </div>
+      {showNext && <NextProject />}
     </section>
   )
 }
