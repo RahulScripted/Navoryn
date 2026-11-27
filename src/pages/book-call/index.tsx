@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { cn } from "@/lib/utils"
 import { usePageMeta } from "@/lib/pageMeta"
 import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
 import { useReveal } from "@/utilities/ScrollReveal/components/block/useReveal"
@@ -9,6 +8,7 @@ import { ThankYouTicket } from "@/components/contact/components/ticket"
 import { useConfetti } from "@/components/contact/hooks/useConfetti"
 import type { EnquiryTicket } from "@/components/contact/types/contact"
 import { PLAN_DETAILS } from "@/components/book-call/data/plans"
+import { PlanFaq } from "@/components/book-call/components/PlanFaq"
 import { PlanFeatures } from "@/components/book-call/components/PlanFeatures"
 import { useBookCall } from "@/components/book-call/useBookCall"
 
@@ -69,9 +69,10 @@ export default function BookCall() {
       <div className="w-full">
         <h1 className="sr-only">Book a call</h1>
         <PlanFeatures plan={plan} />
+        <PlanFaq plan={plan} className={hasPlan ? "pt-24 sm:pt-28 lg:pt-32" : "pt-14 sm:pt-20"} />
         <section
           aria-label="Book a call"
-          className={cn("w-full overflow-x-clip", hasPlan ? "pt-24 pb-14 sm:pt-28 lg:pt-32" : "py-14 sm:py-20")}
+          className="w-full overflow-x-clip pt-24 pb-14 sm:pt-28 lg:pt-32"
         >
           <SectionHeading
             className="mb-16 sm:mb-20"

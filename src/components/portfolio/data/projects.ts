@@ -1,9 +1,17 @@
+import project1 from "@/asset/webps/projects/Project-1.webp"
+import project2 from "@/asset/webps/projects/Project-2.webp"
+import project3 from "@/asset/webps/projects/Project-3.webp"
+import project4 from "@/asset/webps/projects/Project-4.webp"
+import project5 from "@/asset/webps/projects/Project-5.webp"
+
 export type Project = {
   id: string
   name: string
-  category: string
-  summary: string
+  /** The live site the card opens. */
+  url: string
+  image: string
 }
+
 export const PORTFOLIO_INTRO = {
   title: "Our Work Speaks Through What We Build.",
   description:
@@ -13,9 +21,9 @@ export const PORTFOLIO_INTRO = {
   mobileDescription: "Ideas transformed into digital experiences. Thoughtfully designed. Purposefully built.",
 }
 export const PROJECTS: Project[] = [
-  { id: "project-1", name: "Project 1", category: "Web Platform", summary: "Upcoming project: web platform." },
-  { id: "project-2", name: "Project 2", category: "Brand & Website", summary: "Upcoming project: brand & website." },
-  { id: "project-3", name: "Project 3", category: "Web Application", summary: "Upcoming project: web application." },
-  { id: "project-4", name: "Project 4", category: "E-commerce", summary: "Upcoming project: e-commerce." },
-  { id: "project-5", name: "Project 5", category: "Mobile App", summary: "Upcoming project: mobile app." },
+  { id: "project-1", name: "Kinara & Lehar", url: "https://kinara-lehar.vercel.app/", image: project1 },
+  { id: "project-2", name: "Knot", url: "https://knot-sable-two.vercel.app/", image: project2 },
+  { id: "project-3", name: "GyanSetu", url: "https://gyan-setu-nine-blond.vercel.app/", image: project3 },
+  { id: "project-4", name: "chhaap", url: "https://chhaap-jet.vercel.app/", image: project4 },
+  { id: "project-5", name: "Hearthly", url: "https://hearthly-phi.vercel.app/", image: project5 },
 ]

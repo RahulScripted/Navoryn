@@ -34,7 +34,7 @@ export function ProjectDeck({ projects }: { projects: Project[] }) {
       {reduce ? (
         <ul className="flex flex-col gap-6">
           {projects.map((project) => (
-            <li key={project.id} aria-label={`${project.name}: ${project.summary}`}>
+            <li key={project.id}>
               <CardSurface project={project} onHover={setHovered} />
             </li>
           ))}

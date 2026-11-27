@@ -30,9 +30,9 @@ export function HeroAvatars() {
     <div className="flex items-center justify-center gap-3 rounded-full border border-border bg-muted py-2 pr-5 pl-2.5">
       <AvatarGroup>
         {HERO_AVATARS.map((person) => (
-          <Avatar key={person.id} className="size-9 border-2 border-muted">
+          <Avatar key={person.id} className="size-9 border-2 border-muted bg-white">
             <AvatarImage src={person.image ?? profile(person.label)} alt={person.label} />
-            <AvatarFallback className="bg-muted text-[0.65rem] font-semibold">{person.initials}</AvatarFallback>
+            <AvatarFallback className="bg-white text-[0.65rem] font-semibold text-black">{person.initials}</AvatarFallback>
             <AvatarGroupTooltip>{person.label}</AvatarGroupTooltip>
           </Avatar>
         ))}

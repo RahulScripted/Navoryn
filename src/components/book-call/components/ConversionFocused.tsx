@@ -1,9 +1,8 @@
-import "./conversion-focused.css"
 
 export function ConversionFocused() {
   return (
     <div className="conversion-focused" aria-hidden="true">
-      <svg viewBox="0 0 480 360" role="img">
+      <svg viewBox="24 14 432 332" role="img">
         <title>Conversion-focused page</title>
         <desc>
           A landing page uses a clear headline, supporting text, call to action, and rising results chart.

@@ -26,7 +26,7 @@ export function FaqAccordionItem({ item, index, isOpen, onToggle }: FaqAccordion
           aria-expanded={isOpen}
           aria-controls={panelId}
           onClick={onToggle}
-          className="flex w-full items-center gap-4 px-5 py-5 text-left sm:px-6"
+          className="flex w-full cursor-pointer items-center gap-4 px-5 py-5 text-left sm:px-6"
         >
           <span className="text-sm font-semibold text-muted-foreground tabular-nums">
             {String(index + 1).padStart(2, "0")}

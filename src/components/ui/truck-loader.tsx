@@ -4,7 +4,6 @@
  * MIT License, Copyright (c) vinodjangid07 (Vinod Jangid)
  */
 import { cn } from "@/lib/utils"
-import "./truck-loader.css"
 
 /** A truck driving along a road past lamp posts. Decorative, so it is hidden from screen readers. */
 export function TruckLoader({ className }: { className?: string }) {

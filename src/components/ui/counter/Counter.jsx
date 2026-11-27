@@ -4,7 +4,6 @@
 'use client';
 
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import './Counter.css';
 
 const ROOT = 'counter';
 const SR = 'counter__sr';

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react"
 import type { CSSProperties, ReactNode } from "react"
-import "./ShinyText.css"
 
 type Rgba = [number, number, number, number]
 type Easing = "linear" | "smooth" | "snappy"

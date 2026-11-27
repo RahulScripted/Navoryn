@@ -171,6 +171,8 @@ export function IllosBookingCard({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [attempted, setAttempted] = useState(false);
+  // A field shows its error once the visitor has left it, so a blocked button is never a mystery.
+  const [touched, setTouched] = useState({ name: false, email: false });
   const doneRef = useRef<HTMLHeadingElement>(null);
   const confirmRef = useRef<HTMLButtonElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
@@ -216,6 +218,10 @@ export function IllosBookingCard({
     : !EMAIL.test(email.trim())
       ? "Please enter a valid email address."
       : "";
+
+  const showNameError = (attempted || touched.name) && !!nameError;
+  const showEmailError = (attempted || touched.email) && !!emailError;
+  const ready = !!time && !nameError && !emailError;
 
   const showWeek = (n: number) => {
     const next = addDays(week, n * 7);
@@ -468,11 +474,12 @@ export function IllosBookingCard({
                 placeholder="Your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                aria-invalid={attempted && !!nameError}
-                aria-describedby={attempted && nameError ? `${uid}-name-err` : undefined}
+                onBlur={() => setTouched((t) => ({ ...t, name: true }))}
+                aria-invalid={showNameError}
+                aria-describedby={showNameError ? `${uid}-name-err` : undefined}
                 className={FIELD}
               />
-              {attempted && nameError && (
+              {showNameError && (
                 <p id={`${uid}-name-err`} className="text-xs text-destructive">
                   {nameError}
                 </p>
@@ -491,11 +498,12 @@ export function IllosBookingCard({
                 placeholder="you@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                aria-invalid={attempted && !!emailError}
-                aria-describedby={attempted && emailError ? `${uid}-email-err` : undefined}
+                onBlur={() => setTouched((t) => ({ ...t, email: true }))}
+                aria-invalid={showEmailError}
+                aria-describedby={showEmailError ? `${uid}-email-err` : undefined}
                 className={FIELD}
               />
-              {attempted && emailError && (
+              {showEmailError && (
                 <p id={`${uid}-email-err`} className="text-xs text-destructive">
                   {emailError}
                 </p>
@@ -508,8 +516,8 @@ export function IllosBookingCard({
               ref={confirmRef}
               type="button"
               onClick={confirm}
-              disabled={!time || state === "booking"}
-              className="inline-flex h-10 w-full cursor-pointer items-center justify-center rounded-[10px] bg-primary px-4 text-sm font-medium text-primary-foreground transition-[background-color,opacity,scale] duration-150 ease-out outline-offset-2 hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-ring active:scale-[0.98] disabled:cursor-default disabled:opacity-50 disabled:active:scale-100"
+              disabled={!ready || state === "booking"}
+              className="inline-flex h-10 w-full cursor-pointer items-center justify-center rounded-[10px] bg-primary px-4 text-sm font-medium text-primary-foreground transition-[background-color,opacity,scale] duration-150 ease-out outline-offset-2 hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-ring active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100"
             >
               {state === "booking"
                 ? "Booking…"

@@ -1,9 +1,8 @@
-import "./launch-assistance.css"
 
 export function LaunchAssistance() {
   return (
     <div className="launch-assistance" aria-hidden="true">
-      <svg viewBox="0 0 480 360" role="img">
+      <svg viewBox="24 14 432 332" role="img">
         <title>Launch assistance</title>
         <desc>
           A launch checklist completes final deployment, domain connection and launch checks before the website goes live.

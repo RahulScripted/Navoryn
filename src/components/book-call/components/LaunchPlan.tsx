@@ -1,6 +1,5 @@
 // The "Launch plan" card from React Bits MagicBento (https://reactbits.dev), see launch-plan.css.
 import { useEffect, useRef, useState, type CSSProperties } from "react"
-import "./launch-plan.css"
 
 const ARROW = (
   <svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true">

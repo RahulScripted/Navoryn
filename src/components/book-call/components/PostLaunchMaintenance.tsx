@@ -1,9 +1,8 @@
-import "./post-launch-maintenance.css"
 
 export function PostLaunchMaintenance() {
   return (
     <div className="post-launch-maintenance" aria-hidden="true">
-      <svg viewBox="0 0 480 360" role="img">
+      <svg viewBox="24 14 432 332" role="img">
         <title>Post-launch maintenance</title>
         <desc>
           A live website is monitored, an issue is repaired, and updates complete to keep everything current.

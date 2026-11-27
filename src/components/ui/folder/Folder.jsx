@@ -4,7 +4,6 @@
 'use client';
 
 import { Children, isValidElement, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import './Folder.css';
 
 const TAU = Math.PI * 2;
 const STEP = 1 / 240;

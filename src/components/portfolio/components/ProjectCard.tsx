@@ -31,7 +31,6 @@ export function ProjectCard({ project, index, count, progress, onHover }: Projec
   const dim = useTransform(progress, (v) => above(v) * 0.15)
   return (
     <motion.article
-      aria-label={`${project.name}: ${project.summary}`}
       className="col-start-1 row-start-1 h-full w-full origin-[50%_25%] will-change-[transform,filter]"
       style={{ zIndex: index + 1, y, rotateX, scale, filter }}
     >
@@ -45,19 +44,35 @@ export function CardSurface({ project, onHover, dim, className }: {
   dim?: MotionValue<number>
   className?: string
 }) {
+  // Opened from a click instead of an <a>, so the browser does not print the address in its status bar.
+  const open = () => window.open(project.url, "_blank", "noopener,noreferrer")
   const hover = (hovered: boolean) => (event: PointerEvent) => {
     if (event.pointerType === "mouse") onHover(hovered)
   }
   return (
     <div
+      role="link"
+      tabIndex={0}
+      aria-label={`${project.name} (opens in a new tab)`}
+      onClick={open}
+      onKeyDown={(event) => {
+        if (event.key === "Enter") open()
+      }}
       data-cursor-hide
       onPointerEnter={hover(true)}
       onPointerLeave={hover(false)}
       className={cn(
-        "relative h-[78svh] cursor-none overflow-hidden rounded-[24px] border border-border bg-muted shadow-[0_18px_40px_-28px_rgba(10,12,20,0.25)] max-sm:h-[70svh]",
+        "relative block h-[78svh] cursor-none outline-none focus-visible:ring-2 focus-visible:ring-ring overflow-hidden rounded-[24px] border border-border bg-muted shadow-[0_18px_40px_-28px_rgba(10,12,20,0.25)] max-sm:h-[70svh]",
         className,
       )}
     >
+      <img
+        src={project.image}
+        alt=""
+        draggable={false}
+        decoding="async"
+        className="absolute inset-0 size-full object-cover object-top"
+      />
       <CardCorner project={project} />
       {dim && <motion.div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-black" style={{ opacity: dim }} />}
     </div>
@@ -77,10 +92,7 @@ function CardCorner({ project }: { project: Project }) {
       <div className="absolute right-0 bottom-full"><Fillet /></div>
       <div className="absolute right-full bottom-0"><Fillet /></div>
       <div className="flex items-center gap-4 rounded-tl-[20px] bg-background py-3 pr-1 pl-5 text-foreground sm:gap-5 sm:py-4 sm:pl-7">
-        <span className="flex flex-col leading-tight">
-          <span className="text-base font-semibold tracking-tight sm:text-lg">{project.name}</span>
-          <span className="text-[13px] text-muted-foreground sm:text-sm">{project.category}</span>
-        </span>
+        <span className="text-base font-semibold tracking-tight sm:text-lg">{project.name}</span>
         <span className="grid size-11 place-items-center rounded-full bg-primary text-primary-foreground sm:size-[52px]">
           <ArrowTopRightIcon className="size-5" aria-hidden="true" />
         </span>
