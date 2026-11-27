@@ -6,6 +6,9 @@ import { ContentBreakdown } from "@/components/book-call/components/ContentBreak
 import { LaunchPlan } from "@/components/book-call/components/LaunchPlan"
 import { RevenueGrowth } from "@/components/book-call/components/RevenueGrowth"
 import { PagesFolder } from "@/components/book-call/components/PagesFolder"
+import { ConversionFocused } from "@/components/book-call/components/ConversionFocused"
+import { LaunchAssistance } from "@/components/book-call/components/LaunchAssistance"
+import { PostLaunchMaintenance } from "@/components/book-call/components/PostLaunchMaintenance"
 import VisionBeam from "@/components/about/ui/animated-beam"
 import type { VisionPoint } from "@/components/about/ui/animated-beam/data/points"
 import MagnifiedBento from "@/components/about/ui/magnified-bento"
@@ -154,6 +157,8 @@ const STARTER: PlanFeature[] = [
     title: "Conversion-focused",
     description:
       "A clean content hierarchy with clear calls to action that help visitors understand your business and take the next step.",
+    media: createElement(ConversionFocused),
+    fullBleed: true,
   },
   {
     id: "responsive",
@@ -172,6 +177,8 @@ const STARTER: PlanFeature[] = [
     title: "Launch assistance",
     description:
       "Final deployment, domain connection and essential launch checks to get your website online.",
+    media: createElement(LaunchAssistance),
+    fullBleed: true,
   },
 ];
 
@@ -246,6 +253,8 @@ const PROMAX: PlanFeature[] = [
     title: "Post-launch maintenance",
     description:
       "Continued technical assistance, essential fixes and updates to keep your website running smoothly.",
+    media: createElement(PostLaunchMaintenance),
+    fullBleed: true,
   },
   {
     id: "dashboards",
