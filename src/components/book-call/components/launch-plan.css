@@ -1,0 +1,195 @@
+/*
+ * The "Launch plan" artwork from React Bits MagicBento (https://reactbits.dev), JavaScript + CSS variant.
+ * React Bits is MIT licensed with the Commons Clause. Only this one card is taken, with its class names
+ * prefixed "launch-plan" and its colours mapped to this site's theme tokens.
+ */
+.launch-plan {
+  --lp-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 16px 16px 22px;
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--foreground) 3%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--foreground) 6%, transparent);
+}
+
+.launch-plan__title {
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.launch-plan__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.launch-plan__line {
+  position: relative;
+  width: var(--w);
+  height: 6px;
+  border-radius: 3px;
+  background: color-mix(in oklab, var(--foreground) 10%, transparent);
+}
+
+.launch-plan__line--gap {
+  margin-top: 8px;
+}
+
+.launch-plan__selection {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: var(--from);
+  width: var(--span);
+  border-radius: 3px;
+  background: color-mix(in oklab, var(--foreground) 16%, transparent);
+}
+
+.launch-plan__caret {
+  position: absolute;
+  top: -5px;
+  right: -1px;
+  bottom: -5px;
+  width: 1.5px;
+  border-radius: 1px;
+  background: var(--foreground);
+}
+
+.launch-plan__cursor {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.launch-plan__cursor svg {
+  display: block;
+  flex: none;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.35));
+}
+
+.launch-plan__cursor svg path {
+  stroke: var(--background);
+}
+
+.launch-plan__cursor-name {
+  margin: 13px 0 0 -2px;
+  padding: 2px 7px;
+  border-radius: 7px;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+.launch-plan__cursor--primary svg path {
+  fill: var(--foreground);
+}
+
+.launch-plan__cursor--primary .launch-plan__cursor-name {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.launch-plan__cursor--secondary svg path {
+  fill: var(--muted-foreground);
+}
+
+.launch-plan__cursor--secondary .launch-plan__cursor-name {
+  background: var(--muted-foreground);
+  color: var(--background);
+}
+
+/* Motion. Without it (or with reduced motion) the card simply shows its finished state. */
+@media (prefers-reduced-motion: no-preference) {
+  .launch-plan__selection {
+    animation: launch-plan-select 900ms cubic-bezier(0.65, 0, 0.35, 1) 760ms both paused;
+  }
+
+  .launch-plan__caret {
+    animation: launch-plan-blink 1.1s steps(1) infinite paused;
+  }
+
+  .launch-plan__cursor {
+    animation:
+      launch-plan-pop 420ms var(--lp-spring) calc(600ms + var(--i) * 160ms) both paused,
+      var(--path) 9s ease-in-out calc(var(--i) * -3s) infinite paused;
+  }
+
+  .launch-plan[data-in] .launch-plan__selection,
+  .launch-plan[data-in] .launch-plan__caret {
+    animation-play-state: running;
+  }
+
+  /* Once in view, the cursors wander on their own, with no need to hover. */
+  .launch-plan[data-in] .launch-plan__cursor {
+    animation-play-state: running, running;
+  }
+}
+
+@keyframes launch-plan-select {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes launch-plan-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes launch-plan-pop {
+  from {
+    opacity: 0;
+    scale: 0.6;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes launch-plan-path-a {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  30% {
+    translate: 46px -18px;
+  }
+  62% {
+    translate: 12px 26px;
+  }
+}
+
+@keyframes launch-plan-path-b {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  35% {
+    translate: -40px 14px;
+  }
+  70% {
+    translate: -8px -22px;
+  }
+}

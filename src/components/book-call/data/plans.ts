@@ -2,6 +2,9 @@ import { createElement, type ReactNode } from "react"
 import { DashboardPreview } from "@/components/book-call/components/DashboardPreview"
 import { IntegrationsCluster, IntegrationsMarquee } from "@/components/ui/integrations-component"
 import { TruckLoader } from "@/components/ui/truck-loader"
+import { ContentBreakdown } from "@/components/book-call/components/ContentBreakdown"
+import { LaunchPlan } from "@/components/book-call/components/LaunchPlan"
+import { RevenueGrowth } from "@/components/book-call/components/RevenueGrowth"
 import { PagesFolder } from "@/components/book-call/components/PagesFolder"
 import VisionBeam from "@/components/about/ui/animated-beam"
 import type { VisionPoint } from "@/components/about/ui/animated-beam/data/points"
@@ -120,6 +123,8 @@ export interface PlanFeature {
   imageAlt?: string
   /** An animated illustration. Takes priority over `image`. */
   media?: ReactNode
+  /** Lets the media fill the whole tile above the text, with no padding. */
+  fullBleed?: boolean
 }
 
 export interface PlanDetails {
@@ -130,34 +135,140 @@ export interface PlanDetails {
   features: PlanFeature[]
 }
 
+
 const STARTER: PlanFeature[] = [
-  { id: "foundation", title: "Setup and design foundation", description: "Project setup, colours, typography and configuration done properly.", media: createElement(VisionBeam, { points: FOUNDATION_POINTS }) },
-  { id: "pages", title: "Up to 3 pages", description: "Home, About and Contact, or any three pages that fit your business.", media: createElement(PagesFolder, { pages: 3 }) },
-  { id: "sections", title: "4 sections per page", description: "Each page is built with four well-structured sections." },
-  { id: "responsive", title: "Responsive", description: "Layouts that look right on phones, tablets and desktops.", media: createElement(ResponsiveMorph) },
-  { id: "revision", title: "1 round of revisions", description: "One focused round of changes before final delivery.", media: createElement(MagnifiedBento, { rows: revisionRows(1) }) },
-  { id: "delivery", title: "Delivered in 7 days", description: "A clear timeline so your site goes live quickly." },
-]
+  {
+    id: "foundation",
+    title: "Setup and design foundation",
+    description: "Project setup, colours, typography and configuration done properly.",
+    media: createElement(VisionBeam, { points: FOUNDATION_POINTS }),
+  },
+  {
+    id: "pages",
+    title: "Up to 3 pages",
+    description: "Home, About and Contact, or any three pages that fit your business.",
+    media: createElement(PagesFolder, { pages: 3 }),
+  },
+  {
+    id: "sections",
+    title: "Conversion-focused",
+    description:
+      "A clean content hierarchy with clear calls to action that help visitors understand your business and take the next step.",
+  },
+  {
+    id: "responsive",
+    title: "Responsive",
+    description: "Layouts that look right on phones, tablets and desktops.",
+    media: createElement(ResponsiveMorph),
+  },
+  {
+    id: "revision",
+    title: "1 round of revisions",
+    description: "One focused round of changes before final delivery.",
+    media: createElement(MagnifiedBento, { rows: revisionRows(1) }),
+  },
+  {
+    id: "delivery",
+    title: "Launch assistance",
+    description:
+      "Final deployment, domain connection and essential launch checks to get your website online.",
+  },
+];
 
 const PRO: PlanFeature[] = [
-  { id: "pages", title: "6 to 10 pages", description: "Room for services, portfolio, blog and more.", media: createElement(PagesFolder, { pages: 6 }) },
-  { id: "seo", title: "Search-ready foundation", description: "Clean markup, page titles and fast loading so search engines can find you.", media: createElement(VisionBeam, { points: SEO_POINTS }) },
-  { id: "priority", title: "Priority delivery", description: "Your project moves to the front of the queue.", media: createElement(TruckLoader, { className: "h-full w-full" }) },
-  { id: "responsive", title: "Responsive", description: "Layouts that look right on phones, tablets and desktops.", media: createElement(ResponsiveMorph) },
-  { id: "integrations", title: "Basic integrations", description: "Contact forms, maps and other essential connections included.", media: createElement(IntegrationsCluster, { names: BASIC_INTEGRATIONS }) },
-  { id: "revision", title: "2 rounds of revisions", description: "Two focused rounds of changes before final delivery.", media: createElement(MagnifiedBento, { rows: revisionRows(2) }) },
-  { id: "delivery", title: "Delivered in 10 to 14 days", description: "A clear timeline from kickoff to launch." },
-]
+  {
+    id: "pages",
+    title: "6 to 10 pages",
+    description: "Room for services, portfolio, blog and more.",
+    media: createElement(PagesFolder, { pages: 6 }),
+  },
+  {
+    id: "seo",
+    title: "Search-ready foundation",
+    description: "Clean markup, page titles and fast loading so search engines can find you.",
+    media: createElement(VisionBeam, { points: SEO_POINTS }),
+  },
+  {
+    id: "priority",
+    title: "Priority delivery",
+    description: "Your project moves to the front of the queue.",
+    media: createElement(TruckLoader, { className: "h-full w-full" }),
+  },
+  {
+    id: "responsive",
+    title: "Responsive",
+    description: "Layouts that look right on phones, tablets and desktops.",
+    media: createElement(ResponsiveMorph),
+  },
+  {
+    id: "integrations",
+    title: "Basic integrations",
+    description: "Contact forms, maps and other essential connections included.",
+    media: createElement(IntegrationsCluster, { names: BASIC_INTEGRATIONS }),
+  },
+  {
+    id: "revision",
+    title: "2 rounds of revisions",
+    description: "Two focused rounds of changes before final delivery.",
+    media: createElement(MagnifiedBento, { rows: revisionRows(2) }),
+  },
+  {
+    id: "delivery",
+    title: "Content management",
+    description:
+      "An easy-to-manage content structure that makes updating website information simpler.",
+    media: createElement(ContentBreakdown),
+  },
+];
 
 const PROMAX: PlanFeature[] = [
-  { id: "pages", title: "10+ pages", description: "Unlimited sections across as many pages as your project needs.", media: createElement(PagesFolder, { pages: 6 }) },
-  { id: "security", title: "Security and reliability", description: "Authentication, validation and testing so the site holds up in production.", media: createElement(MagnifiedBento, { rows: SECURITY_ROWS }) },
-  { id: "custom", title: "Custom functionality", description: "Features built around your workflow instead of off-the-shelf parts." },
-  { id: "support", title: "Dedicated project support", description: "One point of contact from kickoff through launch." },
-  { id: "dashboards", title: "Dashboards", description: "Admin views to manage content, users and reports.", media: createElement(DashboardPreview) },
-  { id: "integrations", title: "Advanced integrations", description: "Payments, CRM, bookings and third-party APIs connected end to end.", media: createElement(IntegrationsMarquee, { names: ADVANCED_INTEGRATIONS }) },
-  { id: "timeline", title: "Timeline based on scope", description: "A delivery plan agreed together once the scope is final." },
-]
+  {
+    id: "pages",
+    title: "10+ pages",
+    description: "Unlimited sections across as many pages as your project needs.",
+    media: createElement(PagesFolder, { pages: 6 }),
+  },
+  {
+    id: "security",
+    title: "Security and reliability",
+    description: "Authentication, validation and testing so the site holds up in production.",
+    media: createElement(MagnifiedBento, { rows: SECURITY_ROWS }),
+  },
+  {
+    id: "custom",
+    title: "Interactive user experiences",
+    description:
+      "Engaging interfaces with dynamic content, thoughtful interactions and tailored user journeys.",
+    media: createElement(LaunchPlan),
+  },
+  {
+    id: "support",
+    title: "Post-launch maintenance",
+    description:
+      "Continued technical assistance, essential fixes and updates to keep your website running smoothly.",
+  },
+  {
+    id: "dashboards",
+    title: "Dashboards",
+    description: "Admin views to manage content, users and reports.",
+    media: createElement(DashboardPreview),
+    fullBleed: true,
+  },
+  {
+    id: "integrations",
+    title: "Advanced integrations",
+    description: "Payments, CRM, bookings and third-party APIs connected end to end.",
+    media: createElement(IntegrationsMarquee, { names: ADVANCED_INTEGRATIONS }),
+  },
+  {
+    id: "timeline",
+    title: "Performance monitoring",
+    description:
+      "Track website speed, identify bottlenecks and maintain a smooth experience as your business grows.",
+    media: createElement(RevenueGrowth),
+  },
+];
+
 
 export const PLAN_DETAILS: Record<string, PlanDetails> = {
   starter: {

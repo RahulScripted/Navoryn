@@ -20,7 +20,7 @@ export default function PortfolioPage() {
       <TargetCursor targetSelector=".cursor-target" spinDuration={2} hideDefaultCursor parallaxOn />
       <RevealFooter>
         <main className="page-px">
-          <Portfolio className="pt-32 sm:pt-36" />
+          <Portfolio className="pt-32 sm:pt-36" showNext={false} />
           <Cta />
         </main>
       </RevealFooter>

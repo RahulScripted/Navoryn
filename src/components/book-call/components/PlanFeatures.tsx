@@ -39,8 +39,15 @@ function FeatureTile({ feature, index, span }: { feature: PlanFeature; index: nu
       )}
     >
       <SpotlightLayer />
-      <div className="relative z-10 flex flex-1 items-center justify-center p-4 sm:p-5">
-        {feature.media ? (
+      <div
+        className={cn(
+          "relative z-10 flex flex-1 items-center justify-center",
+          feature.fullBleed ? "min-h-56" : "p-4 sm:p-5",
+        )}
+      >
+        {feature.media && feature.fullBleed ? (
+          feature.media
+        ) : feature.media ? (
           <div className="h-56 w-full">{feature.media}</div>
         ) : feature.image ? (
           <img

@@ -293,7 +293,8 @@ const flattenItems = (items: NavItemData[]): NavItemData[] =>
 
 const flatMockData = flattenItems([...mockNavGroups.flatMap((g) => g.items), ...mockBottomItems])
 
-export default function SidebarNavPreview() {
+/** `bare` drops the page padding, the outer card and the fixed height, so the dashboard fills whatever box it is in. */
+export default function SidebarNavPreview({ bare = false }: { bare?: boolean }) {
   const [isOpen, setIsOpen] = useState(true)
   const [activeId, setActiveId] = useState("home")
   const [activeWorkspace, setActiveWorkspace] = useState("Acme Corp")
@@ -311,8 +312,20 @@ export default function SidebarNavPreview() {
   }
 
   return (
-    <div className="flex min-h-[700px] w-full flex-col items-center justify-center bg-background p-4 md:p-8">
-      <div className="relative flex h-[700px] w-full max-w-4xl overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm ring-1 ring-black/5 dark:ring-white/5">
+    <div
+      className={
+        bare
+          ? "flex h-full w-full bg-background"
+          : "flex min-h-[700px] w-full flex-col items-center justify-center bg-background p-4 md:p-8"
+      }
+    >
+      <div
+        className={
+          bare
+            ? "relative flex h-full w-full overflow-hidden bg-card"
+            : "relative flex h-[700px] w-full max-w-4xl overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm ring-1 ring-black/5 dark:ring-white/5"
+        }
+      >
         <div
           className={`h-full shrink-0 overflow-hidden border-r border-border/50 bg-card/50 transition-all duration-300 ease-in-out ${
             isOpen ? "w-[260px] opacity-100" : "w-0 border-none opacity-0"

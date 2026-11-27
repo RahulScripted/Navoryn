@@ -1,18 +1,21 @@
 import { useEffect, useRef, useState } from "react"
 import SidebarNavPreview from "@/components/ui/dashboard-sidebar"
 
-// The dashboard preview is laid out at 960px wide. This shrinks it to fit the tile, top-aligned,
-// and fades out the bottom edge where it is cropped.
-const DESIGN_WIDTH = 960
+// The dashboard is laid out 900px wide, then shrunk to the width of the tile. Its height is stretched to
+// match, so it fills the whole box exactly, with no padding, margin or cropping.
+const DESIGN_WIDTH = 900
 
 export function DashboardPreview() {
   const hostRef = useRef<HTMLDivElement>(null)
-  const [scale, setScale] = useState(0.4)
+  const [box, setBox] = useState({ scale: 0.4, height: 560 })
 
   useEffect(() => {
     const host = hostRef.current
     if (!host) return
-    const update = () => setScale(host.clientWidth / DESIGN_WIDTH)
+    const update = () => {
+      const scale = host.clientWidth / DESIGN_WIDTH
+      setBox({ scale, height: host.clientHeight / scale })
+    }
     update()
     const observer = new ResizeObserver(update)
     observer.observe(host)
@@ -20,11 +23,10 @@ export function DashboardPreview() {
   }, [])
 
   return (
-    <div ref={hostRef} className="relative h-full w-full overflow-hidden rounded-[18px] bg-background">
-      <div style={{ width: DESIGN_WIDTH, transform: `scale(${scale})`, transformOrigin: "top left" }}>
-        <SidebarNavPreview />
+    <div ref={hostRef} className="absolute inset-0 overflow-hidden">
+      <div style={{ width: DESIGN_WIDTH, height: box.height, transform: `scale(${box.scale})`, transformOrigin: "top left" }}>
+        <SidebarNavPreview bare />
       </div>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-linear-to-t from-card to-transparent" />
     </div>
   )
 }
