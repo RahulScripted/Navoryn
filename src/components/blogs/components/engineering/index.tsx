@@ -4,6 +4,7 @@ import pointImage2 from "@/asset/webps/home/blogs/Engineering/Engineering-2.webp
 import pointImage3 from "@/asset/webps/home/blogs/Engineering/Engineering-3.webp"
 import pointImage4 from "@/asset/webps/home/blogs/Engineering/Engineering-4.webp"
 import pointImage5 from "@/asset/webps/home/blogs/Engineering/Engineering-5.webp"
+import pointImage6 from "@/asset/webps/home/blogs/Engineering/Engineering-6.webp"
 import image from "@/asset/webps/home/blog-service/blog-detail-3.webp"
 import { CaseStudyLayout } from "../shared/CaseStudyLayout"
 import type { CaseStudy } from "../shared/types"
@@ -74,6 +75,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "06",
+      image: pointImage6,
       icon: GearIcon,
       iconAnim: "spin",
       title: "Technology should serve the product",

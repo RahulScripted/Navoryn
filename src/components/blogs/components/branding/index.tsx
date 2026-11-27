@@ -1,4 +1,9 @@
 import { ColorWheelIcon, CopyIcon, DesktopIcon, ReaderIcon, UpdateIcon } from "@radix-ui/react-icons"
+import pointImage1 from "@/asset/webps/home/blogs/Brand/Brand-1.webp"
+import pointImage2 from "@/asset/webps/home/blogs/Brand/Brand-2.webp"
+import pointImage3 from "@/asset/webps/home/blogs/Brand/Brand-3.webp"
+import pointImage4 from "@/asset/webps/home/blogs/Brand/Brand-4.webp"
+import pointImage5 from "@/asset/webps/home/blogs/Brand/Brand-5.webp"
 import image from "@/asset/webps/home/blog-service/blog-detail-2.webp"
 import { CaseStudyLayout } from "../shared/CaseStudyLayout"
 import type { CaseStudy } from "../shared/types"
@@ -24,6 +29,7 @@ const STUDY: CaseStudy = {
   points: [
     {
       number: "01",
+      image: pointImage1,
       icon: ReaderIcon,
       iconAnim: "pop",
       title: "Find the story behind the brand",
@@ -32,6 +38,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "02",
+      image: pointImage2,
       icon: ColorWheelIcon,
       iconAnim: "spin",
       title: "Give the brand a visual language",
@@ -40,6 +47,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "03",
+      image: pointImage3,
       icon: CopyIcon,
       iconAnim: "pop",
       title: "Make consistency feel natural",
@@ -48,6 +56,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "04",
+      image: pointImage4,
       icon: DesktopIcon,
       iconAnim: "bounce",
       title: "Design for real-world applications",
@@ -56,6 +65,7 @@ const STUDY: CaseStudy = {
     },
     {
       number: "05",
+      image: pointImage5,
       icon: UpdateIcon,
       iconAnim: "spin",
       title: "Build an identity that can evolve",
