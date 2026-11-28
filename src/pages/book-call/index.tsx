@@ -8,6 +8,7 @@ import { ThankYouTicket } from "@/components/contact/components/ticket"
 import { useConfetti } from "@/components/contact/hooks/useConfetti"
 import type { EnquiryTicket } from "@/components/contact/types/contact"
 import { PLAN_DETAILS } from "@/components/book-call/data/plans"
+import { BrandBrief } from "@/components/book-call/components/BrandBrief"
 import { PlanFaq } from "@/components/book-call/components/PlanFaq"
 import { PlanFeatures } from "@/components/book-call/components/PlanFeatures"
 import { useBookCall } from "@/components/book-call/useBookCall"
@@ -69,7 +70,8 @@ export default function BookCall() {
       <div className="w-full">
         <h1 className="sr-only">Book a call</h1>
         <PlanFeatures plan={plan} />
-        <PlanFaq plan={plan} className={hasPlan ? "pt-24 sm:pt-28 lg:pt-32" : "pt-14 sm:pt-20"} />
+        <BrandBrief className={hasPlan ? "pt-24 sm:pt-28 lg:pt-32" : "pt-14 sm:pt-20"} />
+        <PlanFaq plan={plan} className="pt-24 sm:pt-28 lg:pt-32" />
         <section
           aria-label="Book a call"
           className="w-full overflow-x-clip pt-24 pb-14 sm:pt-28 lg:pt-32"

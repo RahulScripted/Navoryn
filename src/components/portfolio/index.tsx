@@ -3,11 +3,23 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { cn } from "@/lib/utils"
 import { SectionHeading } from "@/utilities/SectionHeading/SectionHeading"
+import { CategoryStrip } from "./components/CategoryStrip"
+import { ServiceStrip } from "./components/ServiceStrip"
 import { NextProject } from "./components/NextProject"
 import { ProjectDeck } from "./components/ProjectDeck"
 import { PORTFOLIO_INTRO, PROJECTS } from "./data/projects"
 gsap.registerPlugin(ScrollTrigger)
-export default function Portfolio({ className, showNext = true }: { className?: string; showNext?: boolean }) {
+export default function Portfolio({
+  className,
+  showNext = true,
+  showBrowse = false,
+}: {
+  className?: string
+  /** The "Yours could be next." line after the projects. */
+  showNext?: boolean
+  /** The services and categories strips. Only the portfolio page shows them. */
+  showBrowse?: boolean
+}) {
   const headingRef = useRef<HTMLDivElement>(null)
   const deckRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
@@ -39,6 +51,12 @@ export default function Portfolio({ className, showNext = true }: { className?: 
       <div ref={deckRef}>
         <ProjectDeck projects={PROJECTS} />
       </div>
+      {showBrowse && (
+        <>
+          <ServiceStrip />
+          <CategoryStrip />
+        </>
+      )}
       {showNext && <NextProject />}
     </section>
   )
