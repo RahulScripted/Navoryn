@@ -3,6 +3,7 @@ import project2 from "@/asset/webps/projects/Project-2.webp"
 import project3 from "@/asset/webps/projects/Project-3.webp"
 import project4 from "@/asset/webps/projects/Project-4.webp"
 import project5 from "@/asset/webps/projects/Project-5.webp"
+import project6 from "@/asset/webps/projects/Project-6.webp"
 
 export type Project = {
   id: string
@@ -26,4 +27,5 @@ export const PROJECTS: Project[] = [
   { id: "project-3", name: "GyanSetu", url: "https://gyan-setu-nine-blond.vercel.app/", image: project3 },
   { id: "project-4", name: "chhaap", url: "https://chhaap-jet.vercel.app/", image: project4 },
   { id: "project-5", name: "Hearthly", url: "https://hearthly-phi.vercel.app/", image: project5 },
+  { id: "project-6", name: "Setu", url: "https://dashboard-sandy-xi-93.vercel.app/", image: project6 },
 ]
